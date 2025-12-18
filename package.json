@@ -1,0 +1,23 @@
+{
+  "name": "tpl_weltspiegel",
+  "version": "0.0.0",
+  "description": "Joomla-Template für den Weltspiegel Cottbus",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weltspiegel-cottbus/tpl_weltspiegel.git"
+  },
+  "scripts": {
+    "build": "echo 'Build tooling will be added later'",
+    "package": "node .build/package.mjs",
+    "release": "npm run build && npm run package",
+    "changelog": "changelogen --output CHANGELOG.md --noAuthors",
+    "release:patch": "changelogen --release --patch --push --noAuthors",
+    "release:minor": "changelogen --release --minor --push --noAuthors",
+    "release:major": "changelogen --release --major --push --noAuthors"
+  },
+  "devDependencies": {
+    "changelogen": "^0.6.2"
+  }
+}

@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Development environment
+.env
+
 # Build output
 media/css/*.min.css
 media/js/*.min.js
