@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="template" client="site" method="upgrade">
+    <name>weltspiegel</name>
+    <version>0.0.0</version>
+    <creationDate>Dezember 2025</creationDate>
+    <author>Michael Buchholz</author>
+    <copyright>Weltspiegel Cottbus</copyright>
+    <license>MIT</license>
+    <description>TPL_WELTSPIEGEL_DESCRIPTION</description>
+
+    <files>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <filename>joomla.asset.json</filename>
+        <folder>language</folder>
+        <folder>media</folder>
+    </files>
+
+    <positions>
+    </positions>
+
+    <languages folder="language">
+        <language tag="de-DE">de-DE/tpl_weltspiegel.ini</language>
+        <language tag="de-DE">de-DE/tpl_weltspiegel.sys.ini</language>
+    </languages>
+
+    <media folder="media" destination="templates/site/weltspiegel">
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>images</folder>
+    </media>
+</extension>

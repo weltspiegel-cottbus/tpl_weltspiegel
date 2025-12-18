@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+media/css/*.min.css
+media/js/*.min.js
+
+# Package files
+*.zip
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Lock files
+package-lock.json

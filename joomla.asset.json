@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "weltspiegel",
+  "version": "0.0.0",
+  "description": "Weltspiegel Template Assets",
+  "license": "MIT",
+  "assets": [
+    {
+      "name": "template.weltspiegel",
+      "type": "style",
+      "uri": "template.min.css"
+    },
+    {
+      "name": "template.weltspiegel",
+      "type": "script",
+      "uri": "template.min.js",
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "template.weltspiegel",
+      "type": "preset",
+      "dependencies": [
+        "template.weltspiegel#style",
+        "template.weltspiegel#script"
+      ]
+    }
+  ]
+}
