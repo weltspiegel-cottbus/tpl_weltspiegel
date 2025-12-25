@@ -9,7 +9,8 @@
     "url": "https://github.com/weltspiegel-cottbus/tpl_weltspiegel.git"
   },
   "scripts": {
-    "build": "echo 'Build tooling will be added later'",
+    "dev": "vite build --watch",
+    "build": "vite build",
     "package": "node .build/package.mjs",
     "release": "npm run build && npm run package",
     "changelog": "changelogen --output CHANGELOG.md --noAuthors",
@@ -18,6 +19,7 @@
     "release:major": "changelogen --release --major --push --noAuthors"
   },
   "devDependencies": {
-    "changelogen": "^0.6.2"
+    "changelogen": "^0.6.2",
+    "vite": "^6.0.5"
   }
 }

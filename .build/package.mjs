@@ -32,6 +32,7 @@ const excludePatterns = [
     'node_modules',
     'package.json',
     'package-lock.json',
+    'vite.config.js',
     'update-manifest.xml',
     'CHANGELOG.md',
     'README.md',
