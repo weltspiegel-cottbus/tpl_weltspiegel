@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.1.0...v0.1.1)
+
+### 🏡 Chore
+
+- Add package-lock.json for CI ([e9b8289](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e9b8289))
+
 ## v0.1.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.0.2...v0.1.0)
