@@ -12,7 +12,12 @@
         <filename>index.php</filename>
         <filename>templateDetails.xml</filename>
         <filename>joomla.asset.json</filename>
+        <filename>LICENSE</filename>
     </files>
+
+    <updateservers>
+        <server type="extension" name="Weltspiegel Template Updates">https://raw.githubusercontent.com/weltspiegel-cottbus/tpl_weltspiegel/main/update-manifest.xml</server>
+    </updateservers>
 
     <positions>
     </positions>
