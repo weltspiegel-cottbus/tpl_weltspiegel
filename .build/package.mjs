@@ -59,7 +59,7 @@ try {
     console.log('Creating ZIP archive...');
     execSync(zipCommand, { stdio: 'inherit' });
 
-    console.log(`\\n✓ Package created: ${outputFile}`);
+    console.log(`\n✓ Package created: ${outputFile}`);
     console.log(`✓ Ready for Joomla installation`);
 
 } catch (error) {

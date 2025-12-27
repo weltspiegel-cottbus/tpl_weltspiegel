@@ -8,12 +8,12 @@
     {
       "name": "template.weltspiegel",
       "type": "style",
-      "uri": "template.min.css"
+      "uri": "media/templates/site/weltspiegel/css/template.min.css"
     },
     {
       "name": "template.weltspiegel",
       "type": "script",
-      "uri": "template.min.js",
+      "uri": "media/templates/site/weltspiegel/js/template.min.js",
       "attributes": {
         "defer": true
       }

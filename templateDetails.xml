@@ -12,8 +12,6 @@
         <filename>index.php</filename>
         <filename>templateDetails.xml</filename>
         <filename>joomla.asset.json</filename>
-        <folder>language</folder>
-        <folder>media</folder>
     </files>
 
     <positions>
