@@ -6,8 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'media/js/template.js'),
-      name: 'WeltspiegelTemplate',
-      formats: ['iife'],
+      formats: ['es'],
       fileName: () => 'template.min.js'
     },
     outDir: 'media/js',

@@ -15,7 +15,7 @@
       "type": "script",
       "uri": "media/templates/site/weltspiegel/js/template.min.js",
       "attributes": {
-        "defer": true
+        "type": "module"
       }
     },
     {
