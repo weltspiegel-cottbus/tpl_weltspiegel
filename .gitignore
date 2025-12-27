@@ -18,6 +18,3 @@ media/js/*.min.js
 # OS
 .DS_Store
 Thumbs.db
-
-# Lock files
-package-lock.json
