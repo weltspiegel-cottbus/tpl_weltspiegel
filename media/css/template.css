@@ -3,8 +3,9 @@
  * Main CSS entry point
  */
 
-/* Import color definitions */
+/* Import partials */
 @import './_colors.css';
+@import './_layout.css';
 
 /* Reset & Base */
 * {
@@ -19,4 +20,21 @@ body {
     line-height: 1.6;
     background-color: var(--color-bg-body);
     color: var(--color-fg-body);
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500; /* Medium */
+}
+
+/* Links */
+a {
+    color: inherit;
 }
