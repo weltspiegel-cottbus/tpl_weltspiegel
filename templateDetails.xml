@@ -30,5 +30,6 @@
     <media folder="media" destination="templates/site/weltspiegel">
         <folder>css</folder>
         <folder>js</folder>
+        <folder>images</folder>
     </media>
 </extension>

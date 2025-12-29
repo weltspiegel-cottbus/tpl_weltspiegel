@@ -11,6 +11,9 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Uri\Uri;
+
+/** @var Joomla\CMS\Document\HtmlDocument $this */
 
 $app = Factory::getApplication();
 $wa  = $this->getWebAssetManager();
@@ -24,7 +27,16 @@ $wa->usePreset('template.weltspiegel');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <jdoc:include type="head" />
+
+    <title><?= $this->getTitle() ?></title>
+    <?php if ($this->getDescription()): ?>
+        <meta name="description" content="<?= $this->getDescription() ?>">
+    <?php endif; ?>
+
+    <link rel="icon" href="<?= Uri::root(true) ?>/media/templates/site/weltspiegel/images/favicon.ico">
+
+    <jdoc:include type="styles" />
+    <jdoc:include type="scripts" />
 </head>
 <body>
     <jdoc:include type="component" />
