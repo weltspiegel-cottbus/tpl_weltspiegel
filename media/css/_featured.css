@@ -1,0 +1,25 @@
+/**
+ * Featured Content Styles
+ * Styles specific to home/featured articles
+ */
+
+.home-featured {
+    padding-inline: 0.5rem;
+}
+
+.home-featured img {
+    /* Make image 1rem wider than content (to compensate for container padding) */
+    width: calc(100% + 1rem) !important;
+    max-width: none !important;
+    height: auto !important; /* Override any inline height */
+
+    /* Center the wider image (pull back by half the added width) */
+    margin-inline: -0.5rem !important; /* Override TinyMCE margin-left/right: auto */
+
+    /* Vertical spacing to separate from text */
+    margin-block: 1rem;
+}
+
+.home-featured h1:not(:first-of-type) {
+    margin-block-start: 2rem;
+}

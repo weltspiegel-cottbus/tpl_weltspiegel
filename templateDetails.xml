@@ -13,6 +13,7 @@
         <filename>templateDetails.xml</filename>
         <filename>joomla.asset.json</filename>
         <filename>LICENSE</filename>
+        <folder>html</folder>
     </files>
 
     <updateservers>
