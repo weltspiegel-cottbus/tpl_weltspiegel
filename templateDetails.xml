@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="template" client="site" method="upgrade">
     <name>weltspiegel</name>
-    <version>0.1.1</version>
+    <version>0.2.0</version>
     <creationDate>Dezember 2025</creationDate>
     <author>Michael Buchholz</author>
     <copyright>Weltspiegel Cottbus</copyright>

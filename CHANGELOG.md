@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.1.1...v0.2.0)
+
+### 🚀 Enhancements
+
+- Start adding colors. ([a2f2e4d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/a2f2e4d))
+
+### 💅 Refactors
+
+- Take full control of html head. And add favicon. ([839aaf0](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/839aaf0))
+
 ## v0.1.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.1.0...v0.1.1)
