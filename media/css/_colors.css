@@ -1,0 +1,12 @@
+/**
+ * Color Definitions
+ * Centralized color palette for consistent theming
+ */
+
+:root {
+    /* Background Colors */
+    --color-bg-body: #100501;
+
+    /* Foreground (Text) Colors */
+    --color-fg-body: #ffffff;
+}

@@ -3,6 +3,9 @@
  * Main CSS entry point
  */
 
+/* Import color definitions */
+@import './_colors.css';
+
 /* Reset & Base */
 * {
     margin: 0;
@@ -14,4 +17,6 @@ body {
     font-family: system-ui, -apple-system, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
+    background-color: var(--color-bg-body);
+    color: var(--color-fg-body);
 }
