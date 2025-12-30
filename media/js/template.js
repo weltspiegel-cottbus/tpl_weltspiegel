@@ -30,6 +30,9 @@ const initMobileNav = () => {
 
         // Update nav state
         nav.classList.toggle('main-nav--open', newState);
+
+        // Prevent body scroll when menu is open
+        document.body.classList.toggle('nav-open', newState);
     });
 
     // Close menu on Escape key
@@ -39,6 +42,7 @@ const initMobileNav = () => {
             toggle.setAttribute('aria-label', 'Menü öffnen');
             menu.setAttribute('aria-hidden', 'true');
             nav.classList.remove('main-nav--open');
+            document.body.classList.remove('nav-open');
         }
     });
 

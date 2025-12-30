@@ -25,6 +25,10 @@ body {
     color: var(--color-fg-body);
 }
 
+body.nav-open {
+    overflow: hidden;
+}
+
 /* Responsive images */
 img {
     max-width: 100%;
