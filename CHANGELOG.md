@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.2.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.2.0...v0.2.1)
+
+### 🚀 Enhancements
+
+- Add menu position to template. ([7c4640f](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/7c4640f))
+
 ## v0.2.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.1.1...v0.2.0)
