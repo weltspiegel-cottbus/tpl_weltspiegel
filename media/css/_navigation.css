@@ -56,6 +56,7 @@
     height: 0.125rem;
     background-color: var(--color-fg-body);
     position: relative;
+    transition: background-color 0.3s;
 }
 
 .main-nav__hamburger::before,
@@ -67,6 +68,7 @@
     background-color: var(--color-fg-body);
     position: absolute;
     left: 0;
+    transition: transform 0.3s, top 0.3s;
 }
 
 .main-nav__hamburger::before {
@@ -75,6 +77,21 @@
 
 .main-nav__hamburger::after {
     top: 0.5rem;
+}
+
+/* Transform to X when open */
+.main-nav--open .main-nav__hamburger {
+    background-color: transparent;
+}
+
+.main-nav--open .main-nav__hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.main-nav--open .main-nav__hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
 }
 
 /* Menu drawer */
@@ -130,7 +147,19 @@
 }
 
 .main-nav__item--active > .main-nav__link {
-    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-accent);
+}
+
+.main-nav__heading {
+    cursor: default;
+    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.main-nav__heading:hover,
+.main-nav__heading:focus {
+    background-color: transparent;
 }
 
 /* Submenu */
@@ -149,7 +178,6 @@
     display: block;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    font-size: 0.9rem;
     transition: background-color 0.2s;
 }
 
@@ -159,5 +187,5 @@
 }
 
 .main-nav__subitem--active > .main-nav__sublink {
-    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-accent);
 }

@@ -13,6 +13,7 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Uri\Uri;
 
 /** @var Joomla\CMS\Menu\MenuItem[] $list  */
+/** @var int $active_id */
 
 // Build nested structure from flat list (only 2 levels: parent + children)
 $menuTree = [];
@@ -38,15 +39,24 @@ foreach ($list as $item) {
     <div class="main-nav__menu" id="main-menu">
         <ul class="main-nav__list">
             <?php foreach ($menuTree as $parent): ?>
-                <li class="main-nav__item<?= !empty($parent['children']) ? ' main-nav__item--has-children' : '' ?><?= $parent['item']->active ? ' main-nav__item--active' : '' ?>">
-                    <a href="<?= $parent['item']->flink ?>" class="main-nav__link">
-                        <?= $parent['item']->title ?>
-                    </a>
+                <?php $isHeading = $parent['item']->type === 'heading'; ?>
+                <?php $isActive = $parent['item']->id == $active_id; ?>
+                <li class="main-nav__item<?= !empty($parent['children']) ? ' main-nav__item--has-children' : '' ?><?= $isActive ? ' main-nav__item--active' : '' ?>">
+                    <?php if ($isHeading): ?>
+                        <span class="main-nav__link main-nav__heading">
+                            <?= $parent['item']->title ?>
+                        </span>
+                    <?php else: ?>
+                        <a href="<?= $parent['item']->flink ?>" class="main-nav__link">
+                            <?= $parent['item']->title ?>
+                        </a>
+                    <?php endif; ?>
 
                     <?php if (!empty($parent['children'])): ?>
                         <ul class="main-nav__submenu">
                             <?php foreach ($parent['children'] as $child): ?>
-                                <li class="main-nav__subitem<?= $child->active ? ' main-nav__subitem--active' : '' ?>">
+                                <?php $isChildActive = $child->id == $active_id; ?>
+                                <li class="main-nav__subitem<?= $isChildActive ? ' main-nav__subitem--active' : '' ?>">
                                     <a href="<?= $child->flink ?>" class="main-nav__sublink">
                                         <?= $child->title ?>
                                     </a>

@@ -9,4 +9,7 @@
 
     /* Foreground (Text) Colors */
     --color-fg-body: #ffffff;
+
+    /* Accent Colors */
+    --color-accent: #f29400;
 }
