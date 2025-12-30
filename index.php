@@ -39,6 +39,10 @@ $wa->usePreset('template.weltspiegel');
     <jdoc:include type="scripts" />
 </head>
 <body>
+    <header>
+        <jdoc:include type="modules" name="menu" style="none" />
+    </header>
+
     <main>
         <jdoc:include type="component" />
     </main>

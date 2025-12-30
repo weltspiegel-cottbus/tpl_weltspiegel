@@ -21,6 +21,7 @@
     </updateservers>
 
     <positions>
+        <position>menu</position>
     </positions>
 
     <languages folder="language">
