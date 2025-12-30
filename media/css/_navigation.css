@@ -1,0 +1,163 @@
+/**
+ * Navigation Styles
+ */
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+
+    background-color: rgba(16, 5, 1, 0.9);
+}
+
+.main-nav--open {
+    background-color: var(--color-bg-body);
+}
+
+.main-nav__logo img {
+    display: block;
+    height: 3.5rem;
+    width: auto;
+    transform: translateY(-0.5rem);
+    transition: height 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.main-nav--scrolled .main-nav__logo img {
+    height: 2.5rem;
+    transform: translateY(-0.25rem);
+}
+
+.main-nav--open .main-nav__logo img {
+    height: 3.5rem;
+    transform: translateY(-0.5rem);
+}
+
+.main-nav__toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-nav__hamburger {
+    display: block;
+    width: 1.5rem;
+    height: 0.125rem;
+    background-color: var(--color-fg-body);
+    position: relative;
+}
+
+.main-nav__hamburger::before,
+.main-nav__hamburger::after {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 0.125rem;
+    background-color: var(--color-fg-body);
+    position: absolute;
+    left: 0;
+}
+
+.main-nav__hamburger::before {
+    top: -0.5rem;
+}
+
+.main-nav__hamburger::after {
+    top: 0.5rem;
+}
+
+/* Menu drawer */
+.main-nav__menu {
+    position: fixed;
+    top: 5.5rem; /* Below the nav bar (3.5rem logo + 2rem padding) */
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: var(--color-bg-body);
+
+    overflow-y: auto;
+
+    /* Hidden by default */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+.main-nav--scrolled .main-nav__menu {
+    top: 4.5rem; /* Below the nav bar when scrolled (2.5rem logo + 2rem padding) */
+}
+
+.main-nav--open .main-nav__menu {
+    top: 5.5rem; /* Reset to full height when menu is open */
+}
+
+.main-nav__menu[aria-hidden="false"] {
+    transform: translateX(0);
+}
+
+.main-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+}
+
+.main-nav__item {
+    margin-block: 0.5rem;
+}
+
+.main-nav__link {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.main-nav__link:hover,
+.main-nav__link:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-nav__item--active > .main-nav__link {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Submenu */
+.main-nav__submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 1rem;
+}
+
+.main-nav__subitem {
+    margin-block: 0.25rem;
+}
+
+.main-nav__sublink {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.main-nav__sublink:hover,
+.main-nav__sublink:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-nav__subitem--active > .main-nav__sublink {
+    background-color: rgba(255, 255, 255, 0.15);
+}
