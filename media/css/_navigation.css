@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: calc(1rem + 2px) 1rem 1rem;
 
     background-color: rgba(16, 5, 1, 0.9);
 }
@@ -97,7 +97,7 @@
 /* Menu drawer */
 .main-nav__menu {
     position: fixed;
-    top: 5.5rem; /* Below the nav bar (3.5rem logo + 2rem padding) */
+    top: calc(5.5rem + 2px); /* Below the nav bar (3.5rem logo + 2rem padding + 2px extra) */
     left: 0;
     right: 0;
     bottom: 0;
@@ -116,7 +116,7 @@
 }
 
 .main-nav--open .main-nav__menu {
-    top: 5.5rem; /* Reset to full height when menu is open */
+    top: calc(5.5rem + 2px); /* Reset to full height when menu is open */
 }
 
 .main-nav__menu[aria-hidden="false"] {

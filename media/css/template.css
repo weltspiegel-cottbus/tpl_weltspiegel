@@ -17,7 +17,7 @@
 body {
     margin: 0;
     padding: 0;
-    padding-block-start: 5.5rem; /* Space for fixed nav (3.5rem logo + 2rem padding) */
+    padding-block-start: calc(5.5rem + 2px); /* Space for fixed nav (3.5rem logo + 2rem padding + 2px extra) */
     font-family: system-ui, -apple-system, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
