@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.2.1...v0.2.2)
+
+### 🩹 Fixes
+
+- Prevent body scrolling. ([a06b7c2](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/a06b7c2))
+
+### 💅 Refactors
+
+- Rework styling for the mobile nav. ([2840046](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2840046))
+
 ## v0.2.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.2.0...v0.2.1)
