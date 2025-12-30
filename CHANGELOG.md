@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.2.6
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.2.5...v0.2.6)
+
+### 💅 Refactors
+
+- Working on the mobile nav ([c5011d1](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/c5011d1))
+
 ## v0.2.5
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.2.4...v0.2.5)
