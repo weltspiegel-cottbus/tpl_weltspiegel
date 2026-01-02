@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.3.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.0...v0.3.1)
+
+### 🚀 Enhancements
+
+- Add desktop navigation. ([1253e39](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/1253e39))
+
 ## v0.3.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.2.7...v0.3.0)
