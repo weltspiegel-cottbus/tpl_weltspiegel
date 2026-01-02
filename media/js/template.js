@@ -63,11 +63,60 @@ const initMobileNav = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
 };
 
+// Desktop navigation dropdowns
+const initDesktopNav = () => {
+    const toggleButtons = document.querySelectorAll('.main-nav__desktop-toggle');
+
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const item = button.closest('.main-nav__desktop-item');
+            const isOpen = item.classList.contains('is-open');
+
+            // Close all other dropdowns
+            document.querySelectorAll('.main-nav__desktop-item.is-open').forEach(openItem => {
+                if (openItem !== item) {
+                    openItem.classList.remove('is-open');
+                    openItem.querySelector('.main-nav__desktop-toggle').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current dropdown
+            item.classList.toggle('is-open');
+            button.setAttribute('aria-expanded', !isOpen);
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.main-nav__desktop-item')) {
+            document.querySelectorAll('.main-nav__desktop-item.is-open').forEach(item => {
+                item.classList.remove('is-open');
+                item.querySelector('.main-nav__desktop-toggle').setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+
+    // Close dropdowns on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.main-nav__desktop-item.is-open').forEach(item => {
+                item.classList.remove('is-open');
+                item.querySelector('.main-nav__desktop-toggle').setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+};
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMobileNav);
+    document.addEventListener('DOMContentLoaded', () => {
+        initMobileNav();
+        initDesktopNav();
+    });
 } else {
     initMobileNav();
+    initDesktopNav();
 }
 
 // Export for potential external use
