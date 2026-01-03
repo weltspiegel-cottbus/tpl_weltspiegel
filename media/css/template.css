@@ -4,6 +4,7 @@
  */
 
 /* Import partials */
+@import './_fonts.css';
 @import './_colors.css';
 @import './_layout.css';
 @import './_navigation.css';

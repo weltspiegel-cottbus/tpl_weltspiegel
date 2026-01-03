@@ -146,10 +146,7 @@
     letter-spacing: 0.05em;
     border-left: 3px solid transparent;
     transition: background-color 0.2s, border-color 0.2s;
-
-    /* Text transform options - uncomment one to test: */
-    /* text-transform: uppercase; */ /* Option 1: All uppercase */
-    font-variant: small-caps; /* Option 2: Small caps */
+    font-variant: small-caps;
 }
 
 .main-nav__link:hover,
@@ -193,10 +190,7 @@
     letter-spacing: 0.05em;
     border-left: 3px solid transparent;
     transition: background-color 0.2s, border-color 0.2s;
-
-    /* Text transform options - uncomment one to test: */
-    /* text-transform: uppercase; */ /* Option 1: All uppercase */
-    font-variant: small-caps; /* Option 2: Small caps */
+    font-variant: small-caps;
 }
 
 .main-nav__sublink:hover,
@@ -277,10 +271,7 @@
         letter-spacing: 0.05em;
         white-space: nowrap;
         text-decoration: none;
-
-        /* Text transform options - uncomment one to test: */
-        /* text-transform: uppercase; */ /* Option 1: All uppercase */
-        font-variant: small-caps; /* Option 2: Small caps */
+        font-variant: small-caps;
     }
 
     .main-nav__desktop-item--has-submenu .main-nav__desktop-link {
@@ -349,10 +340,7 @@
         text-decoration: none;
         border-left: 3px solid transparent;
         transition: background-color 0.2s, border-color 0.2s;
-
-        /* Text transform options - uncomment one to test: */
-        /* text-transform: uppercase; */ /* Option 1: All uppercase */
-        font-variant: small-caps; /* Option 2: Small caps */
+        font-variant: small-caps;
     }
 
     .main-nav__desktop-sublink:hover {
