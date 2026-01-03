@@ -142,11 +142,12 @@
     padding: 0.5rem 1rem;
     text-decoration: none;
     font-family: 'Kameron', serif;
+    font-size: 1rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.025em;
     border-left: 3px solid transparent;
     transition: background-color 0.2s, border-color 0.2s;
-    font-variant: small-caps;
+    text-transform: uppercase;
 }
 
 .main-nav__link:hover,
@@ -187,10 +188,11 @@
     padding: 0.5rem 1rem;
     text-decoration: none;
     font-family: 'Kameron', serif;
-    letter-spacing: 0.05em;
+    font-size: 1rem;
+    letter-spacing: 0.025em;
     border-left: 3px solid transparent;
     transition: background-color 0.2s, border-color 0.2s;
-    font-variant: small-caps;
+    text-transform: uppercase;
 }
 
 .main-nav__sublink:hover,
@@ -207,8 +209,8 @@
     display: none;
 }
 
-/* Desktop Navigation - 960px+ */
-@media (min-width: 960px) {
+/* Desktop Navigation - 1024px+ */
+@media (min-width: 1024px) {
     /* Hide mobile toggle and menu drawer */
     .main-nav__toggle,
     .main-nav__menu {
@@ -267,11 +269,12 @@
         padding: 0.5rem;
         color: var(--color-fg-body);
         font-family: 'Kameron', serif;
+        font-size: 1rem;
         font-weight: 500;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.025em;
         white-space: nowrap;
         text-decoration: none;
-        font-variant: small-caps;
+        text-transform: uppercase;
     }
 
     .main-nav__desktop-item--has-submenu .main-nav__desktop-link {
@@ -336,11 +339,12 @@
         padding: 0.5rem 1rem 0.5rem 0.75rem;
         color: var(--color-fg-body);
         font-family: 'Kameron', serif;
-        letter-spacing: 0.05em;
+        font-size: 1rem;
+        letter-spacing: 0.025em;
         text-decoration: none;
         border-left: 3px solid transparent;
         transition: background-color 0.2s, border-color 0.2s;
-        font-variant: small-caps;
+        text-transform: uppercase;
     }
 
     .main-nav__desktop-sublink:hover {
