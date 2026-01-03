@@ -141,7 +141,9 @@
     display: block;
     padding: 0.5rem 1rem;
     text-decoration: none;
+    font-family: 'Kameron', serif;
     font-weight: 500;
+    letter-spacing: 0.05em;
     border-left: 3px solid transparent;
     transition: background-color 0.2s, border-color 0.2s;
 
@@ -187,6 +189,8 @@
     display: block;
     padding: 0.5rem 1rem;
     text-decoration: none;
+    font-family: 'Kameron', serif;
+    letter-spacing: 0.05em;
     border-left: 3px solid transparent;
     transition: background-color 0.2s, border-color 0.2s;
 
@@ -268,7 +272,9 @@
         display: inline-block;
         padding: 0.5rem;
         color: var(--color-fg-body);
+        font-family: 'Kameron', serif;
         font-weight: 500;
+        letter-spacing: 0.05em;
         white-space: nowrap;
         text-decoration: none;
 
@@ -338,6 +344,8 @@
         display: block;
         padding: 0.5rem 1rem 0.5rem 0.75rem;
         color: var(--color-fg-body);
+        font-family: 'Kameron', serif;
+        letter-spacing: 0.05em;
         text-decoration: none;
         border-left: 3px solid transparent;
         transition: background-color 0.2s, border-color 0.2s;

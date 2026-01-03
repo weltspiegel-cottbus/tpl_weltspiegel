@@ -35,6 +35,11 @@ $wa->usePreset('template.weltspiegel');
 
     <link rel="icon" href="<?= Uri::root(true) ?>/media/templates/site/weltspiegel/images/favicon.ico">
 
+    <!-- Google Fonts - Kameron (for testing) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap" rel="stylesheet">
+
     <jdoc:include type="styles" />
     <jdoc:include type="scripts" />
 </head>
