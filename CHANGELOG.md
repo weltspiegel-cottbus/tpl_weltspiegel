@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.3.5
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.4...v0.3.5)
+
+### 🩹 Fixes
+
+- Move mostright drowdown a little to the left. ([06634cb](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/06634cb))
+
+### 💅 Refactors
+
+- Make nav items more readable. Move the desktop nav breakpoint up. ([ff6c5ec](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/ff6c5ec))
+- Move nav indicator up. ([9fb1ce7](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/9fb1ce7))
+
 ## v0.3.4
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.3...v0.3.4)
