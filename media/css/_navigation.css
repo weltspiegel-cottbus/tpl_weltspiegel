@@ -242,7 +242,7 @@
     .main-nav__desktop-wrapper::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: 0.5rem;
         left: 50%;
         width: 0;
         height: 3px;
