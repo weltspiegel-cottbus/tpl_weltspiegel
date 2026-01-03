@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.3.4
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.3...v0.3.4)
+
+### 🚀 Enhancements
+
+- Use Kameron font for nav items. ([4a62c75](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/4a62c75))
+
+### 💅 Refactors
+
+- Reduce padding (vertical) for the level-1 desktop nav items. ([e545b79](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e545b79))
+- Use locally served custom fonts. And some cleanup. ([fa54cec](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/fa54cec))
+
 ## v0.3.3
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.2...v0.3.3)
