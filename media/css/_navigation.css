@@ -330,6 +330,18 @@
         transform: translateX(-50%) translateY(0);
     }
 
+    /* Right-align last submenu to prevent overflow */
+    .main-nav__desktop-item:last-child .main-nav__desktop-submenu {
+        left: auto;
+        right: 0;
+        transform: translateX(0) translateY(-0.5rem);
+    }
+
+    .main-nav__desktop-item:last-child.is-open .main-nav__desktop-submenu,
+    .main-nav__desktop-item:last-child:hover .main-nav__desktop-submenu {
+        transform: translateX(0) translateY(0);
+    }
+
     .main-nav__desktop-subitem {
         margin: 0.5rem 0 0;
     }
