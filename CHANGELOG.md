@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.3.3
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.2...v0.3.3)
+
+### 💅 Refactors
+
+- Better styling. Simpler height, better font variant. ([ad5784d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/ad5784d))
+
 ## v0.3.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.1...v0.3.2)
