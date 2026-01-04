@@ -4,21 +4,9 @@
  */
 
 main {
-    /* Multiple backgrounds: gradient overlay on top, paper texture below */
-    background-image:
-        radial-gradient(rgba(46, 30, 10, 0.8), rgba(25, 16, 6, 0.8)),
-        url('../images/paper-pattern.jpg');
-    background-size: cover;
-    background-position: center;
+    /* Dark gradient overlay */
+    background-image: radial-gradient(rgba(46, 30, 10, 0.9), rgba(25, 16, 6, 0.9));
 
     /* Full width by default */
     padding-block: 1rem;
-}
-
-@media (min-width: 1440px) {
-    main {
-        /* Centered with max-width (45rem content + 5rem left space) */
-        max-width: 50rem;
-        margin-inline: auto;
-    }
 }
