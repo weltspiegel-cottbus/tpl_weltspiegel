@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.4.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.0...v0.4.1)
+
+### 🚀 Enhancements
+
+- Rotate page titles ([32354f2](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/32354f2))
+
+### 💅 Refactors
+
+- Reveal the paper-pattern around the main content. ([e7441c2](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e7441c2))
+
 ## v0.4.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.6...v0.4.0)
