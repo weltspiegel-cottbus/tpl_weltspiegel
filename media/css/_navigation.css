@@ -286,7 +286,6 @@
         background: transparent;
         border: none;
         padding: 1rem 0.25rem 1rem 0;
-        cursor: pointer;
         color: var(--color-fg-body);
         display: flex;
         align-items: center;
@@ -309,7 +308,6 @@
         background: transparent;
         border: none;
         padding: 0 0.5rem;
-        cursor: pointer;
         color: var(--color-fg-body);
         display: flex;
         align-items: center;
