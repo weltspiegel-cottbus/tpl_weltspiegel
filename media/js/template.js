@@ -65,7 +65,8 @@ const initMobileNav = () => {
 
 // Desktop navigation dropdowns
 const initDesktopNav = () => {
-    const toggleButtons = document.querySelectorAll('.main-nav__desktop-toggle');
+    // Handle both types of toggle buttons: .main-nav__desktop-toggle and .main-nav__desktop-heading-toggle
+    const toggleButtons = document.querySelectorAll('.main-nav__desktop-toggle, .main-nav__desktop-heading-toggle');
 
     toggleButtons.forEach(button => {
         button.addEventListener('click', (e) => {
@@ -77,7 +78,8 @@ const initDesktopNav = () => {
             document.querySelectorAll('.main-nav__desktop-item.is-open').forEach(openItem => {
                 if (openItem !== item) {
                     openItem.classList.remove('is-open');
-                    openItem.querySelector('.main-nav__desktop-toggle').setAttribute('aria-expanded', 'false');
+                    const toggle = openItem.querySelector('.main-nav__desktop-toggle, .main-nav__desktop-heading-toggle');
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
                 }
             });
 
@@ -92,7 +94,8 @@ const initDesktopNav = () => {
         if (!e.target.closest('.main-nav__desktop-item')) {
             document.querySelectorAll('.main-nav__desktop-item.is-open').forEach(item => {
                 item.classList.remove('is-open');
-                item.querySelector('.main-nav__desktop-toggle').setAttribute('aria-expanded', 'false');
+                const toggle = item.querySelector('.main-nav__desktop-toggle, .main-nav__desktop-heading-toggle');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
             });
         }
     });
@@ -102,7 +105,8 @@ const initDesktopNav = () => {
         if (e.key === 'Escape') {
             document.querySelectorAll('.main-nav__desktop-item.is-open').forEach(item => {
                 item.classList.remove('is-open');
-                item.querySelector('.main-nav__desktop-toggle').setAttribute('aria-expanded', 'false');
+                const toggle = item.querySelector('.main-nav__desktop-toggle, .main-nav__desktop-heading-toggle');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
             });
         }
     });

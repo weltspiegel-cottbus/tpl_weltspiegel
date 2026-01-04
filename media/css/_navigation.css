@@ -220,7 +220,7 @@
     /* Show desktop nav */
     .main-nav__desktop {
         display: flex;
-        align-items: stretch;
+        align-items: center;
         gap: 0.5rem;
         list-style: none;
         margin: 0;
@@ -229,13 +229,14 @@
 
     .main-nav__desktop-item {
         position: relative;
+        height: 3rem;
     }
 
     .main-nav__desktop-wrapper {
         display: flex;
         align-items: center;
         position: relative;
-        height: 100%;
+        height: 3rem;
     }
 
     /* Bottom border animation */
@@ -300,6 +301,61 @@
     }
 
     .main-nav__desktop-toggle[aria-expanded="true"] svg {
+        transform: rotate(180deg);
+    }
+
+    /* Heading-only toggle button (single button for text + chevron) */
+    .main-nav__desktop-heading-toggle {
+        background: transparent;
+        border: none;
+        padding: 0 0.5rem;
+        cursor: pointer;
+        color: var(--color-fg-body);
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        position: relative;
+        height: 3rem;
+        font-family: 'Kameron', serif;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        text-transform: uppercase;
+    }
+
+    /* Bottom border animation for heading toggle */
+    .main-nav__desktop-heading-toggle::after {
+        content: '';
+        position: absolute;
+        bottom: 0.5rem;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background-color: var(--color-accent);
+        transform: translateX(-50%);
+        transition: width 0.3s;
+    }
+
+    .main-nav__desktop-heading-toggle:hover::after,
+    .main-nav__desktop-item--active .main-nav__desktop-heading-toggle::after {
+        width: 100%;
+    }
+
+    .main-nav__desktop-item--active .main-nav__desktop-heading-toggle::after {
+        opacity: 0.7;
+    }
+
+    .main-nav__desktop-item--active .main-nav__desktop-heading-toggle:hover::after {
+        opacity: 1;
+    }
+
+    .main-nav__desktop-heading-chevron {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.3s;
+    }
+
+    .main-nav__desktop-heading-toggle[aria-expanded="true"] .main-nav__desktop-heading-chevron {
         transform: rotate(180deg);
     }
 

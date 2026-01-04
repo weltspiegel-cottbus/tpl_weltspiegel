@@ -84,23 +84,34 @@ foreach ($list as $item) {
             $hasSubmenu = !empty($parent['children']);
             ?>
             <li class="main-nav__desktop-item<?= $hasSubmenu ? ' main-nav__desktop-item--has-submenu' : '' ?><?= $isActive ? ' main-nav__desktop-item--active' : '' ?>">
-                <div class="main-nav__desktop-wrapper">
-                    <?php if ($isHeading): ?>
-                        <span class="main-nav__desktop-link"><?= $parent['item']->title ?></span>
-                    <?php else: ?>
-                        <a href="<?= $parent['item']->flink ?>" class="main-nav__desktop-link"<?= $parent['item']->id === $active_id ? ' aria-current="page"' : '' ?>>
-                            <?= $parent['item']->title ?>
-                        </a>
-                    <?php endif; ?>
+                <?php if ($isHeading && $hasSubmenu): ?>
+                    <!-- Heading with submenu: single button -->
+                    <button class="main-nav__desktop-heading-toggle" aria-expanded="false" aria-label="<?= $parent['item']->title ?> Untermenü öffnen">
+                        <span class="main-nav__desktop-heading-text"><?= $parent['item']->title ?></span>
+                        <svg class="main-nav__desktop-heading-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                <?php else: ?>
+                    <!-- Linked item (with or without submenu) -->
+                    <div class="main-nav__desktop-wrapper">
+                        <?php if ($isHeading): ?>
+                            <span class="main-nav__desktop-link"><?= $parent['item']->title ?></span>
+                        <?php else: ?>
+                            <a href="<?= $parent['item']->flink ?>" class="main-nav__desktop-link"<?= $parent['item']->id === $active_id ? ' aria-current="page"' : '' ?>>
+                                <?= $parent['item']->title ?>
+                            </a>
+                        <?php endif; ?>
 
-                    <?php if ($hasSubmenu): ?>
-                        <button class="main-nav__desktop-toggle" aria-expanded="false" aria-label="<?= $parent['item']->title ?> Untermenü öffnen">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                    <?php endif; ?>
-                </div>
+                        <?php if ($hasSubmenu): ?>
+                            <button class="main-nav__desktop-toggle" aria-expanded="false" aria-label="<?= $parent['item']->title ?> Untermenü öffnen">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
 
                 <?php if ($hasSubmenu): ?>
                     <ul class="main-nav__desktop-submenu">
