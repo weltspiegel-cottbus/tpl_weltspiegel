@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.4.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.6...v0.4.0)
+
+### 🚀 Enhancements
+
+- First take on single article view. Mobile layout first. ([999c13f](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/999c13f))
+
 ## v0.3.6
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.5...v0.3.6)
