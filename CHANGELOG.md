@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.3.6
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.5...v0.3.6)
+
+### 🩹 Fixes
+
+- Remove semantically wrong pointer cursor on buttons. ([04d2369](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/04d2369))
+
+### 💅 Refactors
+
+- Make header-only top-level nav items cleaner. Adjust height. ([2b4bf24](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2b4bf24))
+- Gray-out non clickable items in mobile menu. ([ade5fe2](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/ade5fe2))
+
 ## v0.3.5
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.3.4...v0.3.5)
