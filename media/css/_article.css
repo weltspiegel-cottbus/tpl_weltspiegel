@@ -4,8 +4,6 @@
 
 .article {
     padding: 2rem 1rem;
-    max-width: 1407px;
-    margin: 0 auto;
 }
 
 .article__header {
@@ -44,6 +42,20 @@
 
 @media (min-width: 1440px) {
     .article {
-        padding: 3rem 0;
+        position: relative;
+        padding: 1rem 1rem 3rem 5rem;
+    }
+
+    .article__header {
+        margin-bottom: 0;
+    }
+
+    .article__title {
+        position: absolute;
+        transform: rotate(270deg) translate(-100%,-100%);
+        transform-origin: left top;
+        white-space: nowrap;
+        top: 1rem;
+        left: 4rem;
     }
 }
