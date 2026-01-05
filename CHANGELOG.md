@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.4.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.1...v0.4.2)
+
+### 🚀 Enhancements
+
+- Add the ticket image. ([3e2b21f](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/3e2b21f))
+
+### 💅 Refactors
+
+- Merge layout.css into main template.css ([8cb8c45](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/8cb8c45))
+- Widen flow-content width and provide simple calculation. ([e9a5b93](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e9a5b93))
+
 ## v0.4.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.0...v0.4.1)
