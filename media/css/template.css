@@ -17,7 +17,7 @@
 
 :root {
     /* Layout variables */
-    --content-width: 50rem;
+    --content-width: 48rem; /* Flow text width (optimal reading) */
 }
 
 body {
@@ -49,17 +49,18 @@ main {
     .page-container {
         position: relative;
         /* Centered with max-width and padding - controls content width */
-        max-width: calc(var(--content-width) + 14rem); /* content + 13rem left + 1rem right */
+        /* Calculation: content (48rem) + article padding (2rem) + flipped title (4rem) + ticket space (12rem) + left spacing (1rem) + right padding (1rem) */
+        max-width: calc(var(--content-width) + 2rem + 4rem + 12rem + 1rem + 1rem);
         margin-inline: auto;
         margin-block: 2rem;
-        padding: 1rem 1rem 1rem 13rem;
+        padding: 1rem 1rem 1rem 13rem; /* ticket space (12rem) + spacing (1rem) */
     }
 
     .page-container::before {
         content: '';
         position: absolute;
         top: 3rem;
-        right: calc(var(--content-width) + 1rem); /* Aligned to left edge of main content */
+        right: calc(var(--content-width) + 2rem + 4rem + 1rem); /* Aligned to left edge of main content: content + article padding + title + spacing */
         width: 192px;
         height: 217px;
         background-image: url('../images/eintrittskarte.png');
