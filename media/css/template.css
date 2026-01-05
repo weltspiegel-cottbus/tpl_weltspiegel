@@ -16,6 +16,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Layout variables */
+    --content-width: 50rem;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -27,20 +32,32 @@ body {
     color: var(--color-fg-body);
 }
 
-.paper-container {
+.page-container {
     /* Paper texture background layer */
     background-image: url('../images/paper-pattern.jpg');
-    background-size: cover;
-    background-position: center;
+    background-repeat: repeat;
 }
 
 @media (min-width: 1440px) {
-    .paper-container {
-        /* Centered with max-width and padding */
-        max-width: 52rem; /* 50rem content + 2rem padding (1rem each side) */
+    .page-container {
+        position: relative;
+        /* Centered with max-width and padding - controls content width */
+        max-width: calc(var(--content-width) + 14rem); /* content + 13rem left + 1rem right */
         margin-inline: auto;
         margin-block: 2rem;
-        padding: 1rem;
+        padding: 1rem 1rem 1rem 13rem;
+    }
+
+    .page-container::before {
+        content: '';
+        position: absolute;
+        top: 3rem;
+        right: calc(var(--content-width) + 1rem); /* Aligned to left edge of main content */
+        width: 192px;
+        height: 217px;
+        background-image: url('../images/eintrittskarte.png');
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
