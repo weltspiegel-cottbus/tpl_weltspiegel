@@ -45,13 +45,15 @@ main {
     padding-block: 1rem;
 }
 
-@media (min-width: 1440px) {
+/* Left-aligned layout with ticket - 1024px to 1279px */
+@media (min-width: 1024px) {
     .page-container {
         position: relative;
-        /* Centered with max-width and padding - controls content width */
+        /* Left-aligned: ticket + content fills to right edge with 1rem dark bg */
         /* Calculation: content (48rem) + article padding (2rem) + flipped title (4rem) + ticket space (12rem) + left spacing (1rem) + right padding (1rem) */
         max-width: calc(var(--content-width) + 2rem + 4rem + 12rem + 1rem + 1rem);
-        margin-inline: auto;
+        margin-inline-start: 0;
+        margin-inline-end: 1rem; /* Keep 1rem dark bg on right */
         margin-block: 2rem;
         padding: 1rem 1rem 1rem 13rem; /* ticket space (12rem) + spacing (1rem) */
     }
@@ -60,12 +62,20 @@ main {
         content: '';
         position: absolute;
         top: 3rem;
-        right: calc(var(--content-width) + 2rem + 4rem + 1rem); /* Aligned to left edge of main content: content + article padding + title + spacing */
+        left: 1rem; /* Fixed position from left - ticket stays in place */
         width: 192px;
         height: 217px;
         background-image: url('../images/eintrittskarte.png');
         background-size: contain;
         background-repeat: no-repeat;
+    }
+}
+
+/* Centered layout - 1280px+ */
+@media (min-width: 1280px) {
+    .page-container {
+        /* Center the container */
+        margin-inline: auto;
     }
 }
 

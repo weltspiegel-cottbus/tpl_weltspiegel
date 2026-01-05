@@ -40,7 +40,7 @@
     }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
     .article {
         position: relative;
         padding: 1rem 1rem 3rem 5rem;
