@@ -6,7 +6,6 @@
 /* Import partials */
 @import './_fonts.css';
 @import './_colors.css';
-@import './_layout.css';
 @import './_navigation.css';
 @import './_article.css';
 @import './_featured.css';
@@ -36,6 +35,14 @@ body {
     /* Paper texture background layer */
     background-image: url('../images/paper-pattern.jpg');
     background-repeat: repeat;
+}
+
+/* Main content container */
+main {
+    /* Dark gradient overlay */
+    background-image: radial-gradient(rgba(46, 30, 10, 0.9), rgba(25, 16, 6, 0.9));
+    /* Full width by default */
+    padding-block: 1rem;
 }
 
 @media (min-width: 1440px) {
