@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.4.3
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.2...v0.4.3)
+
+### 🚀 Enhancements
+
+- Implement the left-aligned-with-ticket layout for 1024px+ ([b255382](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/b255382))
+
 ## v0.4.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.1...v0.4.2)
