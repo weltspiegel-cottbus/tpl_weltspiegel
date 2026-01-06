@@ -35,14 +35,14 @@ body {
     /* Paper texture background layer */
     background-image: url('../images/paper-pattern.jpg');
     background-repeat: repeat;
+    /* Mobile: paper frame above/below content */
+    padding-block: 1rem;
 }
 
 /* Main content container */
 main {
-    /* Dark gradient overlay */
+    /* Dark gradient overlay - spacing handled by page-container */
     background-image: radial-gradient(rgba(46, 30, 10, 0.9), rgba(25, 16, 6, 0.9));
-    /* Full width by default */
-    padding-block: 1rem;
 }
 
 /* Centered layout without ticket - 768px to 1023px */
