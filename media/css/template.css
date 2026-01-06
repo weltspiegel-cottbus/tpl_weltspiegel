@@ -45,6 +45,19 @@ main {
     padding-block: 1rem;
 }
 
+/* Centered layout without ticket - 768px to 1023px */
+@media (min-width: 768px) {
+    .page-container {
+        position: relative;
+        /* Centered: content + article padding + flipped title + padding */
+        /* Calculation: content (48rem) + article padding (2rem) + flipped title (4rem) + left/right padding (2rem) */
+        max-width: calc(var(--content-width) + 2rem + 4rem + 2rem);
+        margin-inline: auto;
+        margin-block: 2rem;
+        padding: 1rem;
+    }
+}
+
 /* Left-aligned layout with ticket - 1024px to 1279px */
 @media (min-width: 1024px) {
     .page-container {

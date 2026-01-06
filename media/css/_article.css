@@ -36,12 +36,6 @@
 /* Responsive spacing */
 @media (min-width: 768px) {
     .article {
-        padding: 3rem 2rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .article {
         position: relative;
         padding: 1rem 1rem 3rem 5rem;
     }
