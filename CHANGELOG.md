@@ -1,6 +1,15 @@
 # Changelog
 
 
+## v0.4.4
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.3...v0.4.4)
+
+### 🚀 Enhancements
+
+- Implement centered-without-ticket tablet view (landscape mobile) ([4824925](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/4824925))
+- Finalize mobile layout. Remove all spacing from main chrome. ([29f01df](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/29f01df))
+
 ## v0.4.3
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.2...v0.4.3)
