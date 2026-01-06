@@ -22,6 +22,10 @@
     --content-width: 48rem; /* Flow text width (optimal reading) */
 }
 
+@view-transition {
+    navigation: auto;
+}
+
 body {
     margin: 0;
     padding: 0;
