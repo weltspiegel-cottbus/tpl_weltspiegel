@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.5.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.5.1...v0.5.2)
+
+### 🚀 Enhancements
+
+- Progressive enhancement, enable Level-2 view transitions. Resolves #3 ([#3](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/3))
+
+### 🩹 Fixes
+
+- Remove extranous backslash. ([1a169c7](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/1a169c7))
+
 ## v0.5.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.5.0...v0.5.1)
