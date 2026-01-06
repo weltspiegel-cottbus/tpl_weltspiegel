@@ -43,14 +43,16 @@ $wa->usePreset('template.weltspiegel');
         <jdoc:include type="modules" name="menu" style="none" />
     </header>
 
-    <div class="page-container">
-        <main>
-            <jdoc:include type="component" />
-        </main>
-    </div>
+    <div class="full-height-wrapper">
+        <div class="page-container">
+            <main>
+                <jdoc:include type="component" />
+            </main>
+        </div>
 
-    <footer>
-        <jdoc:include type="modules" name="footer" style="none" />
-    </footer>
+        <footer>
+            <jdoc:include type="modules" name="footer" style="none" />
+        </footer>
+    </div>
 </body>
 </html>
