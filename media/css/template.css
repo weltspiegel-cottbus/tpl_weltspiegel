@@ -9,6 +9,7 @@
 @import './_navigation.css';
 @import './_article.css';
 @import './_featured.css';
+@import './_footer.css';
 
 /* Reset & Base */
 * {
