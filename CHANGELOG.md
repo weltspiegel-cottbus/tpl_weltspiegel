@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.5.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.5.0...v0.5.1)
+
+### 💅 Refactors
+
+- Change to full height layout. ([61bb861](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/61bb861))
+
 ## v0.5.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.4...v0.5.0)
