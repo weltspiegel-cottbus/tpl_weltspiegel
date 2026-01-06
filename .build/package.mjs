@@ -42,7 +42,7 @@ const excludePatterns = [
 // Build the exclude arguments for zip command
 const excludeArgs = excludePatterns.map(pattern => `-x "*/${pattern}/*" "*${pattern}*"`).join(' ');
 
-console.log(`Packaging ${templateName} v${version}...\\n`);
+console.log(`Packaging ${templateName} v${version}...\n`);
 
 try {
     // Change to root directory
