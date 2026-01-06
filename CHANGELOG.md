@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.5.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.4...v0.5.0)
+
+### 🚀 Enhancements
+
+- Implement footer. ([468cd19](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/468cd19))
+
+### 💅 Refactors
+
+- Add footer module position ([2fcec6b](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2fcec6b))
+- Move footer beneath page-container. ([3d7364d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/3d7364d))
+
 ## v0.4.4
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.4.3...v0.4.4)
