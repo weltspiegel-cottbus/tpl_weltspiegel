@@ -73,6 +73,11 @@ class CookieConsent {
         this.drawer.addEventListener('click', () => {
             this.showBanner();
         });
+
+        // Listen for external requests to show the banner
+        window.addEventListener('showCookieBanner', () => {
+            this.showBanner();
+        });
     }
 }
 

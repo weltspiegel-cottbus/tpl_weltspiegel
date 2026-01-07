@@ -19,6 +19,12 @@ class YouTubeEmbed {
     init() {
         this.checkConsent();
         window.addEventListener('cookieConsentChanged', () => this.checkConsent());
+
+        // Make placeholder clickable to show cookie consent
+        this.placeholder.style.cursor = 'pointer';
+        this.placeholder.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('showCookieBanner'));
+        });
     }
 
     checkConsent() {
