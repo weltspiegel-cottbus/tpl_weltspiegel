@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.7.3
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.2...v0.7.3)
+
+### 🩹 Fixes
+
+- Make consent dialog triggable. Resolves https://github.com/weltspiegel-cottbus/com_weltspiegel/issues/13 ([b796a92](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/b796a92))
+- Make Trailer placeholder clickable and integrate a direct link as well. Reslves https://github.com/weltspiegel-cottbus/com_weltspiegel/issues/11 and https://github.com/weltspiegel-cottbus/com_weltspiegel/issues/12 ([56b8a83](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/56b8a83))
+
+### 💅 Refactors
+
+- Restyle the cookie consent drawer. ([d19919d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/d19919d))
+
 ## v0.7.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.1...v0.7.2)
