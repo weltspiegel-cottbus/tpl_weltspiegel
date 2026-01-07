@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.7.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.1...v0.7.2)
+
+### 💅 Refactors
+
+- Switch to flexbox to better handle the centering. ([ed604ff](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/ed604ff))
+
 ## v0.7.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.0...v0.7.1)
