@@ -70,6 +70,11 @@ main {
     background-image: radial-gradient(rgba(46, 30, 10, 0.9), rgba(25, 16, 6, 0.9));
     /* Subtle shadow - stronger on left to cast onto ticket */
     box-shadow: -8px 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3);
+
+    h1 {
+        font-family: 'Kameron', serif;
+        color: var(--color-accent);
+    }
 }
 
 .main-bottom {
