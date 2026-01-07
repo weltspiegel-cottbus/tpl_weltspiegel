@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.6.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.6.1...v0.6.2)
+
+### 🚀 Enhancements
+
+- Start implementing the youtube embed. ([2bb5bf4](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2bb5bf4))
+
+### 🩹 Fixes
+
+- Use default cursor on buttons. ([cb4321b](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/cb4321b))
+
 ## v0.6.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.6.0...v0.6.1)
