@@ -69,14 +69,14 @@
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         gap: 2px;
-        background-color: rgba(0, 0, 0, 0.3);
-        border: 2px solid rgba(0, 0, 0, 0.3);
+        background-color: var(--showbox-border);
+        border: 2px solid var(--showbox-border);
         border-radius: 0.25rem;
         overflow: hidden;
     }
 
     .showbox-day-header {
-        background-color: rgba(170, 119, 84, 0.4);
+        background-color: var(--showbox-header-bg);
         padding: 0.75rem 0.5rem;
         text-align: center;
         font-weight: 500;
@@ -88,7 +88,7 @@
     }
 
     .showbox-day-cell {
-        background-color: rgba(112, 84, 69, 0.3);
+        background-color: var(--showbox-cell-bg);
         padding: 0.75rem 0.5rem;
         text-align: center;
         min-height: 4rem;
@@ -99,8 +99,8 @@
         justify-content: flex-start;
     }
 
-    .showbox-day-cell:nth-child(7n + 1) {
-        background-color: rgba(135, 108, 94, 0.25);
+    .showbox-day-cell:nth-child(2n + 1) {
+        background-color: var(--showbox-cell-bg-alt);
     }
 
     .showbox-time-link {
@@ -141,7 +141,7 @@
     }
 
     .showbox-mobile-item {
-        background-color: rgba(112, 84, 69, 0.3);
+        background-color: var(--showbox-cell-bg);
         border-radius: 0.25rem;
         padding: 0.75rem 1rem;
         display: flex;
@@ -151,7 +151,7 @@
     }
 
     .showbox-mobile-item:nth-child(even) {
-        background-color: rgba(135, 108, 94, 0.25);
+        background-color: var(--showbox-cell-bg-alt);
     }
 
     .showbox-mobile-day {
