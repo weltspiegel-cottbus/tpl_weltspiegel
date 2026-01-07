@@ -72,6 +72,10 @@ main {
     box-shadow: -8px 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.main-bottom {
+    padding-inline: 0.5rem;
+}
+
 /* Centered layout without ticket - 768px to 1023px */
 @media (min-width: 768px) {
     .page-container {
@@ -89,6 +93,10 @@ main {
     main {
         /* Small rounded corners on desktop */
         border-radius: 0.375rem;
+    }
+
+    .main-bottom {
+        padding-inline: 1rem;
     }
 }
 

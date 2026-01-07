@@ -47,7 +47,9 @@ $wa->usePreset('template.weltspiegel');
         <div class="page-container">
             <main>
                 <jdoc:include type="component" />
-                <jdoc:include type="modules" name="main-bottom" style="none" />
+                <div class="main-bottom">
+                    <jdoc:include type="modules" name="main-bottom" style="none" />
+                </div>
             </main>
         </div>
 
