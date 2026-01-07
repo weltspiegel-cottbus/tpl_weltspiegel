@@ -370,7 +370,7 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         list-style: none;
         margin: 0.25rem 0 0;
-        padding: 0;
+        padding: 0.25rem;
 
         opacity: 0;
         visibility: hidden;
@@ -398,18 +398,19 @@
     }
 
     .main-nav__desktop-subitem {
-        margin: 0.5rem 0 0;
+        /* No top margin needed with dropdown padding */
     }
 
     .main-nav__desktop-sublink {
         display: block;
-        padding: 0.5rem 1rem 0.5rem 0.75rem;
+        padding: 0.5rem 1rem 0.5rem 1rem;
         color: var(--color-fg-body);
         font-family: 'Kameron', serif;
         font-size: 1rem;
         letter-spacing: 0.025em;
         text-decoration: none;
         border-left: 3px solid transparent;
+        border-radius: 0 0.25rem 0.25rem 0;
         transition: background-color 0.2s, border-color 0.2s;
         text-transform: uppercase;
     }
