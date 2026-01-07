@@ -9,6 +9,7 @@ import '../css/template.css';
 // Import modules
 import './navigation.js';
 import './showbox.js';
+import './youtube.js';
 
 // Export for potential external use
 export default {};
