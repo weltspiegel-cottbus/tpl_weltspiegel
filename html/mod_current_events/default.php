@@ -11,7 +11,7 @@
 
 \defined('_JEXEC') or die;
 
-use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Layout\FileLayout;
 use Joomla\CMS\Router\Route;
 
 /**
@@ -86,7 +86,9 @@ function renderShowTimes($event, $detailRoute): void
     foreach ($nextShows as $show) {
         $showDateTime = new DateTime($show->showStart);
 
-        echo LayoutHelper::render('booking.link', [
+        $layout = new FileLayout('booking.link');
+        $layout->addIncludePath(JPATH_SITE . '/components/com_weltspiegel/layouts');
+        echo $layout->render([
             'showId' => $show->showId,
             'label' => $showDateTime->format('H:i'),
             'options' => ['class' => 'event-poster-card__time-link']

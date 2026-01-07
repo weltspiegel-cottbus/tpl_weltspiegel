@@ -4,7 +4,11 @@
 
 .mod-current-events {
     /* Container styles if needed */
+}
+
+.mod-current-events > h1 {
     text-align: center;
+    margin-block-end: 1.5rem;
 }
 
 .mod-current-events__nav {
@@ -47,17 +51,20 @@
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
     font-weight: 500;
+    text-align: center;
 }
 
 .mod-current-events__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
 }
 
 .event-poster-card {
     display: flex;
     flex-direction: column;
+    width: calc(50% - 0.5rem); /* 2 columns with gap */
 }
 
 .event-poster-card__link {
@@ -122,14 +129,14 @@
 
 /* Tablet: 3 columns */
 @media (min-width: 768px) {
-    .mod-current-events__grid {
-        grid-template-columns: repeat(3, 1fr);
+    .event-poster-card {
+        width: calc(33.333% - 0.667rem); /* 3 columns with gap */
     }
 }
 
 /* Desktop: 4 columns */
 @media (min-width: 1024px) {
-    .mod-current-events__grid {
-        grid-template-columns: repeat(4, 1fr);
+    .event-poster-card {
+        width: calc(25% - 0.75rem); /* 4 columns with gap */
     }
 }
