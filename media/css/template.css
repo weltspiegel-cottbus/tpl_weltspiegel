@@ -14,6 +14,8 @@
 @import './_youtube.css';
 @import './_event.css';
 @import './_events.css';
+@import './_current-events.css';
+@import './_cookie-consent.css';
 
 /* Reset & Base */
 * {
