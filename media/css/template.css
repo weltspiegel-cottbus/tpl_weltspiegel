@@ -65,6 +65,8 @@ main {
     flex: 1;
     /* Dark gradient overlay - spacing handled by page-container */
     background-image: radial-gradient(rgba(46, 30, 10, 0.9), rgba(25, 16, 6, 0.9));
+    /* Subtle shadow - stronger on left to cast onto ticket */
+    box-shadow: -8px 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Centered layout without ticket - 768px to 1023px */
@@ -77,6 +79,13 @@ main {
         margin-inline: auto;
         margin-block: 2rem 1rem;
         padding: 1rem;
+        /* Rounded corners - all edges */
+        border-radius: 0.375rem;
+    }
+
+    main {
+        /* Small rounded corners on desktop */
+        border-radius: 0.375rem;
     }
 }
 
@@ -90,6 +99,8 @@ main {
         margin-inline-start: 0;
         margin-inline-end: 1rem; /* Keep 1rem dark bg on right */
         padding: 1rem 1rem 1rem 13rem; /* ticket space (12rem) + spacing (1rem) */
+        /* Rounded corners - only right side (left is flush for ticket) */
+        border-radius: 0 0.375rem 0.375rem 0;
     }
 
     .page-container::before {
@@ -110,6 +121,8 @@ main {
     .page-container {
         /* Center the container */
         margin-inline: auto;
+        /* Rounded corners - all edges again when centered */
+        border-radius: 0.375rem;
     }
 }
 
