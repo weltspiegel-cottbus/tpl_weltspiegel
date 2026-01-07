@@ -6,6 +6,9 @@
 // Import CSS
 import '../css/template.css';
 
+// Import modules
+import './showbox.js';
+
 // Mobile navigation toggle
 const initMobileNav = () => {
     const nav = document.querySelector('.main-nav');

@@ -10,6 +10,7 @@
 @import './_article.css';
 @import './_featured.css';
 @import './_footer.css';
+@import './_showbox.css';
 
 /* Reset & Base */
 * {

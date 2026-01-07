@@ -137,6 +137,7 @@ if (empty($viewports)) {
 
 // Generate unique ID for this showbox instance
 $showboxId = 'showbox-' . uniqid();
+$hasNavigation = count($viewports) > 1;
 
 // Format date labels (with Europe/Berlin timezone)
 $formatterDay = new IntlDateFormatter('de_DE', IntlDateFormatter::NONE, IntlDateFormatter::NONE, 'Europe/Berlin');
@@ -146,194 +147,10 @@ $formatterDate->setPattern('dd.MM.');
 
 ?>
 
-<style>
-.showbox {
-    margin-block-start: 2rem;
-}
-
-/* Navigation */
-.showbox-navigation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-block-end: 1rem;
-}
-
-.showbox-nav-btn {
-    background: rgba(236, 179, 90, 0.1);
-    border: 1px solid rgba(236, 179, 90, 0.3);
-    color: var(--color-fg-body);
-    padding: 0.5rem 0.75rem;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    transition: all 0.2s;
-}
-
-.showbox-nav-btn:not(:disabled):hover {
-    background: rgba(236, 179, 90, 0.2);
-    border-color: var(--color-accent);
-}
-
-.showbox-nav-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-.showbox-nav-btn svg {
-    width: 1rem;
-    height: 1rem;
-    display: block;
-}
-
-.showbox-viewport-info {
-    font-weight: 500;
-    min-width: 12rem;
-    text-align: center;
-}
-
-.showbox-viewport {
-    display: none;
-}
-
-.showbox-viewport.active {
-    display: block;
-}
-
-/* Desktop: Grid-based tabular layout */
-@media (min-width: 768px) {
-    .showbox-desktop {
-        display: block;
-    }
-
-    .showbox-mobile {
-        display: none;
-    }
-
-    .showbox-grid {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 2px;
-        background-color: rgba(0, 0, 0, 0.3);
-        border: 2px solid rgba(0, 0, 0, 0.3);
-        border-radius: 0.25rem;
-        overflow: hidden;
-    }
-
-    .showbox-day-header {
-        background-color: rgba(170, 119, 84, 0.4);
-        padding: 0.75rem 0.5rem;
-        text-align: center;
-        font-weight: 500;
-        font-size: 0.875rem;
-    }
-
-    .showbox-day-header-label {
-        display: block;
-    }
-
-    .showbox-day-cell {
-        background-color: rgba(112, 84, 69, 0.3);
-        padding: 0.75rem 0.5rem;
-        text-align: center;
-        min-height: 4rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    .showbox-day-cell:nth-child(7n + 1) {
-        background-color: rgba(135, 108, 94, 0.25);
-    }
-
-    .showbox-time-link {
-        color: var(--color-accent);
-        text-decoration: none;
-        transition: opacity 0.2s;
-        font-size: 0.9375rem;
-    }
-
-    .showbox-time-link:hover {
-        opacity: 0.8;
-    }
-
-    .showbox-time-text {
-        color: var(--color-fg-body);
-        opacity: 0.7;
-        font-size: 0.9375rem;
-    }
-}
-
-/* Mobile: Vertical list */
-@media (max-width: 767px) {
-    .showbox-desktop {
-        display: none;
-    }
-
-    .showbox-mobile {
-        display: block;
-    }
-
-    .showbox-mobile-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .showbox-mobile-item {
-        background-color: rgba(112, 84, 69, 0.3);
-        border-radius: 0.25rem;
-        padding: 0.75rem 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .showbox-mobile-item:nth-child(even) {
-        background-color: rgba(135, 108, 94, 0.25);
-    }
-
-    .showbox-mobile-day {
-        font-weight: 500;
-        font-size: 0.875rem;
-        flex-shrink: 0;
-        min-width: 6rem;
-    }
-
-    .showbox-mobile-times {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem 1rem;
-        justify-content: flex-end;
-    }
-
-    .showbox-time-link {
-        color: var(--color-accent);
-        text-decoration: none;
-        transition: opacity 0.2s;
-    }
-
-    .showbox-time-link:hover {
-        opacity: 0.8;
-    }
-
-    .showbox-time-text {
-        color: var(--color-fg-body);
-        opacity: 0.7;
-    }
-}
-</style>
-
-<div class="showbox" id="<?= $showboxId ?>">
+<div class="showbox" id="<?= $showboxId ?>" <?= $hasNavigation ? 'data-has-navigation' : '' ?>>
     <!-- Desktop: Grid Layout with Navigation -->
     <div class="showbox-desktop">
-        <?php if (count($viewports) > 1): ?>
+        <?php if ($hasNavigation): ?>
             <div class="showbox-navigation">
                 <button type="button" class="showbox-nav-btn" data-action="prev" aria-label="Vorherige Woche">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -383,7 +200,7 @@ $formatterDate->setPattern('dd.MM.');
                                             'showId' => $show->showId,
                                             'label' => $showDateTime->format('H:i'),
                                             'options' => ['class' => 'showbox-time-link']
-                                        ], JPATH_SITE . '/components/com_weltspiegel/layouts') ?>
+                                        ]) ?>
                                     <?php else: ?>
                                         <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
                                     <?php endif; ?>
@@ -427,7 +244,7 @@ $formatterDate->setPattern('dd.MM.');
                                 'showId' => $show->showId,
                                 'label' => $showDateTime->format('H:i'),
                                 'options' => ['class' => 'showbox-time-link']
-                            ], JPATH_SITE . '/components/com_weltspiegel/layouts') ?>
+                            ]) ?>
                         <?php else: ?>
                             <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
                         <?php endif; ?>
@@ -444,63 +261,3 @@ $formatterDate->setPattern('dd.MM.');
         </ul>
     </div>
 </div>
-
-<?php if (count($viewports) > 1): ?>
-<script>
-(function() {
-    'use strict';
-
-    const showboxId = '<?= $showboxId ?>';
-    const showbox = document.getElementById(showboxId);
-
-    if (!showbox) {
-        return;
-    }
-
-    const viewports = showbox.querySelectorAll('.showbox-viewport');
-    const prevBtn = showbox.querySelector('[data-action="prev"]');
-    const nextBtn = showbox.querySelector('[data-action="next"]');
-    const viewportInfo = showbox.querySelector('.showbox-viewport-info');
-
-    if (!prevBtn || !nextBtn || !viewportInfo) {
-        return;
-    }
-
-    let currentViewportIndex = 0;
-
-    function updateDisplay() {
-        // Hide all viewports
-        viewports.forEach(viewport => viewport.classList.remove('active'));
-
-        // Show current viewport
-        if (viewports[currentViewportIndex]) {
-            viewports[currentViewportIndex].classList.add('active');
-
-            // Update viewport info label
-            const viewportLabel = viewports[currentViewportIndex].dataset.label;
-            viewportInfo.textContent = viewportLabel;
-        }
-
-        // Update button states
-        prevBtn.disabled = currentViewportIndex === 0;
-        nextBtn.disabled = currentViewportIndex === viewports.length - 1;
-    }
-
-    function navigateViewport(direction) {
-        if (direction === 'prev' && currentViewportIndex > 0) {
-            currentViewportIndex--;
-        } else if (direction === 'next' && currentViewportIndex < viewports.length - 1) {
-            currentViewportIndex++;
-        }
-        updateDisplay();
-    }
-
-    // Event listeners
-    prevBtn.addEventListener('click', () => navigateViewport('prev'));
-    nextBtn.addEventListener('click', () => navigateViewport('next'));
-
-    // Initialize
-    updateDisplay();
-})();
-</script>
-<?php endif; ?>
