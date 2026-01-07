@@ -1,6 +1,16 @@
 # Changelog
 
 
+## v0.6.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.6.0...v0.6.1)
+
+### 💅 Refactors
+
+- Extract showbox styles and scripts to separate files. ([e3075b6](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e3075b6))
+- Extract navigation related script into separate file as well. ([fe4827d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/fe4827d))
+- Extract the showbox colors. Fix alternating. ([8b5df34](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/8b5df34))
+
 ## v0.6.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.5.2...v0.6.0)
