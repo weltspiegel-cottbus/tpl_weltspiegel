@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.7.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.0...v0.7.1)
+
+### 🚀 Enhancements
+
+- Add headline and center most of the content. ([c191dd5](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/c191dd5))
+
+### 🩹 Fixes
+
+- Polish active link outcome. Resolves #4 by now. ([#4](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/4))
+- Add small padding around main-bottom content. ([5536713](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/5536713))
+
+### 💅 Refactors
+
+- Align all h1 tag-styling in main. ([215541f](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/215541f))
+
 ## v0.7.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.6.2...v0.7.0)
