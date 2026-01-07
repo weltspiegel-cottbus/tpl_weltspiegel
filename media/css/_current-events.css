@@ -4,10 +4,13 @@
 
 .mod-current-events {
     /* Container styles if needed */
+    text-align: center;
 }
 
 .mod-current-events__nav {
     margin-block-end: 1.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 .mod-current-events__nav-list {
@@ -118,7 +121,7 @@
 }
 
 /* Tablet: 3 columns */
-@media (min-width: 640px) {
+@media (min-width: 768px) {
     .mod-current-events__grid {
         grid-template-columns: repeat(3, 1fr);
     }

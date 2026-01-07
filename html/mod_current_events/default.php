@@ -165,6 +165,7 @@ $categoryCount = count(array_filter($categorizedEvents, fn($cat) => !empty($cat)
 
 ?>
 <div class="mod-current-events">
+    <h1>AKTUELL IM WELTSPIEGEL COTTBUS</h1>
     <?php if ($categoryCount > 1): ?>
         <nav class="mod-current-events__nav">
             <ul class="mod-current-events__nav-list">
