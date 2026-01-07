@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.7.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.6.2...v0.7.0)
+
+### 🚀 Enhancements
+
+- Start implementing single events view. ([e58f4b6](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e58f4b6))
+- Start implementing all events view. ([8adcf75](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/8adcf75))
+- Start implementing module overrides. ([13619c6](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/13619c6))
+- Add main-bottom template position. ([4637236](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/4637236))
+
+### 🩹 Fixes
+
+- Add shadows and rounded corner. Resolves #5 ([#5](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/5))
+- Move navigation indicator somewhat right. Uses rounded borders. See #4 ([#4](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/4))
+
 ## v0.6.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.6.1...v0.6.2)
