@@ -22,7 +22,11 @@ class YouTubeEmbed {
 
         // Make placeholder clickable to show cookie consent
         this.placeholder.style.cursor = 'pointer';
-        this.placeholder.addEventListener('click', () => {
+        this.placeholder.addEventListener('click', (e) => {
+            // Don't trigger banner if clicking the YouTube link
+            if (e.target.classList.contains('youtube-embed__placeholder-link')) {
+                return;
+            }
             window.dispatchEvent(new CustomEvent('showCookieBanner'));
         });
     }

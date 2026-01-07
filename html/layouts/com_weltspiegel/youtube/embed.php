@@ -45,6 +45,12 @@ $uniqueId = 'yt-' . $videoId . '-' . uniqid();
                 </svg>
                 <p class="youtube-embed__placeholder-text"><?= htmlspecialchars($placeholder) ?></p>
                 <small class="youtube-embed__placeholder-hint"><?= htmlspecialchars($hint) ?></small>
+                <a href="https://www.youtube.com/watch?v=<?= htmlspecialchars($videoId) ?>"
+                   class="youtube-embed__placeholder-link"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Auf YouTube ansehen
+                </a>
             </div>
         </div>
 

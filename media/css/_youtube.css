@@ -55,6 +55,23 @@
     opacity: 0.7;
 }
 
+.youtube-embed__placeholder-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-bg-body);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.youtube-embed__placeholder-link:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 80%, white);
+}
+
 .youtube-embed__iframe {
     display: none;
 }
