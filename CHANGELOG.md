@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.6.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.5.2...v0.6.0)
+
+### 🚀 Enhancements
+
+- Start implementing the showbox. ([83e762c](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/83e762c))
+
 ## v0.5.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.5.1...v0.5.2)
