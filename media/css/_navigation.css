@@ -398,7 +398,7 @@
     }
 
     .main-nav__desktop-subitem {
-        /* No top margin needed with dropdown padding */
+        margin-block-start: 0.5rem;
     }
 
     .main-nav__desktop-sublink {
@@ -410,7 +410,7 @@
         letter-spacing: 0.025em;
         text-decoration: none;
         border-left: 3px solid transparent;
-        border-radius: 0 0.25rem 0.25rem 0;
+        border-radius: 0.25rem;
         transition: background-color 0.2s, border-color 0.2s;
         text-transform: uppercase;
     }
@@ -420,6 +420,7 @@
     }
 
     .main-nav__desktop-subitem--active .main-nav__desktop-sublink {
+        border-radius: 0 0.25rem 0.25rem 0;
         border-left-color: var(--color-accent);
     }
 }
