@@ -45,6 +45,7 @@
 
 .mod-current-events__section {
     margin-block-end: 2rem;
+    scroll-margin-top: calc(var(--header-height-scrolled) + 1rem); /* Offset for scrolled header + spacing */
 }
 
 .mod-current-events__section-title {
