@@ -3,7 +3,8 @@
  */
 
 .article {
-    padding: 1rem;
+    padding-block: 1rem;
+    padding-inline: 1rem;
 }
 
 .article__header {
@@ -11,12 +12,7 @@
 }
 
 .article__title {
-    font-family: 'Kameron', serif;
-    font-size: 2.5rem;
-    font-weight: 500;
-    line-height: 1.2;
-    margin: 0;
-    color: var(--color-accent);
+    /* All styling moved to .u-flipped-title utility class */
 }
 
 .article__content {
@@ -36,20 +32,10 @@
 /* Responsive spacing */
 @media (min-width: 768px) {
     .article {
-        position: relative;
-        padding: 1rem 1rem 3rem 5rem;
+        padding: 1rem 1rem 3rem 5rem; /* Left: 4rem for title + 1rem spacing */
     }
 
     .article__header {
         margin-bottom: 0;
-    }
-
-    .article__title {
-        position: absolute;
-        transform: rotate(270deg) translate(-100%,-100%);
-        transform-origin: left top;
-        white-space: nowrap;
-        top: 1rem;
-        left: 4rem;
     }
 }

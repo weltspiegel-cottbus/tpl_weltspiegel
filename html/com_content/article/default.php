@@ -12,10 +12,10 @@ defined('_JEXEC') or die;
 
 /** @var Joomla\Component\Content\Site\View\Article\HtmlView $this */
 ?>
-<article class="article">
+<article class="article u-flipped-title-container">
     <?php if ($this->params->get('show_title')): ?>
         <header class="article__header">
-            <h1 class="article__title"><?php echo $this->escape($this->item->title); ?></h1>
+            <h1 class="article__title u-flipped-title"><?php echo $this->escape($this->item->title); ?></h1>
         </header>
     <?php endif; ?>
 

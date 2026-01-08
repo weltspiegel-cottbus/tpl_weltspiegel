@@ -1,0 +1,29 @@
+/**
+ * Utility Classes
+ * Reusable utility patterns
+ */
+
+/* Flipped Title - Rotated 90° counterclockwise on left side */
+.u-flipped-title {
+    font-family: 'Kameron', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+    .u-flipped-title-container {
+        position: relative;
+    }
+
+    .u-flipped-title {
+        position: absolute;
+        transform: rotate(270deg) translate(-100%, -100%);
+        transform-origin: left top;
+        white-space: nowrap;
+        top: 1rem;
+        left: 4rem;
+    }
+}

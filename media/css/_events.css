@@ -6,12 +6,12 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding: 1rem;
 }
 
 .events__title {
     margin: 0 0 2rem 0;
-    font-size: 2rem;
-    font-weight: 500;
+    /* All other styling moved to .u-flipped-title utility class */
 }
 
 .events__section-title {
@@ -85,6 +85,10 @@
 
 /* Desktop: 768px+ */
 @media (min-width: 768px) {
+    .events {
+        padding: 1rem 1rem 3rem 5rem; /* Left: 4rem for title + 1rem spacing */
+    }
+
     .event-card {
         /* Reset to block layout for float */
         display: block;

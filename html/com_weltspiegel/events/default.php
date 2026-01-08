@@ -19,8 +19,8 @@ $futureHeadingShown = false;
 
 ?>
 
-<div class="events">
-    <h1 class="events__title"><?= $this->escape($this->title) ?></h1>
+<div class="events u-flipped-title-container">
+    <h1 class="events__title u-flipped-title"><?= $this->escape($this->title) ?></h1>
 
     <div class="events__list">
         <?php foreach ($this->items as $id => $event): ?>
