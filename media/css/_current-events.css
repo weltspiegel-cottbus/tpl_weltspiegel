@@ -83,7 +83,8 @@
 
 .event-poster-card__shows {
     min-height: 3rem;
-    font-size: 0.875rem;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .event-poster-card__day {
@@ -94,6 +95,7 @@
 .event-poster-card__times {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.25rem 0.5rem;
 }
 
