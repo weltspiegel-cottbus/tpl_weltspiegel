@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.7.4
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.3...v0.7.4)
+
+### 🚀 Enhancements
+
+- Make scrolling smooth ([f81f9f6](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/f81f9f6))
+- Make the category nav great ;-) ([4196d69](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/4196d69))
+
+### 🩹 Fixes
+
+- Adjust scroll offset. ([5be0be3](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/5be0be3))
+
+### 💅 Refactors
+
+- Improve readability of show date and times. ([340ae28](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/340ae28))
+- Extract all reused values and merge with colors in new variables file. ([5d5715a](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/5d5715a))
+
 ## v0.7.3
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.2...v0.7.3)
