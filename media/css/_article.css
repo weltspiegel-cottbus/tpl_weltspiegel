@@ -11,10 +11,6 @@
     margin-bottom: 2rem;
 }
 
-.article__title {
-    /* All styling moved to .u-flipped-title utility class */
-}
-
 .article__content {
     /* Content spacing */
 }
