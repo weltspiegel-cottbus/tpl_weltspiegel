@@ -36,7 +36,12 @@ const excludePatterns = [
     'update-manifest.xml',
     'CHANGELOG.md',
     'README.md',
-    '*.zip'
+    '*.zip',
+    // Exclude source files (keep only .min.js and .min.css)
+    'media/js/template.js',
+    'media/js/_*.js',
+    'media/css/template.css',
+    'media/css/_*.css'
 ];
 
 // Build the exclude arguments for zip command

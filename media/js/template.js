@@ -7,11 +7,11 @@
 import '../css/template.css';
 
 // Import modules
-import './navigation.js';
-import './showbox.js';
-import './youtube.js';
-import './cookie-consent.js';
-import './current-events.js';
+import './_navigation.js';
+import './_showbox.js';
+import './_youtube.js';
+import './_cookie-consent.js';
+import './_current-events.js';
 
 // Export for potential external use
 export default {};
