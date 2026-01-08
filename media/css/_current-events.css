@@ -26,7 +26,7 @@
 
 /* Only show background when stuck */
 .mod-current-events__nav--stuck {
-    background-color: var(--color-bg-body);
+    background-color: rgba(16, 5, 1, 0.9); /* Same transparency as main nav */
 }
 
 .mod-current-events__nav--hidden {
