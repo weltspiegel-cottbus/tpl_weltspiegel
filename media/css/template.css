@@ -159,5 +159,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Links */
 a {
-    color: inherit;
+    color: var(--color-fg-body);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--color-accent-hover);
 }

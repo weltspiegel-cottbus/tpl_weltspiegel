@@ -150,8 +150,13 @@
     text-transform: uppercase;
 }
 
+.main-nav__link {
+    color: var(--color-fg-body);
+}
+
 .main-nav__link:hover,
 .main-nav__link:focus {
+    color: var(--color-fg-body);
     background-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -196,8 +201,13 @@
     text-transform: uppercase;
 }
 
+.main-nav__sublink {
+    color: var(--color-fg-body);
+}
+
 .main-nav__sublink:hover,
 .main-nav__sublink:focus {
+    color: var(--color-fg-body);
     background-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -277,6 +287,10 @@
         white-space: nowrap;
         text-decoration: none;
         text-transform: uppercase;
+    }
+
+    .main-nav__desktop-link:hover {
+        color: var(--color-fg-body);
     }
 
     .main-nav__desktop-item--has-submenu .main-nav__desktop-link {
@@ -415,7 +429,12 @@
         text-transform: uppercase;
     }
 
+    .main-nav__desktop-sublink {
+        color: var(--color-fg-body);
+    }
+
     .main-nav__desktop-sublink:hover {
+        color: var(--color-fg-body);
         background-color: rgba(255, 255, 255, 0.15);
     }
 

@@ -52,13 +52,13 @@
 }
 
 .event-card__title-link {
-    color: inherit;
-    text-decoration: none;
+    color: var(--color-fg-body);
+    text-decoration: underline;
     transition: color 0.2s;
 }
 
 .event-card__title-link:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-hover);
 }
 
 .event-card__description {
