@@ -5,7 +5,7 @@
 
 /* Import partials */
 @import './_fonts.css';
-@import './_colors.css';
+@import './_variables.css';
 @import './_navigation.css';
 @import './_article.css';
 @import './_featured.css';
@@ -20,12 +20,6 @@
 /* Reset & Base */
 * {
     box-sizing: border-box;
-}
-
-:root {
-    /* Layout variables */
-    --header-height: 5.5rem; /* Space for fixed nav (3.5rem logo + 2rem padding) */
-    --content-width: 48rem; /* Flow text width (optimal reading) */
 }
 
 @view-transition {

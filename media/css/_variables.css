@@ -1,0 +1,32 @@
+/**
+ * CSS Custom Properties (Variables)
+ * Centralized variables for colors, layout, and theming
+ */
+
+:root {
+    /* === Colors === */
+
+    /* Background Colors */
+    --color-bg-body: #100501;
+
+    /* Foreground (Text) Colors */
+    --color-fg-body: #ffffff;
+
+    /* Accent Colors */
+    --color-accent: #f29400;
+
+    /* Showbox Colors */
+    --showbox-header-bg: rgba(170, 119, 84, 0.4);
+    --showbox-cell-bg: rgba(112, 84, 69, 0.3);
+    --showbox-cell-bg-alt: rgba(135, 108, 94, 0.25);
+    --showbox-border: rgba(0, 0, 0, 0.3);
+
+    /* === Layout === */
+
+    /* Header heights */
+    --header-height: 5.5rem; /* Initial header height (3.5rem logo + 2rem padding) */
+    --header-height-scrolled: 3.5rem; /* Scrolled header height */
+
+    /* Content width */
+    --content-width: 48rem; /* Flow text width (optimal reading) */
+}
