@@ -3,7 +3,7 @@
  */
 
 .mod-current-events {
-    /* Container styles if needed */
+    position: relative; /* For sentinel positioning */
 }
 
 .mod-current-events > h1 {
@@ -12,9 +12,40 @@
 }
 
 .mod-current-events__nav {
+    position: sticky;
+    top: var(--header-height-scrolled);
     margin-block-end: 1.5rem;
+    margin-inline: -0.5rem; /* Negative margin to break out of .main-bottom padding */
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem;
     display: flex;
     justify-content: center;
+    z-index: 100;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Only show background when stuck */
+.mod-current-events__nav--stuck {
+    background-color: var(--color-bg-body);
+}
+
+.mod-current-events__nav--hidden {
+    transform: translateY(calc(-100% - var(--header-height-scrolled)));
+}
+
+/* Desktop: constrain width and add subtle background when stuck */
+@media (min-width: 768px) {
+    .mod-current-events__nav {
+        margin-inline: auto;
+        width: fit-content;
+        padding-inline: 1.5rem;
+    }
+
+    .mod-current-events__nav--stuck {
+        border-radius: 0 0 0.5rem 0.5rem;
+        background-color: rgba(16, 5, 1, 0.95);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
 }
 
 .mod-current-events__nav-list {
@@ -40,6 +71,10 @@
 
 .mod-current-events__nav-link:hover {
     background: rgba(236, 179, 90, 0.2);
+    border-color: var(--color-accent);
+}
+
+.mod-current-events__nav-link--active {
     border-color: var(--color-accent);
 }
 

@@ -11,6 +11,7 @@ import './navigation.js';
 import './showbox.js';
 import './youtube.js';
 import './cookie-consent.js';
+import './current-events.js';
 
 // Export for potential external use
 export default {};
