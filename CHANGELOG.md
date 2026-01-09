@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.7.5
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.4...v0.7.5)
+
+### 🚀 Enhancements
+
+- Show youtube preview pics instead of placeholder. Resolves https://github.com/weltspiegel-cottbus/com_weltspiegel/issues/12 ([16251d8](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/16251d8))
+
+### 🩹 Fixes
+
+- Add transparency to category nav. ([40dd5c3](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/40dd5c3))
+
+### 💅 Refactors
+
+- Flip title on events page. ([f93f813](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/f93f813))
+- Streamline the css. ([7946e15](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/7946e15))
+- Rename imported modules. Improve packaging. ([62aa63a](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/62aa63a))
+- Align link and link hover styles. ([fe306b0](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/fe306b0))
+
 ## v0.7.4
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.3...v0.7.4)
