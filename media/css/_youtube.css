@@ -23,7 +23,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    /* Dark overlay - will be layered over thumbnail if present */
+    background-color: rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Blend mode to darken thumbnail while keeping it visible */
+    background-blend-mode: darken;
     display: none;
     align-items: center;
     justify-content: center;
@@ -69,7 +75,8 @@
 }
 
 .youtube-embed__placeholder-link:hover {
-    background-color: color-mix(in srgb, var(--color-accent) 80%, white);
+    background-color: var(--color-accent-hover);
+    color: var(--color-bg-body);
 }
 
 .youtube-embed__iframe {

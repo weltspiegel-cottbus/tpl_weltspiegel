@@ -12,6 +12,48 @@
 \defined('_JEXEC') or die;
 
 /**
+ * Helper function to get/download YouTube thumbnail
+ *
+ * @param string $videoId YouTube video ID
+ * @return string|null Relative path to thumbnail or null if failed
+ */
+function getYoutubeThumbnail($videoId) {
+    $filename = $videoId . '.jpg';
+    $relativePath = 'images/youtube-thumbnails/' . $filename;
+    $absolutePath = JPATH_ROOT . '/' . $relativePath;
+
+    // Check if file already exists
+    if (file_exists($absolutePath)) {
+        return '/' . $relativePath;
+    }
+
+    // Ensure directory exists
+    $dir = dirname($absolutePath);
+    if (!is_dir($dir)) {
+        if (!mkdir($dir, 0755, true)) {
+            return null; // Failed to create directory
+        }
+    }
+
+    // Try to download thumbnail (maxresdefault first, fallback to hqdefault)
+    $urls = [
+        "https://img.youtube.com/vi/{$videoId}/maxresdefault.jpg",
+        "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg"
+    ];
+
+    foreach ($urls as $url) {
+        $image = @file_get_contents($url);
+        if ($image !== false && strlen($image) > 0) {
+            if (file_put_contents($absolutePath, $image)) {
+                return '/' . $relativePath;
+            }
+        }
+    }
+
+    return null; // Download failed
+}
+
+/**
  * Layout variables
  * ----------------
  * @var string $videoId     YouTube video ID
@@ -31,13 +73,14 @@ if (empty($videoId)) {
 
 $embedUrl = "https://www.youtube-nocookie.com/embed/{$videoId}";
 $uniqueId = 'yt-' . $videoId . '-' . uniqid();
+$thumbnailPath = getYoutubeThumbnail($videoId);
 
 ?>
 
 <div class="youtube-embed">
     <div class="<?= $responsive ? 'youtube-embed--responsive' : 'youtube-embed--fixed' ?>">
         <!-- Placeholder -->
-        <div id="<?= $uniqueId ?>-placeholder" class="youtube-embed__placeholder">
+        <div id="<?= $uniqueId ?>-placeholder" class="youtube-embed__placeholder"<?= $thumbnailPath ? ' style="background-image: url(' . htmlspecialchars($thumbnailPath) . ');"' : '' ?>>
             <div class="youtube-embed__placeholder-content">
                 <svg class="youtube-embed__placeholder-icon" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
