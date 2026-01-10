@@ -11,47 +11,7 @@
 
 \defined('_JEXEC') or die;
 
-/**
- * Helper function to get/download YouTube thumbnail
- *
- * @param string $videoId YouTube video ID
- * @return string|null Relative path to thumbnail or null if failed
- */
-function getYoutubeThumbnail($videoId) {
-    $filename = $videoId . '.jpg';
-    $relativePath = 'images/youtube-thumbnails/' . $filename;
-    $absolutePath = JPATH_ROOT . '/' . $relativePath;
-
-    // Check if file already exists
-    if (file_exists($absolutePath)) {
-        return '/' . $relativePath;
-    }
-
-    // Ensure directory exists
-    $dir = dirname($absolutePath);
-    if (!is_dir($dir)) {
-        if (!mkdir($dir, 0755, true)) {
-            return null; // Failed to create directory
-        }
-    }
-
-    // Try to download thumbnail (maxresdefault first, fallback to hqdefault)
-    $urls = [
-        "https://img.youtube.com/vi/{$videoId}/maxresdefault.jpg",
-        "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg"
-    ];
-
-    foreach ($urls as $url) {
-        $image = @file_get_contents($url);
-        if ($image !== false && strlen($image) > 0) {
-            if (file_put_contents($absolutePath, $image)) {
-                return '/' . $relativePath;
-            }
-        }
-    }
-
-    return null; // Download failed
-}
+use Weltspiegel\Component\Weltspiegel\Administrator\Helper\YouTubeHelper;
 
 /**
  * Layout variables
@@ -73,7 +33,7 @@ if (empty($videoId)) {
 
 $embedUrl = "https://www.youtube-nocookie.com/embed/{$videoId}";
 $uniqueId = 'yt-' . $videoId . '-' . uniqid();
-$thumbnailPath = getYoutubeThumbnail($videoId);
+$thumbnailPath = YouTubeHelper::getThumbnailPath($videoId);
 
 ?>
 
