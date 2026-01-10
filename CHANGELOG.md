@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.7.6
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.5...v0.7.6)
+
+### 🩹 Fixes
+
+- Extracted thumbnail fetch code to component. ([4e1d18c](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/4e1d18c))
+
 ## v0.7.5
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.4...v0.7.5)
