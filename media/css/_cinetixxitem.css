@@ -1,26 +1,26 @@
 /**
- * Single Event View Styles
+ * Single Cinetixx Item View Styles
  */
 
-.event {
+.cinetixxitem {
     /* Mobile: flexbox with order for reordering */
     display: flex;
     flex-direction: column;
 }
 
-.event__title {
+.cinetixxitem__title {
     order: 1;
     margin: 0 0 1rem 0;
     font-size: 1.75rem;
     font-weight: 500;
 }
 
-.event__poster {
+.cinetixxitem__poster {
     order: 2;
     margin-block-end: 1rem;
 }
 
-.event__poster-img {
+.cinetixxitem__poster-img {
     width: 100%;
     max-width: 400px;
     height: auto;
@@ -28,7 +28,7 @@
     margin: 0 auto;
 }
 
-.event__details {
+.cinetixxitem__details {
     order: 3;
     font-style: italic;
     font-size: 0.875rem;
@@ -36,26 +36,26 @@
     opacity: 0.9;
 }
 
-.event__showbox {
+.cinetixxitem__showbox {
     order: 4;
 }
 
-.event__description {
+.cinetixxitem__description {
     order: 5;
     margin-block: 1.5rem;
     line-height: 1.6;
 }
 
-.event__trailer {
+.cinetixxitem__trailer {
     order: 6;
 }
 
-.event__gallery {
+.cinetixxitem__gallery {
     order: 7;
     margin-block-start: 2rem;
 }
 
-.event__gallery-list {
+.cinetixxitem__gallery-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -64,11 +64,11 @@
     gap: 1rem;
 }
 
-.event__gallery-item {
+.cinetixxitem__gallery-item {
     /* Mobile: vertical stack */
 }
 
-.event__gallery-img {
+.cinetixxitem__gallery-img {
     width: 100%;
     height: auto;
     display: block;
@@ -76,18 +76,18 @@
 
 /* Desktop: 768px+ */
 @media (min-width: 768px) {
-    .event {
+    .cinetixxitem {
         /* Reset flex ordering for desktop flow */
         display: block;
     }
 
-    .event__title {
+    .cinetixxitem__title {
         order: unset;
         font-size: 2rem;
         margin-block-end: 1rem;
     }
 
-    .event__poster {
+    .cinetixxitem__poster {
         order: unset;
         float: left;
         width: 10.75rem; /* 172px - matches component */
@@ -95,47 +95,47 @@
         margin-block-end: 1rem;
     }
 
-    .event__poster-img {
+    .cinetixxitem__poster-img {
         width: 100%;
         max-width: none;
         margin: 0;
     }
 
-    .event__details {
+    .cinetixxitem__details {
         order: unset;
         margin-block-start: 0.5rem;
     }
 
-    .event__description {
+    .cinetixxitem__description {
         order: unset;
         margin-block: 1rem;
     }
 
-    .event__showbox {
+    .cinetixxitem__showbox {
         order: unset;
         clear: both; /* Clear the float */
     }
 
-    .event__trailer {
+    .cinetixxitem__trailer {
         order: unset;
     }
 
-    .event__gallery {
+    .cinetixxitem__gallery {
         order: unset;
     }
 
-    .event__gallery-list {
+    .cinetixxitem__gallery-list {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
     }
 
-    .event__gallery-item {
+    .cinetixxitem__gallery-item {
         flex: 0 0 auto;
     }
 
-    .event__gallery-img {
+    .cinetixxitem__gallery-img {
         width: auto;
         max-width: 300px;
         max-height: 200px;
