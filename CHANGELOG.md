@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.8.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.6...v0.8.0)
+
+### 💅 Refactors
+
+- Rename event overrides to cinetix due to upcoming changes. ([6d8507e](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/6d8507e))
+
 ## v0.7.6
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.5...v0.7.6)
