@@ -115,7 +115,7 @@ function renderShowTimes($event, $detailRoute): void
  */
 function renderEventCard($id, $event): void
 {
-    $detailRoute = Route::_('index.php?option=com_weltspiegel&view=event&event_id=' . $id);
+    $detailRoute = Route::_('index.php?option=com_weltspiegel&view=cinetixxitem&event_id=' . $id);
     ?>
     <article class="event-poster-card">
         <a href="<?= $detailRoute ?>" class="event-poster-card__link">
