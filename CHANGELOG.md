@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.8.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.0...v0.8.1)
+
+### 🩹 Fixes
+
+- Updated link target. ([9bf23f2](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/9bf23f2))
+
 ## v0.8.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.7.6...v0.8.0)
