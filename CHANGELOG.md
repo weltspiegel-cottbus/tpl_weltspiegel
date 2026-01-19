@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.8.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.1...v0.8.2)
+
+### 💅 Refactors
+
+- Start aliging layout with cinetixx layout. Cleaner seperation of custom articles. ([7528ae9](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/7528ae9))
+
 ## v0.8.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.0...v0.8.1)
