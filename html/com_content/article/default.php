@@ -14,49 +14,49 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 /** @var Joomla\Component\Content\Site\View\Article\HtmlView $this */
 
-// Check if this is a Vorschau article (category 8)
-$isVorschau = ($this->item->catid == 8);
+// Categories using content-single layout (Vorschauen: 8, Veranstaltungen: 9)
+$useContentSingleLayout = in_array($this->item->catid, [8, 9]);
 
 // Parse article attributes
 $attribs = json_decode($this->item->attribs, true) ?: [];
 $images = json_decode($this->item->images, true) ?: [];
 
-// Component-managed Vorschau has source marker
-$isComponentVorschau = $isVorschau && (!empty($attribs['source']) && $attribs['source'] === 'com_weltspiegel');
+// Component-managed article has source marker
+$isComponentManaged = $useContentSingleLayout && (!empty($attribs['source']) && $attribs['source'] === 'com_weltspiegel');
 
 // Check for optional content elements
 $hasYouTubeTrailer = !empty($attribs['youtube_url']);
 $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_intro']);
 ?>
 
-<?php if ($isComponentVorschau): ?>
-    <!-- Component-generated Vorschau article -->
-    <article class="vorschau vorschau--full u-flipped-title-container">
+<?php if ($isComponentManaged): ?>
+    <!-- Component-managed article -->
+    <article class="content-single content-single--full u-flipped-title-container">
         <?php if ($this->params->get('show_title')): ?>
-            <h1 class="vorschau__title u-flipped-title"><?= $this->escape($this->item->title) ?></h1>
+            <h1 class="content-single__title u-flipped-title"><?= $this->escape($this->item->title) ?></h1>
         <?php endif; ?>
 
         <?php if ($hasBannerImage): ?>
-            <div class="vorschau__banner">
+            <div class="content-single__banner">
                 <?php
                 $bannerImage = !empty($images['image_fulltext']) ? $images['image_fulltext'] : $images['image_intro'];
                 $bannerAlt = !empty($images['image_fulltext_alt']) ? $images['image_fulltext_alt'] : ($images['image_intro_alt'] ?? '');
                 ?>
                 <img src="<?= htmlspecialchars($bannerImage) ?>"
                      alt="<?= htmlspecialchars($bannerAlt ?: $this->item->title) ?>"
-                     class="vorschau__banner-image">
+                     class="content-single__banner-image">
             </div>
         <?php endif; ?>
 
         <?= $this->item->event->afterDisplayTitle ?>
         <?= $this->item->event->beforeDisplayContent ?>
 
-        <div class="vorschau__body">
+        <div class="content-single__body">
             <?= $this->item->fulltext ?: $this->item->introtext ?>
         </div>
 
         <?php if ($hasYouTubeTrailer): ?>
-            <div class="vorschau__trailer">
+            <div class="content-single__trailer">
                 <?= LayoutHelper::render('com_weltspiegel.youtube.embed', [
                     'videoId' => $attribs['youtube_url']
                 ]) ?>
@@ -66,29 +66,29 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
         <?= $this->item->event->afterDisplayContent ?>
     </article>
 
-<?php elseif ($isVorschau): ?>
-    <!-- Freeform Vorschau article (minimal style) -->
-    <article class="vorschau vorschau--simple u-flipped-title-container">
+<?php elseif ($useContentSingleLayout): ?>
+    <!-- Freeform article in card-layout category -->
+    <article class="content-single content-single--simple u-flipped-title-container">
         <?php if ($this->params->get('show_title')): ?>
-            <h1 class="vorschau__title u-flipped-title"><?= $this->escape($this->item->title) ?></h1>
+            <h1 class="content-single__title u-flipped-title"><?= $this->escape($this->item->title) ?></h1>
         <?php endif; ?>
 
         <?php if ($hasBannerImage): ?>
-            <div class="vorschau__banner">
+            <div class="content-single__banner">
                 <?php
                 $bannerImage = !empty($images['image_fulltext']) ? $images['image_fulltext'] : $images['image_intro'];
                 $bannerAlt = !empty($images['image_fulltext_alt']) ? $images['image_fulltext_alt'] : ($images['image_intro_alt'] ?? '');
                 ?>
                 <img src="<?= htmlspecialchars($bannerImage) ?>"
                      alt="<?= htmlspecialchars($bannerAlt ?: $this->item->title) ?>"
-                     class="vorschau__banner-image">
+                     class="content-single__banner-image">
             </div>
         <?php endif; ?>
 
         <?= $this->item->event->afterDisplayTitle ?>
         <?= $this->item->event->beforeDisplayContent ?>
 
-        <div class="vorschau__body">
+        <div class="content-single__body">
             <?= $this->item->text ?>
         </div>
 
