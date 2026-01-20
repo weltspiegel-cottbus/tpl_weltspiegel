@@ -94,6 +94,17 @@
     margin-block-start: 2rem;
 }
 
+/* Empty state */
+.content-list__empty {
+    font-size: 1.125rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.content-list__empty p {
+    margin: 0;
+}
+
 /* Desktop: 768px+ */
 @media (min-width: 768px) {
     .content-list {
