@@ -73,6 +73,18 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
             <h1 class="vorschau__title u-flipped-title"><?= $this->escape($this->item->title) ?></h1>
         <?php endif; ?>
 
+        <?php if ($hasBannerImage): ?>
+            <div class="vorschau__banner">
+                <?php
+                $bannerImage = !empty($images['image_fulltext']) ? $images['image_fulltext'] : $images['image_intro'];
+                $bannerAlt = !empty($images['image_fulltext_alt']) ? $images['image_fulltext_alt'] : ($images['image_intro_alt'] ?? '');
+                ?>
+                <img src="<?= htmlspecialchars($bannerImage) ?>"
+                     alt="<?= htmlspecialchars($bannerAlt ?: $this->item->title) ?>"
+                     class="vorschau__banner-image">
+            </div>
+        <?php endif; ?>
+
         <?= $this->item->event->afterDisplayTitle ?>
         <?= $this->item->event->beforeDisplayContent ?>
 
