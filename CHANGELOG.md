@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.8.3
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.2...v0.8.3)
+
+### 🚀 Enhancements
+
+- Add support for veranstaltungen and align the css. ([52f26a8](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/52f26a8))
+
+### 🩹 Fixes
+
+- Show images (intro or fulltext) in freeform vorschau articles. ([524ef4a](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/524ef4a))
+
 ## v0.8.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.1...v0.8.2)
