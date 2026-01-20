@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.8.4
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.3...v0.8.4)
+
+### 🚀 Enhancements
+
+- Add borders in list views. ([efde14c](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/efde14c))
+
+### 💅 Refactors
+
+- Add an empty category view state. ([788dd37](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/788dd37))
+- Use heading styles for future heading. ([c4af2cb](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/c4af2cb))
+
 ## v0.8.3
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.2...v0.8.3)
