@@ -1,0 +1,55 @@
+/**
+ * Text Truncation with Overflow Detection
+ * Reusable pattern for truncating long text with fade effect
+ */
+
+.u-truncate {
+    position: relative;
+    max-height: var(--truncate-height, 12rem);
+    overflow: hidden;
+}
+
+/* Fade-out gradient at bottom - subtle hint only */
+.u-truncate::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0, 0, 0, 0.15)
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Show fade only when content overflows */
+.u-truncate.is-overflowing::after {
+    opacity: 1;
+}
+
+/* Ellipsis link - hidden by default, shown when overflowing */
+.u-truncate__more {
+    display: none;
+    position: absolute;
+    bottom: -4px; /* Baseline align with text */
+    right: 0;
+    z-index: 1;
+    padding-inline: 1.5rem 0.5rem;
+    background: linear-gradient(to right, transparent, #2f1010 40%);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-fg-body);
+}
+
+.u-truncate__more:hover {
+    color: var(--color-accent);
+}
+
+.u-truncate.is-overflowing .u-truncate__more {
+    display: block;
+}

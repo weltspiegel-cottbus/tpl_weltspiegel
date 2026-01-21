@@ -8,6 +8,7 @@ import '../css/template.css';
 
 // Import modules
 import './_navigation.js';
+import './_truncate.js';
 import './_showbox.js';
 import './_youtube.js';
 import './_cookie-consent.js';

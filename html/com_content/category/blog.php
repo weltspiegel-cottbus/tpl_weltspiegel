@@ -75,9 +75,11 @@ $emptyMessages = [
                         </h2>
 
                         <?php if (!empty($item->introtext)): ?>
-                            <div class="content-card__description">
-                                <?= $item->introtext ?>
-                            </div>
+                            <?= LayoutHelper::render('utilities.truncate', [
+                                'content' => $item->introtext,
+                                'link'    => $articleLink,
+                                'class'   => 'content-card__description',
+                            ]) ?>
                         <?php endif; ?>
                     </article>
 

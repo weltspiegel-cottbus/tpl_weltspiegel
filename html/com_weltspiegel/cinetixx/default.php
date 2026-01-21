@@ -58,9 +58,12 @@ $futureHeadingShown = false;
                     </a>
                 </h2>
 
-                <div class="cinetixx-card__description">
-                    <?= $event->text ?>
-                </div>
+                <?= LayoutHelper::render('utilities.truncate', [
+                    'content' => $event->text,
+                    'link'    => $detailRoute,
+                    'height'  => '11rem',
+                    'class'   => 'cinetixx-card__description',
+                ]) ?>
 
                 <div class="cinetixx-card__details">
                     Dauer: <?= htmlspecialchars($event->duration) ?>,

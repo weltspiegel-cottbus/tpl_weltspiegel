@@ -143,22 +143,7 @@
 
     .content-card__description {
         order: unset;
-        /* Truncate to fit alongside floated poster */
-        max-height: 12rem;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .content-card__description::after {
-        /* Fade out effect at bottom */
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2rem;
-        background: linear-gradient(to bottom, transparent, var(--color-bg-body));
-        pointer-events: none;
+        /* Truncation handled by u-truncate utility class via layout */
     }
 
     /* Clear float after card */

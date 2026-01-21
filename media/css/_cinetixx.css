@@ -119,23 +119,7 @@
 
     .cinetixx-card__description {
         order: unset;
-        /* Truncate to fit alongside floated poster */
-        /* Image is 15rem tall, title ~2.5rem, details ~1.5rem = ~11rem for text */
-        max-height: 11rem;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .cinetixx-card__description::after {
-        /* Fade out effect at bottom */
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2rem;
-        background: linear-gradient(to bottom, transparent, var(--color-bg-body));
-        pointer-events: none;
+        /* Truncation handled by u-truncate utility class via layout */
     }
 
     .cinetixx-card__details {
