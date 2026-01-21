@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.8.5
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.4...v0.8.5)
+
+### 🚀 Enhancements
+
+- Implement the truncation feature. ([1857a84](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/1857a84))
+
 ## v0.8.4
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.3...v0.8.4)
