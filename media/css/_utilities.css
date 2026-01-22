@@ -6,7 +6,7 @@
 /* Flipped Title - Rotated 90° counterclockwise on left side */
 .u-flipped-title {
     font-family: 'Kameron', serif;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 500;
     line-height: 1.2;
     margin: 0;
