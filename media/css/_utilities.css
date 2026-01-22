@@ -13,6 +13,11 @@
     color: var(--color-accent);
 }
 
+/* Desktop-only modifier - hidden on mobile */
+.u-flipped-title--desktop-only {
+    display: none;
+}
+
 @media (min-width: 768px) {
     .u-flipped-title-container {
         position: relative;
@@ -25,5 +30,9 @@
         white-space: nowrap;
         top: 1rem;
         left: 4rem;
+    }
+
+    .u-flipped-title--desktop-only {
+        display: block;
     }
 }

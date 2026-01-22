@@ -27,13 +27,14 @@ $isComponentManaged = $useContentSingleLayout && (!empty($attribs['source']) && 
 // Check for optional content elements
 $hasYouTubeTrailer = !empty($attribs['youtube_url']);
 $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_intro']);
+
 ?>
 
 <?php if ($isComponentManaged): ?>
     <!-- Component-managed article -->
-    <article class="content-single content-single--full u-flipped-title-container">
+    <article class="content-single content-single--full">
         <?php if ($this->params->get('show_title')): ?>
-            <h1 class="content-single__title u-flipped-title"><?= $this->escape($this->item->title) ?></h1>
+            <h1 class="content-single__title"><?= $this->escape($this->item->title) ?></h1>
         <?php endif; ?>
 
         <?php if ($hasBannerImage): ?>
@@ -68,9 +69,9 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
 
 <?php elseif ($useContentSingleLayout): ?>
     <!-- Freeform article in card-layout category -->
-    <article class="content-single content-single--simple u-flipped-title-container">
+    <article class="content-single content-single--simple">
         <?php if ($this->params->get('show_title')): ?>
-            <h1 class="content-single__title u-flipped-title"><?= $this->escape($this->item->title) ?></h1>
+            <h1 class="content-single__title"><?= $this->escape($this->item->title) ?></h1>
         <?php endif; ?>
 
         <?php if ($hasBannerImage): ?>

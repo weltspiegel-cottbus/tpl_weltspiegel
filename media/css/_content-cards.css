@@ -159,7 +159,7 @@
    ======================================== */
 
 .content-single {
-    padding: 1rem;
+    padding: 1rem clamp(1rem, 5vw, 4rem);
 }
 
 .content-single__header {
@@ -167,8 +167,11 @@
 }
 
 .content-single__title {
-    margin: 0;
-    /* font-size and color handled by .u-flipped-title */
+    margin: 0 0 1rem 0;
+    font-family: 'Kameron', serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 500;
+    color: var(--color-accent);
 }
 
 .content-single__banner {
@@ -206,7 +209,7 @@
 /* Desktop single view */
 @media (min-width: 768px) {
     .content-single {
-        padding: 1rem 1rem 3rem 5rem;
+        padding: 1rem clamp(1rem, 5vw, 4rem) 3rem;
     }
 
     .content-single__banner {
