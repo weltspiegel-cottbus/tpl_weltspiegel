@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.8.6
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.5...v0.8.6)
+
+### 🩹 Fixes
+
+- Align font-sizes of flipped titles. ([2107a3e](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2107a3e))
+
+### 💅 Refactors
+
+- Start aligning the single item views. ([b737734](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/b737734))
+
 ## v0.8.5
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.4...v0.8.5)
