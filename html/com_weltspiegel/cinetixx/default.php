@@ -52,23 +52,26 @@ $futureHeadingShown = false;
                     </a>
                 </div>
 
-                <h2 class="cinetixx-card__title">
-                    <a href="<?= $detailRoute ?>" class="cinetixx-card__title-link">
-                        <?= $this->escape($event->title) ?>
-                    </a>
-                </h2>
+                <div class="cinetixx-card__content">
+                    <h2 class="cinetixx-card__title">
+                        <a href="<?= $detailRoute ?>" class="cinetixx-card__title-link">
+                            <?= $this->escape($event->title) ?>
+                        </a>
+                    </h2>
 
-                <?= LayoutHelper::render('utilities.truncate', [
-                    'content' => $event->text,
-                    'link'    => $detailRoute,
-                    'height'  => '11rem',
-                    'class'   => 'cinetixx-card__description',
-                ]) ?>
+                    <?= LayoutHelper::render('utilities.truncate', [
+                        'content' => $event->text,
+                        'link'    => $detailRoute,
+                        'height'  => '11rem',
+                        'class'   => 'cinetixx-card__description',
+                    ]) ?>
+                </div>
 
                 <div class="cinetixx-card__details">
-                    Dauer: <?= htmlspecialchars($event->duration) ?>,
+                    Dauer: <?= htmlspecialchars($event->duration) ?> min,
                     Sprache: <?= htmlspecialchars($event->languageShort) ?>,
-                    FSK: <?= htmlspecialchars($event->fsk) ?>
+                    FSK: <?= htmlspecialchars($event->fsk) ?><?php if (!empty($event->genre) && $event->genre !== '-'): ?>,
+                    Genre: <?= htmlspecialchars($event->genre) ?><?php endif; ?>
                 </div>
 
                 <div class="cinetixx-card__showbox">

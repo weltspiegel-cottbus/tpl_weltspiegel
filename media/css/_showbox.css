@@ -2,10 +2,6 @@
  * Showbox Styles
  */
 
-.showbox {
-    margin-block-start: 2rem;
-}
-
 /* Navigation */
 .showbox-navigation {
     display: flex;

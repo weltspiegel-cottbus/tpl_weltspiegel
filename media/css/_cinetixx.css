@@ -24,18 +24,20 @@
 }
 
 .cinetixx-card {
-    /* Mobile: flexbox for reordering */
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+        "poster"
+        "content"
+        "details"
+        "showbox";
     gap: 1rem;
-    /* Border for better item separation (accessibility) */
     border: 1px solid #f2940080;
     border-radius: 0.25rem;
     padding: 1rem;
 }
 
 .cinetixx-card__poster {
-    order: 1;
+    grid-area: poster;
 }
 
 .cinetixx-card__poster-link {
@@ -50,9 +52,12 @@
     margin: 0 auto;
 }
 
+.cinetixx-card__content {
+    grid-area: content;
+}
+
 .cinetixx-card__title {
-    order: 2;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
     font-size: 1.5rem;
     font-weight: 500;
 }
@@ -68,20 +73,20 @@
 }
 
 .cinetixx-card__description {
-    order: 3;
     line-height: 1.6;
-    /* Mobile: no truncation, show full text */
 }
 
 .cinetixx-card__details {
-    order: 4;
+    grid-area: details;
     font-style: italic;
-    font-size: 0.875rem;
+    font-weight: 500;
     opacity: 0.9;
+    margin-block: 0.5rem;
+    padding-inline-start: 1rem;
 }
 
 .cinetixx-card__showbox {
-    order: 5;
+    grid-area: showbox;
 }
 
 /* Desktop: 768px+ */
@@ -91,41 +96,20 @@
     }
 
     .cinetixx-card {
-        /* Reset to block layout for float */
-        display: block;
-    }
-
-    .cinetixx-card__poster {
-        order: unset;
-        float: left;
-        width: 10.75rem; /* 172px - matches component */
-        margin-inline-end: 1.5rem;
-        margin-block-end: 1rem;
+        grid-template-columns: 10.75rem 1fr;
+        grid-template-areas:
+            "poster content"
+            "details details"
+            "showbox showbox";
+        gap: 1rem 1.5rem;
     }
 
     .cinetixx-card__poster-img {
-        width: 100%;
         max-width: none;
         margin: 0;
     }
 
-    .cinetixx-card__title {
-        order: unset;
-        margin-block-end: 0.5rem;
-    }
-
-    .cinetixx-card__description {
-        order: unset;
-        /* Truncation handled by u-truncate utility class via layout */
-    }
-
     .cinetixx-card__details {
-        order: unset;
-        margin-block-start: 0.5rem;
-    }
-
-    .cinetixx-card__showbox {
-        order: unset;
-        clear: both;
+        text-align: center;
     }
 }
