@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.8.8
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.7...v0.8.8)
+
+### 🚀 Enhancements
+
+- Add flipped titles to the single view items. ([986a970](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/986a970))
+- Reuse orange box pattern on single item views. ([0324f89](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/0324f89))
+
+### 🩹 Fixes
+
+- Remove horizontal spacing on mobile. Resolves #12 ([#12](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/12))
+- Increase hover color contrast. Resolves https://github.com/weltspiegel-cottbus/mod_cookie_consent/issues/1 as well. ([982caff](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/982caff))
+- Reduce content on voutube placeholder. Resolves #13 ([#13](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/13))
+
+### 🏡 Chore
+
+- Add design docs. ([a802239](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/a802239))
+
 ## v0.8.7
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.6...v0.8.7)
