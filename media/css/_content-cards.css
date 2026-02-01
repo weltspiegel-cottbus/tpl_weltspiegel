@@ -139,6 +139,12 @@
     padding: 1rem 0.5rem;
 }
 
+.content-single__inner {
+    border: 1px solid #f2940080;
+    border-radius: 0.25rem;
+    padding: 1rem 0.5rem;
+}
+
 .content-single__header {
     margin-block-end: 1.5rem;
 }
@@ -187,6 +193,10 @@
 @media (min-width: 768px) {
     .content-single {
         padding: 1rem 1rem 3rem 5rem; /* Left: 4rem for title + 1rem spacing */
+    }
+
+    .content-single__inner {
+        padding: 1rem;
     }
 
     .content-single__banner {

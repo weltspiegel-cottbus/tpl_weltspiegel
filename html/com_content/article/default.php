@@ -41,68 +41,72 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
     <!-- Component-managed article -->
     <article class="content-single content-single--full u-flipped-title-container">
         <span class="u-flipped-title u-flipped-title--desktop-only"><?= $flippedTitle ?></span>
-        <?php if ($this->params->get('show_title')): ?>
-            <h1 class="content-single__title"><?= $this->escape($this->item->title) ?></h1>
-        <?php endif; ?>
+        <div class="content-single__inner">
+            <?php if ($this->params->get('show_title')): ?>
+                <h1 class="content-single__title"><?= $this->escape($this->item->title) ?></h1>
+            <?php endif; ?>
 
-        <?php if ($hasBannerImage): ?>
-            <div class="content-single__banner">
-                <?php
-                $bannerImage = !empty($images['image_fulltext']) ? $images['image_fulltext'] : $images['image_intro'];
-                $bannerAlt = !empty($images['image_fulltext_alt']) ? $images['image_fulltext_alt'] : ($images['image_intro_alt'] ?? '');
-                ?>
-                <img src="<?= htmlspecialchars($bannerImage) ?>"
-                     alt="<?= htmlspecialchars($bannerAlt ?: $this->item->title) ?>"
-                     class="content-single__banner-image">
+            <?php if ($hasBannerImage): ?>
+                <div class="content-single__banner">
+                    <?php
+                    $bannerImage = !empty($images['image_fulltext']) ? $images['image_fulltext'] : $images['image_intro'];
+                    $bannerAlt = !empty($images['image_fulltext_alt']) ? $images['image_fulltext_alt'] : ($images['image_intro_alt'] ?? '');
+                    ?>
+                    <img src="<?= htmlspecialchars($bannerImage) ?>"
+                         alt="<?= htmlspecialchars($bannerAlt ?: $this->item->title) ?>"
+                         class="content-single__banner-image">
+                </div>
+            <?php endif; ?>
+
+            <?= $this->item->event->afterDisplayTitle ?>
+            <?= $this->item->event->beforeDisplayContent ?>
+
+            <div class="content-single__body">
+                <?= $this->item->fulltext ?: $this->item->introtext ?>
             </div>
-        <?php endif; ?>
 
-        <?= $this->item->event->afterDisplayTitle ?>
-        <?= $this->item->event->beforeDisplayContent ?>
+            <?php if ($hasYouTubeTrailer): ?>
+                <div class="content-single__trailer">
+                    <?= LayoutHelper::render('com_weltspiegel.youtube.embed', [
+                        'videoId' => $attribs['youtube_url']
+                    ]) ?>
+                </div>
+            <?php endif; ?>
 
-        <div class="content-single__body">
-            <?= $this->item->fulltext ?: $this->item->introtext ?>
+            <?= $this->item->event->afterDisplayContent ?>
         </div>
-
-        <?php if ($hasYouTubeTrailer): ?>
-            <div class="content-single__trailer">
-                <?= LayoutHelper::render('com_weltspiegel.youtube.embed', [
-                    'videoId' => $attribs['youtube_url']
-                ]) ?>
-            </div>
-        <?php endif; ?>
-
-        <?= $this->item->event->afterDisplayContent ?>
     </article>
 
 <?php elseif ($useContentSingleLayout): ?>
     <!-- Freeform article in card-layout category -->
     <article class="content-single content-single--simple u-flipped-title-container">
         <span class="u-flipped-title u-flipped-title--desktop-only"><?= $flippedTitle ?></span>
-        <?php if ($this->params->get('show_title')): ?>
-            <h1 class="content-single__title"><?= $this->escape($this->item->title) ?></h1>
-        <?php endif; ?>
+        <div class="content-single__inner">
+            <?php if ($this->params->get('show_title')): ?>
+                <h1 class="content-single__title"><?= $this->escape($this->item->title) ?></h1>
+            <?php endif; ?>
 
-        <?php if ($hasBannerImage): ?>
-            <div class="content-single__banner">
-                <?php
-                $bannerImage = !empty($images['image_fulltext']) ? $images['image_fulltext'] : $images['image_intro'];
-                $bannerAlt = !empty($images['image_fulltext_alt']) ? $images['image_fulltext_alt'] : ($images['image_intro_alt'] ?? '');
-                ?>
-                <img src="<?= htmlspecialchars($bannerImage) ?>"
-                     alt="<?= htmlspecialchars($bannerAlt ?: $this->item->title) ?>"
-                     class="content-single__banner-image">
+            <?php if ($hasBannerImage): ?>
+                <div class="content-single__banner">
+                    <?php
+                    $bannerImage = !empty($images['image_fulltext']) ? $images['image_fulltext'] : $images['image_intro'];
+                    $bannerAlt = !empty($images['image_fulltext_alt']) ? $images['image_fulltext_alt'] : ($images['image_intro_alt'] ?? '');
+                    ?>
+                    <img src="<?= htmlspecialchars($bannerImage) ?>"
+                         alt="<?= htmlspecialchars($bannerAlt ?: $this->item->title) ?>"
+                         class="content-single__banner-image">
+                </div>
+            <?php endif; ?>
+
+            <?= $this->item->event->afterDisplayTitle ?>
+            <?= $this->item->event->beforeDisplayContent ?>
+
+            <div class="content-single__body">
+                <?= $this->item->text ?>
             </div>
-        <?php endif; ?>
 
-        <?= $this->item->event->afterDisplayTitle ?>
-        <?= $this->item->event->beforeDisplayContent ?>
-
-        <div class="content-single__body">
-            <?= $this->item->text ?>
+            <?= $this->item->event->afterDisplayContent ?>
         </div>
-
-        <?= $this->item->event->afterDisplayContent ?>
     </article>
 
 <?php else: ?>
