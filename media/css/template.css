@@ -19,6 +19,7 @@
 @import './_content-cards.css';
 @import './_current-events.css';
 @import './_cookie-consent.css';
+@import './_error.css';
 
 /* Reset & Base */
 * {

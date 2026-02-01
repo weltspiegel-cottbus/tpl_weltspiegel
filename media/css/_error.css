@@ -1,0 +1,68 @@
+/**
+ * Error Page Styles
+ */
+
+.error-page {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.error-page__title {
+    font-family: 'Kameron', serif;
+    font-size: clamp(4rem, 15vw, 8rem);
+    font-weight: 500;
+    color: var(--color-accent);
+    margin: 0 0 1rem 0;
+    line-height: 1;
+}
+
+.error-page__message {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.error-page__hint {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.8;
+    margin: 0 0 2rem 0;
+}
+
+.error-page__nav {
+    margin-block-start: 2rem;
+    padding-block-start: 2rem;
+    border-top: 1px dashed #f2940080;
+}
+
+.error-page__nav p {
+    margin: 0 0 1rem 0;
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+.error-page__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+}
+
+.error-page__links a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-bg-body);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.error-page__links a:hover {
+    background-color: var(--color-accent-hover-bg);
+    color: var(--color-bg-body);
+}
