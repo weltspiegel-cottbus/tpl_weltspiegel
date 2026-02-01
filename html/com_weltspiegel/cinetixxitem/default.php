@@ -16,7 +16,8 @@ use Joomla\CMS\Layout\LayoutHelper;
 $event = $this->item;
 ?>
 
-<article class="cinetixxitem">
+<article class="cinetixxitem u-flipped-title-container">
+    <span class="u-flipped-title u-flipped-title--desktop-only">Programm</span>
     <h1 class="cinetixxitem__title"><?= $this->escape($this->title) ?></h1>
 
     <div class="cinetixxitem__poster">

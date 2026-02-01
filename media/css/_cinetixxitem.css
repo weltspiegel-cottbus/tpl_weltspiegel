@@ -82,7 +82,7 @@
     .cinetixxitem {
         /* Reset flex ordering for desktop flow */
         display: block;
-        padding: 1rem 1rem 3rem;
+        padding: 1rem 1rem 3rem 5rem; /* Left: 4rem for title + 1rem spacing */
     }
 
     .cinetixxitem__title {

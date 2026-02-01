@@ -17,6 +17,13 @@ use Joomla\CMS\Layout\LayoutHelper;
 // Categories using content-single layout (Vorschauen: 8, Veranstaltungen: 9)
 $useContentSingleLayout = in_array($this->item->catid, [8, 9]);
 
+// Flipped title for content-single layout
+$flippedTitle = match ((int) $this->item->catid) {
+    8 => 'Vorschau',
+    9 => 'Veranstaltung',
+    default => '',
+};
+
 // Parse article attributes
 $attribs = json_decode($this->item->attribs, true) ?: [];
 $images = json_decode($this->item->images, true) ?: [];
@@ -32,7 +39,8 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
 
 <?php if ($isComponentManaged): ?>
     <!-- Component-managed article -->
-    <article class="content-single content-single--full">
+    <article class="content-single content-single--full u-flipped-title-container">
+        <span class="u-flipped-title u-flipped-title--desktop-only"><?= $flippedTitle ?></span>
         <?php if ($this->params->get('show_title')): ?>
             <h1 class="content-single__title"><?= $this->escape($this->item->title) ?></h1>
         <?php endif; ?>
@@ -69,7 +77,8 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
 
 <?php elseif ($useContentSingleLayout): ?>
     <!-- Freeform article in card-layout category -->
-    <article class="content-single content-single--simple">
+    <article class="content-single content-single--simple u-flipped-title-container">
+        <span class="u-flipped-title u-flipped-title--desktop-only"><?= $flippedTitle ?></span>
         <?php if ($this->params->get('show_title')): ?>
             <h1 class="content-single__title"><?= $this->escape($this->item->title) ?></h1>
         <?php endif; ?>

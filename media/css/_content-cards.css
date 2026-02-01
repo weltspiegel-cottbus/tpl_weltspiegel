@@ -186,7 +186,7 @@
 /* Desktop single view */
 @media (min-width: 768px) {
     .content-single {
-        padding: 1rem 1rem 3rem;
+        padding: 1rem 1rem 3rem 5rem; /* Left: 4rem for title + 1rem spacing */
     }
 
     .content-single__banner {
