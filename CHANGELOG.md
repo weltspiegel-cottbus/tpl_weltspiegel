@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.9.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.8...v0.9.0)
+
+### 🚀 Enhancements
+
+- Provide an error page. Resolves https://github.com/weltspiegel-cottbus/com_weltspiegel/issues/24 ([2e88076](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2e88076))
+
+### 🩹 Fixes
+
+- Enhance the empty views a little. Resolves #10 ([#10](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/10))
+
 ## v0.8.8
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.7...v0.8.8)
