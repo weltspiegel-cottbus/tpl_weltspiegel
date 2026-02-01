@@ -1,6 +1,15 @@
 # Changelog
 
 
+## v0.9.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.0...v0.9.1)
+
+### 🏡 Chore
+
+- Update creation date. ([814777c](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/814777c))
+- Add english language strings. ([2c81100](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2c81100))
+
 ## v0.9.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.8...v0.9.0)
