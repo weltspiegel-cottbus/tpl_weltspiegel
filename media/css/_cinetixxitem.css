@@ -6,7 +6,7 @@
     /* Mobile: flexbox with order for reordering */
     display: flex;
     flex-direction: column;
-    padding: 1rem clamp(1rem, 5vw, 4rem);
+    padding: 1rem 0.5rem;
 }
 
 .cinetixxitem__title {
@@ -82,7 +82,7 @@
     .cinetixxitem {
         /* Reset flex ordering for desktop flow */
         display: block;
-        padding: 1rem clamp(1rem, 5vw, 4rem) 3rem;
+        padding: 1rem 1rem 3rem;
     }
 
     .cinetixxitem__title {
