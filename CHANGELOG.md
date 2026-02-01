@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.8.7
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.6...v0.8.7)
+
+### 🚀 Enhancements
+
+- Refined truncation. ([ad0ac0f](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/ad0ac0f))
+
+### 🩹 Fixes
+
+- Remove fix height from posters. ([f4a01cc](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/f4a01cc))
+
+### 💅 Refactors
+
+- Make the details more prominent. ([baa30c4](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/baa30c4))
+
+### 🏡 Chore
+
+- Add js sourcemaps. ([73dc1e7](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/73dc1e7))
+
 ## v0.8.6
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.8.5...v0.8.6)
