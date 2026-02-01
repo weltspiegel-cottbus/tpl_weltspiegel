@@ -75,7 +75,7 @@
 }
 
 .youtube-embed__placeholder-link:hover {
-    background-color: var(--color-accent-hover);
+    background-color: var(--color-accent-hover-bg);
     color: var(--color-bg-body);
 }
 

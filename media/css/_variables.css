@@ -14,7 +14,8 @@
 
     /* Accent Colors */
     --color-accent: #f29400;
-    --color-accent-hover: color-mix(in srgb, var(--color-accent) 80%, black); /* Darker accent for hover states */
+    --color-accent-hover: color-mix(in srgb, var(--color-accent) 80%, black); /* Darker accent for text hover states */
+    --color-accent-hover-bg: color-mix(in srgb, var(--color-accent) 80%, white); /* Lighter accent for background hover states */
 
     /* Showbox Colors */
     --showbox-header-bg: rgba(170, 119, 84, 0.4);
