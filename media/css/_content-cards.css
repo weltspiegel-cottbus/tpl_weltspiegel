@@ -102,9 +102,13 @@
 
 /* Empty state */
 .content-list__empty {
+    text-align: center;
     font-size: 1.125rem;
     font-style: italic;
     opacity: 0.8;
+    padding: 2rem 1rem;
+    border: 1px dashed #f2940080;
+    border-radius: 0.25rem;
 }
 
 .content-list__empty p {
