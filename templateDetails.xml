@@ -2,7 +2,7 @@
 <extension type="template" client="site" method="upgrade">
     <name>weltspiegel</name>
     <version>0.9.0</version>
-    <creationDate>Dezember 2025</creationDate>
+    <creationDate>18.12.2025</creationDate>
     <author>Michael Buchholz</author>
     <copyright>Weltspiegel Cottbus</copyright>
     <license>MIT</license>
