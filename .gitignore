@@ -7,6 +7,7 @@ node_modules/
 # Build output
 media/css/*.min.css
 media/js/*.min.js
+media/js/*.min.js.map
 
 # Package files
 *.zip

@@ -12,6 +12,7 @@ export default defineConfig({
     outDir: 'media/js',
     emptyOutDir: false,
     minify: true,
+    sourcemap: true,
     rollupOptions: {
       output: {
         assetFileNames: 'template.min.css'
