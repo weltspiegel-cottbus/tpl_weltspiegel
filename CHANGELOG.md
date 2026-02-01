@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v0.9.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.1...v0.9.2)
+
+### 🩹 Fixes
+
+- Do not show outdated events. ([941e101](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/941e101))
+
 ## v0.9.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.0...v0.9.1)
