@@ -68,19 +68,18 @@ $emptyMessages = [
                             </div>
                         <?php endif; ?>
 
-                        <h2 class="content-card__title">
-                            <a href="<?= $articleLink ?>" class="content-card__title-link">
-                                <?= $this->escape($item->title) ?>
-                            </a>
-                        </h2>
-
-                        <?php if (!empty($item->introtext)): ?>
-                            <?= LayoutHelper::render('utilities.truncate', [
-                                'content' => $item->introtext,
-                                'link'    => $articleLink,
-                                'class'   => 'content-card__description',
-                            ]) ?>
-                        <?php endif; ?>
+                        <?php
+                        $titleHtml = '<h2 class="content-card__title"><a href="' . $articleLink . '" class="content-card__title-link">' . $this->escape($item->title) . '</a></h2>';
+                        $tagline = $attribs['tagline'] ?? '';
+                        $contentHtml = !empty($item->introtext) ? '<div class="content-card__description">' . $item->introtext . '</div>' : '';
+                        ?>
+                        <?= LayoutHelper::render('utilities.truncate', [
+                            'title'   => $titleHtml,
+                            'tagline' => $tagline,
+                            'content' => $contentHtml,
+                            'link'    => $articleLink,
+                            'class'   => 'content-card__content',
+                        ]) ?>
                     </article>
 
                 <?php endforeach; ?>

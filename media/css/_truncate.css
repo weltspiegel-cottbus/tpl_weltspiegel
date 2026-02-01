@@ -5,8 +5,19 @@
 
 .u-truncate {
     position: relative;
-    max-height: var(--truncate-height, 12rem);
+    max-height: var(--truncate-height, var(--truncate-content-height, 15rem));
     overflow: hidden;
+}
+
+/* Tagline - short info below title (e.g. release date) */
+.u-truncate__tagline {
+    margin: 0 0 0.5rem 0;
+    font-style: italic;
+}
+
+/* Content wrapper - the part that gets truncated */
+.u-truncate__content {
+    /* Inherits overflow behavior from parent */
 }
 
 /* Fade-out gradient at bottom - subtle hint only */

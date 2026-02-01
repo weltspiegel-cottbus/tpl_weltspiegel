@@ -52,20 +52,15 @@ $futureHeadingShown = false;
                     </a>
                 </div>
 
-                <div class="cinetixx-card__content">
-                    <h2 class="cinetixx-card__title">
-                        <a href="<?= $detailRoute ?>" class="cinetixx-card__title-link">
-                            <?= $this->escape($event->title) ?>
-                        </a>
-                    </h2>
-
-                    <?= LayoutHelper::render('utilities.truncate', [
-                        'content' => $event->text,
-                        'link'    => $detailRoute,
-                        'height'  => '11rem',
-                        'class'   => 'cinetixx-card__description',
-                    ]) ?>
-                </div>
+                <?php
+                $titleHtml = '<h2 class="cinetixx-card__title"><a href="' . $detailRoute . '" class="cinetixx-card__title-link">' . $this->escape($event->title) . '</a></h2>';
+                ?>
+                <?= LayoutHelper::render('utilities.truncate', [
+                    'title'   => $titleHtml,
+                    'content' => '<div class="cinetixx-card__description">' . $event->text . '</div>',
+                    'link'    => $detailRoute,
+                    'class'   => 'cinetixx-card__content',
+                ]) ?>
 
                 <div class="cinetixx-card__details">
                     Dauer: <?= htmlspecialchars($event->duration) ?> min,

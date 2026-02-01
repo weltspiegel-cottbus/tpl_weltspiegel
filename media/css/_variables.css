@@ -30,4 +30,7 @@
 
     /* Content width */
     --content-width: 48rem; /* Flow text width (optimal reading) */
+
+    /* Truncate height for card content (title + description) */
+    --truncate-content-height: 15rem;
 }

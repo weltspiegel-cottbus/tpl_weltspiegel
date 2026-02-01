@@ -30,19 +30,20 @@
     gap: 2rem;
 }
 
-/* Content Card - Mobile first */
+/* Content Card - Mobile first (grid layout) */
 .content-card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+        "poster"
+        "content";
     gap: 1rem;
-    /* Border for better item separation (accessibility) */
     border: 1px solid #f2940080;
     border-radius: 0.25rem;
     padding: 1rem;
 }
 
 .content-card__poster {
-    order: 1;
+    grid-area: poster;
 }
 
 .content-card__poster-link {
@@ -57,9 +58,12 @@
     margin: 0 auto;
 }
 
+.content-card__content {
+    grid-area: content;
+}
+
 .content-card__title {
-    order: 2;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
     font-size: 1.5rem;
     font-weight: 500;
 }
@@ -75,7 +79,6 @@
 }
 
 .content-card__description {
-    order: 3;
     line-height: 1.6;
 }
 
@@ -115,42 +118,15 @@
     }
 
     .content-card {
-        /* Reset to block layout for float */
-        display: block;
-    }
-
-    .content-card__poster {
-        order: unset;
-        float: left;
-        width: 10.75rem; /* 172px - matches cinetixx */
-        height: 15rem; /* 240px - matches cinetixx */
-        margin-inline-end: 1.5rem;
-        margin-block-end: 1rem;
+        grid-template-columns: 10.75rem 1fr;
+        grid-template-areas:
+            "poster content";
+        gap: 1rem 1.5rem;
     }
 
     .content-card__poster-img {
-        width: 100%;
-        height: 100%;
         max-width: none;
         margin: 0;
-        object-fit: cover;
-    }
-
-    .content-card__title {
-        order: unset;
-        margin-block-end: 0.5rem;
-    }
-
-    .content-card__description {
-        order: unset;
-        /* Truncation handled by u-truncate utility class via layout */
-    }
-
-    /* Clear float after card */
-    .content-card::after {
-        content: '';
-        display: table;
-        clear: both;
     }
 }
 
