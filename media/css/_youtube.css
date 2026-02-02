@@ -91,6 +91,12 @@
     height: 360px;
 }
 
+/* Clear float when inside content body (freeform articles) */
+.content-single__body .youtube-embed {
+    clear: both;
+    padding-top: 2rem;
+}
+
 /* Responsive spacing */
 @media (min-width: 768px) {
     .youtube-embed__placeholder-content {
