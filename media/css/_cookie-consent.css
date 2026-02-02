@@ -53,21 +53,21 @@
 }
 
 .cookie-consent-banner__btn--accept {
-    background-color: #28a745;
-    color: white;
-}
-
-.cookie-consent-banner__btn--accept:hover {
-    background-color: #218838;
-}
-
-.cookie-consent-banner__btn--decline {
     background-color: #dc3545;
     color: white;
 }
 
-.cookie-consent-banner__btn--decline:hover {
+.cookie-consent-banner__btn--accept:hover {
     background-color: #c82333;
+}
+
+.cookie-consent-banner__btn--decline {
+    background-color: #28a745;
+    color: white;
+}
+
+.cookie-consent-banner__btn--decline:hover {
+    background-color: #218838;
 }
 
 /* Cookie drawer (reopens banner) */

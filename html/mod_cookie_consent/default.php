@@ -30,11 +30,11 @@
             <?= htmlspecialchars($consentText) ?>
         </p>
         <div class="cookie-consent-banner__actions">
-            <button id="cookieConsentEnable" class="cookie-consent-banner__btn cookie-consent-banner__btn--accept">
-                <?= htmlspecialchars($buttonEnable) ?>
-            </button>
             <button id="cookieConsentDismiss" class="cookie-consent-banner__btn cookie-consent-banner__btn--decline">
                 <?= htmlspecialchars($buttonDismiss) ?>
+            </button>
+            <button id="cookieConsentEnable" class="cookie-consent-banner__btn cookie-consent-banner__btn--accept">
+                <?= htmlspecialchars($buttonEnable) ?>
             </button>
         </div>
     </div>
