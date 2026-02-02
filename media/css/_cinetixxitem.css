@@ -104,7 +104,7 @@
     .cinetixxitem__poster {
         order: unset;
         float: left;
-        width: 10.75rem; /* 172px - matches component */
+        width: 10.75rem;
         margin-inline-end: 1.5rem;
         margin-block-end: 1rem;
     }

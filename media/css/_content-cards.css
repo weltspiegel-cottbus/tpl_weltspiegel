@@ -167,9 +167,10 @@
 
 .content-single__banner-image {
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     height: auto;
     display: block;
+    margin: 0 auto;
 }
 
 .content-single__content {
