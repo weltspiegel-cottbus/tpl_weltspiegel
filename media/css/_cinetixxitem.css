@@ -80,17 +80,19 @@
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
 }
 
 .cinetixxitem__gallery-item {
-    /* Mobile: vertical stack */
+    flex: 0 0 auto;
 }
 
 .cinetixxitem__gallery-img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 200px;
     display: block;
 }
 
@@ -158,22 +160,5 @@
 
     .cinetixxitem__gallery {
         order: unset;
-    }
-
-    .cinetixxitem__gallery-list {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    .cinetixxitem__gallery-item {
-        flex: 0 0 auto;
-    }
-
-    .cinetixxitem__gallery-img {
-        width: auto;
-        max-width: 300px;
-        max-height: 200px;
     }
 }
