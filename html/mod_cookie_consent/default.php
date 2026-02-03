@@ -25,6 +25,7 @@
 
 <!-- Cookie Consent Banner -->
 <div id="cookieConsentBanner" class="cookie-consent-banner cookie-consent-hidden">
+    <button id="cookieConsentClose" class="cookie-consent-banner__close" type="button" aria-label="Schließen"></button>
     <div class="cookie-consent-banner__container">
         <p class="cookie-consent-banner__text">
             <?= htmlspecialchars($consentText) ?>
@@ -41,6 +42,6 @@
 </div>
 
 <!-- Cookie Consent Drawer (reopens banner) -->
-<div id="cookieConsentDrawer" class="cookie-consent-drawer">
+<button id="cookieConsentDrawer" class="cookie-consent-drawer" type="button">
     <?= htmlspecialchars($drawerText) ?>
-</div>
+</button>

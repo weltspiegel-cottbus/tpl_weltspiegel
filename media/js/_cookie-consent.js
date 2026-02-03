@@ -8,10 +8,11 @@ class CookieConsent {
         this.storageKey = 'cookie_consent';
         this.banner = document.getElementById('cookieConsentBanner');
         this.drawer = document.getElementById('cookieConsentDrawer');
+        this.closeBtn = document.getElementById('cookieConsentClose');
         this.enableBtn = document.getElementById('cookieConsentEnable');
         this.dismissBtn = document.getElementById('cookieConsentDismiss');
 
-        if (!this.banner || !this.drawer || !this.enableBtn || !this.dismissBtn) {
+        if (!this.banner || !this.drawer || !this.closeBtn || !this.enableBtn || !this.dismissBtn) {
             return;
         }
 
@@ -41,11 +42,13 @@ class CookieConsent {
     showBanner() {
         this.banner.classList.remove('cookie-consent-hidden');
         this.drawer.style.display = 'none';
+        // Focus dismiss button for accessibility
+        this.dismissBtn.focus();
     }
 
     hideBanner() {
         this.banner.classList.add('cookie-consent-hidden');
-        this.drawer.style.display = 'block';
+        this.drawer.style.display = '';
     }
 
     init() {
@@ -72,6 +75,17 @@ class CookieConsent {
 
         this.drawer.addEventListener('click', () => {
             this.showBanner();
+        });
+
+        this.closeBtn.addEventListener('click', () => {
+            this.hideBanner();
+        });
+
+        // Close banner with Escape key (without setting consent)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !this.banner.classList.contains('cookie-consent-hidden')) {
+                this.hideBanner();
+            }
         });
 
         // Listen for external requests to show the banner
