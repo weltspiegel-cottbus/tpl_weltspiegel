@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.0.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.5...v1.0.0)
+
+### 🩹 Fixes
+
+- Do not blow up small gallery pics. ([4639da3](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/4639da3))
+- Make cookie consent more accessible. Resolves #17. ([#17](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/17))
+
+### 💅 Refactors
+
+- Make event details more prominent. ([63bbb93](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/63bbb93))
+
 ## v0.9.5
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.4...v0.9.5)
