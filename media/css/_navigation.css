@@ -417,29 +417,43 @@
 
     .main-nav__desktop-sublink {
         display: block;
-        padding: 0.5rem 1rem 0.5rem 1rem;
+        position: relative;
+        padding: 0.5rem 1rem;
         color: var(--color-fg-body);
         font-family: 'Kameron', serif;
         font-size: 1rem;
         letter-spacing: 0.025em;
         text-decoration: none;
-        border-left: 3px solid transparent;
-        border-radius: 0.25rem;
-        transition: background-color 0.2s, border-color 0.2s;
         text-transform: uppercase;
-    }
-
-    .main-nav__desktop-sublink {
-        color: var(--color-fg-body);
     }
 
     .main-nav__desktop-sublink:hover {
         color: var(--color-fg-body);
-        background-color: rgba(255, 255, 255, 0.15);
     }
 
-    .main-nav__desktop-subitem--active .main-nav__desktop-sublink {
-        border-radius: 0 0.25rem 0.25rem 0;
-        border-left-color: var(--color-accent);
+    /* Left border animation */
+    .main-nav__desktop-sublink::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 3px;
+        height: 0;
+        background-color: var(--color-accent);
+        transform: translateY(-50%);
+        transition: height 0.3s;
+    }
+
+    .main-nav__desktop-sublink:hover::after,
+    .main-nav__desktop-subitem--active .main-nav__desktop-sublink::after {
+        height: 100%;
+    }
+
+    .main-nav__desktop-subitem--active .main-nav__desktop-sublink::after {
+        opacity: 0.7;
+    }
+
+    .main-nav__desktop-subitem--active .main-nav__desktop-sublink:hover::after {
+        opacity: 1;
     }
 }
