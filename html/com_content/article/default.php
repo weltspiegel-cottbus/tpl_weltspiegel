@@ -126,6 +126,18 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
             <?php echo $this->item->event->afterDisplayTitle; ?>
             <?php echo $this->item->event->beforeDisplayContent; ?>
 
+            <?php if ($hasBannerImage): ?>
+                <div class="article__banner">
+                    <?php
+                    $bannerImage = !empty($images['image_fulltext']) ? $images['image_fulltext'] : $images['image_intro'];
+                    $bannerAlt = !empty($images['image_fulltext_alt']) ? $images['image_fulltext_alt'] : ($images['image_intro_alt'] ?? '');
+                    ?>
+                    <img src="<?= htmlspecialchars($bannerImage) ?>"
+                         alt="<?= htmlspecialchars($bannerAlt ?: $this->item->title) ?>"
+                         class="article__banner-image">
+                </div>
+            <?php endif; ?>
+
             <div class="article__body">
                 <?php echo $this->item->text; ?>
             </div>

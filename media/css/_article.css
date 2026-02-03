@@ -15,6 +15,17 @@
     /* Content spacing */
 }
 
+.article__banner {
+    margin-block-end: 1rem;
+    text-align: center;
+}
+
+.article__banner-image {
+    max-width: min(100%, 400px);
+    height: auto;
+    margin: 0 auto;
+}
+
 .article__body {
     font-size: 1rem;
     line-height: 1.6;
@@ -33,5 +44,18 @@
 
     .article__header {
         margin-bottom: 0;
+    }
+
+    .article__banner {
+        float: left;
+        width: 300px;
+        margin-inline-end: 2rem;
+        margin-block-end: 1rem;
+        text-align: left;
+    }
+
+    .article__banner-image {
+        width: 100%;
+        max-width: none;
     }
 }
