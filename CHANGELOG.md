@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.9.3
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.2...v0.9.3)
+
+### 🚀 Enhancements
+
+- Display hall along with showtime. ([34bdebf](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/34bdebf))
+
+### 🩹 Fixes
+
+- Clear floating for trailers in body ([34a4ed6](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/34a4ed6))
+
+### 💅 Refactors
+
+- Align images/banners. ([98a5cc7](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/98a5cc7))
+- Switch button colors and ordering. Resolves #16. ([#16](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/16))
+
 ## v0.9.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.1...v0.9.2)
