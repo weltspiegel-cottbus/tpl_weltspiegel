@@ -8,11 +8,13 @@
 }
 
 .article__header {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .article__content {
-    /* Content spacing */
+    border: 1px solid #f2940080;
+    border-radius: 0.25rem;
+    padding: 1rem 0.5rem;
 }
 
 .article__banner {
@@ -57,5 +59,9 @@
     .article__banner-image {
         width: 100%;
         max-width: none;
+    }
+
+    .article__content {
+        padding: 1rem;
     }
 }
