@@ -89,7 +89,7 @@
         min-height: 4rem;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
         align-items: center;
         justify-content: flex-start;
     }
@@ -113,6 +113,18 @@
         color: var(--color-fg-body);
         opacity: 0.7;
         font-size: 0.9375rem;
+    }
+
+    .showbox-show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .showbox-hall {
+        font-size: 0.875rem;
+        color: var(--color-fg-body);
+        opacity: 0.6;
     }
 }
 
@@ -176,5 +188,18 @@
     .showbox-time-text {
         color: var(--color-fg-body);
         opacity: 0.7;
+    }
+
+    .showbox-show {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.375rem;
+    }
+
+    .showbox-hall {
+        font-size: 0.875rem;
+        color: var(--color-fg-body);
+        opacity: 0.6;
     }
 }

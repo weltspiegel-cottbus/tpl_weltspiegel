@@ -195,15 +195,20 @@ $formatterDate->setPattern('dd.MM.');
                                     $bookingEnd = new DateTime($show->bookingEnd);
                                     $isBookable = ($now >= $bookingStart && $now <= $bookingEnd);
                                     ?>
-                                    <?php if ($isBookable): ?>
-                                        <?= LayoutHelper::render('booking.link', [
-                                            'showId' => $show->showId,
-                                            'label' => $showDateTime->format('H:i'),
-                                            'options' => ['class' => 'showbox-time-link']
-                                        ]) ?>
-                                    <?php else: ?>
-                                        <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
-                                    <?php endif; ?>
+                                    <div class="showbox-show">
+                                        <?php if ($isBookable): ?>
+                                            <?= LayoutHelper::render('booking.link', [
+                                                'showId' => $show->showId,
+                                                'label' => $showDateTime->format('H:i'),
+                                                'options' => ['class' => 'showbox-time-link']
+                                            ]) ?>
+                                        <?php else: ?>
+                                            <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
+                                        <?php endif; ?>
+                                        <?php if (!empty($show->hall)): ?>
+                                            <span class="showbox-hall"><?= htmlspecialchars($show->hall) ?></span>
+                                        <?php endif; ?>
+                                    </div>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
@@ -239,15 +244,20 @@ $formatterDate->setPattern('dd.MM.');
                         $bookingEnd = new DateTime($show->bookingEnd);
                         $isBookable = ($now >= $bookingStart && $now <= $bookingEnd);
                         ?>
-                        <?php if ($isBookable): ?>
-                            <?= LayoutHelper::render('booking.link', [
-                                'showId' => $show->showId,
-                                'label' => $showDateTime->format('H:i'),
-                                'options' => ['class' => 'showbox-time-link']
-                            ]) ?>
-                        <?php else: ?>
-                            <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
-                        <?php endif; ?>
+                        <span class="showbox-show">
+                            <?php if ($isBookable): ?>
+                                <?= LayoutHelper::render('booking.link', [
+                                    'showId' => $show->showId,
+                                    'label' => $showDateTime->format('H:i'),
+                                    'options' => ['class' => 'showbox-time-link']
+                                ]) ?>
+                            <?php else: ?>
+                                <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
+                            <?php endif; ?>
+                            <?php if (!empty($show->hall)): ?>
+                                <span class="showbox-hall"><?= htmlspecialchars($show->hall) ?></span>
+                            <?php endif; ?>
+                        </span>
                     <?php endforeach; ?>
                 </div>
             </li>
