@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.9.5
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.4...v0.9.5)
+
+### 🩹 Fixes
+
+- Render images on standard article. ([f72ee3f](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/f72ee3f))
+- Align navigation indicators. Resolves #9. ([#9](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/issues/9))
+
+### 💅 Refactors
+
+- Boxes everywhere. And spacing fixes on header. ([b498048](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/b498048))
+
 ## v0.9.4
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.3...v0.9.4)
