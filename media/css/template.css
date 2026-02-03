@@ -80,7 +80,7 @@ main {
 }
 
 .main-bottom {
-    padding-inline: 0.5rem;
+    padding-inline: 0;
 }
 
 /* Centered layout without ticket - 768px to 1023px */

@@ -15,7 +15,6 @@
     position: sticky;
     top: var(--header-height-scrolled);
     margin-block-end: 1.5rem;
-    margin-inline: -0.5rem; /* Negative margin to break out of .main-bottom padding */
     padding-block: 0.5rem;
     padding-inline: 0.5rem;
     display: flex;
@@ -95,13 +94,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .mod-current-events__grid {
+        gap: 1rem;
+    }
 }
 
 .event-poster-card {
     display: flex;
     flex-direction: column;
-    width: calc(50% - 0.5rem); /* 2 columns with gap */
+    width: calc(50% - 0.25rem); /* 2 columns with 0.5rem gap */
+    background-color: rgba(236, 179, 90, 0.08);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
 }
 
 .event-poster-card__link {
