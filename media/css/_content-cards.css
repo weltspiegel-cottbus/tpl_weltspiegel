@@ -178,6 +178,11 @@
     line-height: 1.6;
 }
 
+.content-single__tagline {
+    margin: 0 0 0.5rem 0;
+    font-style: italic;
+}
+
 .content-single__body {
     margin-block-end: 1.5rem;
 }

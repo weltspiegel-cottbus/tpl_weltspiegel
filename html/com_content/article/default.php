@@ -61,6 +61,10 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
             <?= $this->item->event->afterDisplayTitle ?>
             <?= $this->item->event->beforeDisplayContent ?>
 
+            <?php if (!empty($attribs['tagline'])): ?>
+                <p class="content-single__tagline"><?= $this->escape($attribs['tagline']) ?></p>
+            <?php endif; ?>
+
             <div class="content-single__body">
                 <?= $this->item->fulltext ?: $this->item->introtext ?>
             </div>
