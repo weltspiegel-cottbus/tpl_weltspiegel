@@ -40,9 +40,20 @@
 .cinetixxitem__details {
     order: 3;
     font-style: italic;
-    font-size: 0.875rem;
+    font-size: 1rem;
     margin-block-end: 1rem;
     opacity: 0.9;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+}
+
+.cinetixxitem__details span:not(:last-child)::after {
+    content: ',';
+}
+
+.cinetixxitem__details b {
+    font-weight: normal;
 }
 
 .cinetixxitem__showbox {
@@ -118,6 +129,17 @@
     .cinetixxitem__details {
         order: unset;
         margin-block-start: 0.5rem;
+        flex-direction: column;
+        gap: 0.125rem;
+        font-style: normal;
+    }
+
+    .cinetixxitem__details span:not(:last-child)::after {
+        content: none;
+    }
+
+    .cinetixxitem__details b {
+        font-weight: bold;
     }
 
     .cinetixxitem__description {

@@ -28,9 +28,15 @@ $event = $this->item;
         </div>
 
         <div class="cinetixxitem__details">
-            Dauer: <?= htmlspecialchars($event->duration) ?>,
-            Sprache: <?= htmlspecialchars($event->languageShort) ?>,
-            FSK: <?= htmlspecialchars($event->fsk) ?>
+            <span><b>Dauer:</b> <?= htmlspecialchars($event->duration) ?> Min.</span>
+            <span><b>Sprache:</b> <?= htmlspecialchars($event->languageShort) ?></span>
+            <span><b>FSK:</b> <?= htmlspecialchars($event->fsk) ?></span>
+            <?php if ($event->is3D): ?>
+                <span><b>3D</b></span>
+            <?php endif; ?>
+            <?php if (!empty($event->genre)): ?>
+                <span><b>Genre:</b> <?= htmlspecialchars($event->genre) ?></span>
+            <?php endif; ?>
         </div>
 
         <div class="cinetixxitem__showbox">
