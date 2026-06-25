@@ -49,7 +49,7 @@ $event = $this->item;
 
         <?php if (!empty($event->trailerId)): ?>
             <div class="cinetixxitem__trailer">
-                <?= LayoutHelper::render('com_weltspiegel.youtube.embed', ['videoId' => $event->trailerId], JPATH_SITE . '/components/com_weltspiegel/layouts') ?>
+                <?= LayoutHelper::render('youtube.embed', ['videoId' => $event->trailerId]) ?>
             </div>
         <?php endif; ?>
 
