@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v1.1.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.1.1...v1.1.2)
+
+### 💅 Refactors
+
+- Back to simple layout loading just by id. ([bedfdee](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/bedfdee))
+
 ## v1.1.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.1.0...v1.1.1)
