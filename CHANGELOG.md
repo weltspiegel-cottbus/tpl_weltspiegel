@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.2.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.1.2...v1.2.0)
+
+### 🚀 Enhancements
+
+- Initial gallery implementation. ([46a1a7e](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/46a1a7e))
+
+### 🩹 Fixes
+
+- Load initially blank page into iframe. ([2aacd04](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2aacd04))
+
 ## v1.1.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.1.1...v1.1.2)
