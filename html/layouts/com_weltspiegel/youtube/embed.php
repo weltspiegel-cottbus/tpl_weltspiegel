@@ -57,7 +57,7 @@ $thumbnailPath = YouTubeHelper::getThumbnailPath($videoId);
         <!-- YouTube iframe -->
         <iframe id="<?= $uniqueId ?>-iframe"
                 class="youtube-embed__iframe <?= $responsive ? 'youtube-embed__iframe--responsive' : 'youtube-embed__iframe--fixed' ?>"
-                src=""
+                src="about:blank"
                 data-src="<?= htmlspecialchars($embedUrl) ?>"
                 frameborder="0"
                 allowfullscreen
