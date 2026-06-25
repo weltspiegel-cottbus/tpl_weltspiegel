@@ -13,6 +13,7 @@ import './_showbox.js';
 import './_youtube.js';
 import './_cookie-consent.js';
 import './_current-events.js';
+import './_gallery.js';
 
 // Export for potential external use
 export default {};
