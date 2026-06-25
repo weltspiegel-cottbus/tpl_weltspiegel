@@ -73,7 +73,7 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
                 <div class="content-single__trailer">
                     <?= LayoutHelper::render('com_weltspiegel.youtube.embed', [
                         'videoId' => $attribs['youtube_url']
-                    ]) ?>
+                    ], JPATH_SITE . '/components/com_weltspiegel/layouts') ?>
                 </div>
             <?php endif; ?>
 
