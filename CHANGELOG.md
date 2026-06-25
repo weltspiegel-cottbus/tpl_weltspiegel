@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.0.0...v1.1.0)
+
+### 🩹 Fixes
+
+- Wrong update url. ([a590b99](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/a590b99))
+- Update layout paths. ([9e2f6b2](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/9e2f6b2))
+
+### 🏡 Chore
+
+- Upgrade vite. ([dc59711](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/dc59711))
+
 ## v1.0.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v0.9.5...v1.0.0)
