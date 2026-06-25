@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v1.1.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.1.0...v1.1.1)
+
+### 🩹 Fixes
+
+- Revert to simple path to load template override. ([aca2712](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/aca2712))
+
 ## v1.1.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.0.0...v1.1.0)
