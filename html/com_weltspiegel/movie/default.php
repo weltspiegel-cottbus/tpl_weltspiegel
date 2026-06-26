@@ -14,11 +14,22 @@
 use Joomla\CMS\Layout\LayoutHelper;
 
 $movie = $this->item;
+
+preg_match('/(\d+)/', $movie->fsk ?? '', $fskMatch);
+$fskNum = isset($fskMatch[1]) ? (int) $fskMatch[1] : null;
 ?>
 
 <article class="movieitem u-flipped-title-container">
     <span class="u-flipped-title u-flipped-title--desktop-only">Programm</span>
     <div class="movieitem__inner">
+        <?php if ($fskNum !== null): ?>
+            <a href="/service/fsk-und-jugendschutz" class="movieitem__fsk-link">
+                <img src="/images/site/fsk/FSK-<?= $fskNum ?>.png"
+                     alt="FSK <?= $fskNum ?>"
+                     class="movieitem__fsk-img">
+            </a>
+        <?php endif; ?>
+
         <h1 class="movieitem__title"><?= $this->escape($this->title) ?></h1>
 
         <div class="movieitem__poster">

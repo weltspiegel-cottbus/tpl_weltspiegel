@@ -7,12 +7,26 @@
 }
 
 .movieitem__inner {
+    position: relative;
     /* Mobile: flexbox with order for reordering */
     display: flex;
     flex-direction: column;
     border: 1px solid #f2940080;
     border-radius: 0.25rem;
     padding: 1rem 0.5rem;
+}
+
+.movieitem__fsk-link {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: block;
+    line-height: 0;
+}
+
+.movieitem__fsk-img {
+    width: 4rem;
+    height: auto;
 }
 
 .movieitem__title {
