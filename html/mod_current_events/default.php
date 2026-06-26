@@ -11,6 +11,7 @@
 
 \defined('_JEXEC') or die;
 
+use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 
 /**
@@ -150,8 +151,11 @@ $formatter->setPattern('EEE, dd.MM.');
                                 <?php foreach ($nextShows as $i => $show):
                                     $showDateTime = new DateTime($show->showStart);
                                 ?>
-                                    <a href="<?= htmlspecialchars($show->bookingLink) ?>"
-                                       class="event-poster-card__time-link"><?= $showDateTime->format('H:i') ?></a>
+                                    <?= LayoutHelper::render('booking.link', [
+                                        'showId'  => $show->showId,
+                                        'label'   => $showDateTime->format('H:i'),
+                                        'options' => ['class' => 'event-poster-card__time-link'],
+                                    ]) ?>
                                     <?php if ($i < count($nextShows) - 1): ?>
                                         <span>|</span>
                                     <?php endif; ?>
