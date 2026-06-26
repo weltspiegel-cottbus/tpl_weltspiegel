@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v2.0.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.2.0...v2.0.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Update mod_current_events template override for movie model (tpl v2.0.0) ([916730d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/916730d))
+- Add FSK badge on poster cards in current events module ([3420485](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/3420485))
+- Add template-based booking.link layout helper, use in current events override ([22977ec](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/22977ec))
+- **tpl:** Add movie view override and showtimes box placeholder ([1f779bd](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/1f779bd))
+- Bring back the box with showtimes. ([3ca556d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/3ca556d))
+- **tpl:** Add movie/movies view overrides and showtimes layout ([18915f7](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/18915f7))
+
+### 💅 Refactors
+
+- Align header styling for featured section and current events. ([ddd3a5f](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/ddd3a5f))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Update mod_current_events template override for movie model (tpl v2.0.0) ([916730d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/916730d))
+
 ## v1.2.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.1.2...v1.2.0)
