@@ -6,9 +6,12 @@
     position: relative; /* For sentinel positioning */
 }
 
-.mod-current-events > h1 {
+.mod-current-events > h2 {
     text-align: center;
     margin-block-end: 1.5rem;
+    font-size: 2rem;
+    color: var(--color-accent);
+    font-family: Kameron, serif;
 }
 
 .mod-current-events__nav {

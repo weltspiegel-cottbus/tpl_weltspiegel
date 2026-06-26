@@ -84,7 +84,7 @@ $formatter->setPattern('EEE, dd.MM.');
 
 ?>
 <div class="mod-current-events">
-    <h1>AKTUELL IM WELTSPIEGEL COTTBUS</h1>
+    <h2>AKTUELL IM WELTSPIEGEL</h2>
 
     <?php if (count($sections) > 1): ?>
         <nav class="mod-current-events__nav">
@@ -106,7 +106,7 @@ $formatter->setPattern('EEE, dd.MM.');
         <?php if (empty($sections[$key])): continue; endif; ?>
 
         <section class="mod-current-events__section" id="<?= $config['id'] ?>">
-            <h2 class="mod-current-events__section-title"><?= htmlspecialchars($config['title']) ?></h2>
+            <h3 class="mod-current-events__section-title"><?= htmlspecialchars($config['title']) ?></h3>
             <div class="mod-current-events__grid">
                 <?php foreach ($sections[$key] as $movieId => $data):
                     $movie       = $data['movie'];
