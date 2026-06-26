@@ -120,6 +120,9 @@ $formatter->setPattern('EEE, dd.MM.');
                     $dayDate       = new DateTime($nextDay);
                     $formattedDate = $formatter->format($dayDate);
 
+                    preg_match('/(\d+)/', $movie->fsk ?? '', $fskMatch);
+                    $fskNum = isset($fskMatch[1]) ? (int) $fskMatch[1] : null;
+
                     if ($nextDay === $today) {
                         $dayLabel = 'Heute (' . $formattedDate . ')';
                     } elseif ($nextDay === $tomorrow) {
@@ -129,13 +132,18 @@ $formatter->setPattern('EEE, dd.MM.');
                     }
                 ?>
                     <article class="event-poster-card">
-                        <a href="<?= $detailRoute ?>" class="event-poster-card__link">
-                            <?php if (!empty($movie->poster)): ?>
-                                <img src="<?= htmlspecialchars($movie->poster) ?>"
-                                     alt="Filmplakat <?= htmlspecialchars($movie->title) ?>"
-                                     class="event-poster-card__img">
+                        <div class="event-poster-card__poster">
+                            <a href="<?= $detailRoute ?>" class="event-poster-card__link">
+                                <?php if (!empty($movie->poster)): ?>
+                                    <img src="<?= htmlspecialchars($movie->poster) ?>"
+                                         alt="Filmplakat <?= htmlspecialchars($movie->title) ?>"
+                                         class="event-poster-card__img">
+                                <?php endif; ?>
+                            </a>
+                            <?php if ($fskNum !== null): ?>
+                                <span class="fsk-badge fsk-badge--<?= $fskNum ?>">FSK <?= $fskNum ?></span>
                             <?php endif; ?>
-                        </a>
+                        </div>
                         <div class="event-poster-card__shows">
                             <div class="event-poster-card__day"><?= htmlspecialchars($dayLabel) ?></div>
                             <div class="event-poster-card__times">

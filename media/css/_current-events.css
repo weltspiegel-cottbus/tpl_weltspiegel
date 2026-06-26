@@ -115,12 +115,37 @@
     border-radius: 0.25rem;
 }
 
+.event-poster-card__poster {
+    position: relative;
+    margin-block-end: 0.75rem;
+}
+
 .event-poster-card__link {
     display: block;
     aspect-ratio: 2/3;
     overflow: hidden;
-    margin-block-end: 0.75rem;
 }
+
+.fsk-badge {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.35rem;
+    min-width: 1.75rem;
+    padding: 0.1rem 0.25rem;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    pointer-events: none;
+    user-select: none;
+}
+
+.fsk-badge--0  { background: #ffffff; color: #000000; }
+.fsk-badge--6  { background: #ffed00; color: #000000; }
+.fsk-badge--12 { background: #00a550; color: #ffffff; }
+.fsk-badge--16 { background: #0066b3; color: #ffffff; }
+.fsk-badge--18 { background: #e30613; color: #ffffff; }
 
 .event-poster-card__img {
     width: 100%;
