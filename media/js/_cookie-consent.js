@@ -4,105 +4,107 @@
  */
 
 class CookieConsent {
-    constructor() {
-        this.storageKey = 'cookie_consent';
-        this.banner = document.getElementById('cookieConsentBanner');
-        this.drawer = document.getElementById('cookieConsentDrawer');
-        this.closeBtn = document.getElementById('cookieConsentClose');
-        this.enableBtn = document.getElementById('cookieConsentEnable');
-        this.dismissBtn = document.getElementById('cookieConsentDismiss');
+  constructor() {
+    this.storageKey = "cookie_consent";
+    this.banner = document.getElementById("cookieConsentBanner");
+    this.drawer = document.getElementById("cookieConsentDrawer");
+    this.closeBtn = document.getElementById("cookieConsentClose");
+    this.enableBtn = document.getElementById("cookieConsentEnable");
+    this.dismissBtn = document.getElementById("cookieConsentDismiss");
 
-        if (!this.banner || !this.drawer || !this.closeBtn || !this.enableBtn || !this.dismissBtn) {
-            return;
-        }
-
-        this.init();
+    if (!this.banner || !this.drawer || !this.closeBtn || !this.enableBtn || !this.dismissBtn) {
+      return;
     }
 
-    getConsent() {
-        try {
-            return localStorage.getItem(this.storageKey);
-        } catch (e) {
-            return null;
-        }
+    this.init();
+  }
+
+  getConsent() {
+    try {
+      return localStorage.getItem(this.storageKey);
+    } catch {
+      return null;
+    }
+  }
+
+  setConsent(value) {
+    try {
+      localStorage.setItem(this.storageKey, value);
+      // Dispatch event for other scripts to listen to
+      window.dispatchEvent(
+        new CustomEvent("cookieConsentChanged", {
+          detail: { consent: value },
+        }),
+      );
+    } catch (e) {
+      console.error("Could not save consent to localStorage:", e);
+    }
+  }
+
+  showBanner() {
+    this.banner.classList.remove("cookie-consent-hidden");
+    this.drawer.style.display = "none";
+    // Focus dismiss button for accessibility
+    this.dismissBtn.focus();
+  }
+
+  hideBanner() {
+    this.banner.classList.add("cookie-consent-hidden");
+    this.drawer.style.display = "";
+  }
+
+  init() {
+    const consent = this.getConsent();
+
+    if (consent === null) {
+      // First visit - show banner
+      this.showBanner();
+    } else {
+      // Already decided - show drawer
+      this.hideBanner();
     }
 
-    setConsent(value) {
-        try {
-            localStorage.setItem(this.storageKey, value);
-            // Dispatch event for other scripts to listen to
-            window.dispatchEvent(new CustomEvent('cookieConsentChanged', {
-                detail: { consent: value }
-            }));
-        } catch (e) {
-            console.error('Could not save consent to localStorage:', e);
-        }
-    }
+    // Event listeners
+    this.enableBtn.addEventListener("click", () => {
+      this.setConsent("granted");
+      this.hideBanner();
+    });
 
-    showBanner() {
-        this.banner.classList.remove('cookie-consent-hidden');
-        this.drawer.style.display = 'none';
-        // Focus dismiss button for accessibility
-        this.dismissBtn.focus();
-    }
+    this.dismissBtn.addEventListener("click", () => {
+      this.setConsent("denied");
+      this.hideBanner();
+    });
 
-    hideBanner() {
-        this.banner.classList.add('cookie-consent-hidden');
-        this.drawer.style.display = '';
-    }
+    this.drawer.addEventListener("click", () => {
+      this.showBanner();
+    });
 
-    init() {
-        const consent = this.getConsent();
+    this.closeBtn.addEventListener("click", () => {
+      this.hideBanner();
+    });
 
-        if (consent === null) {
-            // First visit - show banner
-            this.showBanner();
-        } else {
-            // Already decided - show drawer
-            this.hideBanner();
-        }
+    // Close banner with Escape key (without setting consent)
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !this.banner.classList.contains("cookie-consent-hidden")) {
+        this.hideBanner();
+      }
+    });
 
-        // Event listeners
-        this.enableBtn.addEventListener('click', () => {
-            this.setConsent('granted');
-            this.hideBanner();
-        });
-
-        this.dismissBtn.addEventListener('click', () => {
-            this.setConsent('denied');
-            this.hideBanner();
-        });
-
-        this.drawer.addEventListener('click', () => {
-            this.showBanner();
-        });
-
-        this.closeBtn.addEventListener('click', () => {
-            this.hideBanner();
-        });
-
-        // Close banner with Escape key (without setting consent)
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !this.banner.classList.contains('cookie-consent-hidden')) {
-                this.hideBanner();
-            }
-        });
-
-        // Listen for external requests to show the banner
-        window.addEventListener('showCookieBanner', () => {
-            this.showBanner();
-        });
-    }
+    // Listen for external requests to show the banner
+    window.addEventListener("showCookieBanner", () => {
+      this.showBanner();
+    });
+  }
 }
 
 // Initialize cookie consent
 function initCookieConsent() {
-    new CookieConsent();
+  new CookieConsent();
 }
 
 // Initialize on DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCookieConsent);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initCookieConsent);
 } else {
-    initCookieConsent();
+  initCookieConsent();
 }

@@ -4,23 +4,23 @@
  */
 
 /* Import partials */
-@import './_fonts.css';
-@import './_variables.css';
-@import './_utilities.css';
-@import './_truncate.css';
-@import './_navigation.css';
-@import './_article.css';
-@import './_featured.css';
-@import './_footer.css';
-@import './_youtube.css';
-@import './_gallery.css';
-@import './_showtimes.css';
-@import './_movie.css';
-@import './_movies.css';
-@import './_content-cards.css';
-@import './_current-events.css';
-@import './_cookie-consent.css';
-@import './_error.css';
+@import "./_fonts.css";
+@import "./_variables.css";
+@import "./_utilities.css";
+@import "./_truncate.css";
+@import "./_navigation.css";
+@import "./_article.css";
+@import "./_featured.css";
+@import "./_footer.css";
+@import "./_youtube.css";
+@import "./_gallery.css";
+@import "./_showtimes.css";
+@import "./_movie.css";
+@import "./_movies.css";
+@import "./_content-cards.css";
+@import "./_current-events.css";
+@import "./_cookie-consent.css";
+@import "./_error.css";
 
 /* Reset & Base */
 * {
@@ -38,7 +38,10 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     background-color: var(--color-bg-body); /* Solid dark background */
@@ -55,12 +58,15 @@ body {
 .page-container {
     /* Full width column in grid */
     width: 100%;
+
     /* Flex layout for full height main content container */
     display: flex;
     flex-direction: column;
+
     /* Paper texture background layer */
-    background-image: url('../images/paper-pattern.jpg');
+    background-image: url("../images/paper-pattern.jpg");
     background-repeat: repeat;
+
     /* Mobile: paper frame above/below content */
     padding-block: 1rem;
 }
@@ -69,13 +75,17 @@ body {
 main {
     /* Full height in .page-container */
     flex: 1;
+
     /* Dark gradient overlay - spacing handled by page-container */
     background-image: radial-gradient(rgba(46, 30, 10, 0.9), rgba(25, 16, 6, 0.9));
+
     /* Subtle shadow - stronger on left to cast onto ticket */
-    box-shadow: -8px 0 20px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        -8px 0 20px rgba(0, 0, 0, 0.5),
+        0 0 10px rgba(0, 0, 0, 0.3);
 
     h1 {
-        font-family: 'Kameron', serif;
+        font-family: Kameron, serif;
         color: var(--color-accent);
     }
 }
@@ -85,15 +95,18 @@ main {
 }
 
 /* Centered layout without ticket - 768px to 1023px */
-@media (min-width: 768px) {
+@media (width >= 768px) {
     .page-container {
         position: relative;
+
         /* Centered: content + article padding + flipped title + padding */
+
         /* Calculation: content (48rem) + article padding (2rem) + flipped title (4rem) + left/right padding (2rem) */
         max-width: calc(var(--content-width) + 2rem + 4rem + 2rem);
         margin-inline: auto;
         margin-block: 2rem 1rem;
         padding: 1rem;
+
         /* Rounded corners - all edges */
         border-radius: 0.375rem;
     }
@@ -109,37 +122,41 @@ main {
 }
 
 /* Left-aligned layout with ticket - 1024px to 1279px */
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
     .page-container {
         position: relative;
+
         /* Left-aligned: ticket + content fills to right edge with 1rem dark bg */
+
         /* Calculation: content (48rem) + article padding (2rem) + flipped title (4rem) + ticket space (12rem) + left spacing (1rem) + right padding (1rem) */
         max-width: calc(var(--content-width) + 2rem + 4rem + 12rem + 1rem + 1rem);
         margin-inline-start: 0;
         margin-inline-end: 1rem; /* Keep 1rem dark bg on right */
         padding: 1rem 1rem 1rem 13rem; /* ticket space (12rem) + spacing (1rem) */
+
         /* Rounded corners - only right side (left is flush for ticket) */
         border-radius: 0 0.375rem 0.375rem 0;
     }
 
     .page-container::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 3rem;
         left: 1rem; /* Fixed position from left - ticket stays in place */
         width: 192px;
         height: 217px;
-        background-image: url('../images/eintrittskarte.png');
+        background-image: url("../images/eintrittskarte.png");
         background-size: contain;
         background-repeat: no-repeat;
     }
 }
 
 /* Centered layout - 1280px+ */
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
     .page-container {
         /* Center the container */
         margin-inline: auto;
+
         /* Rounded corners - all edges again when centered */
         border-radius: 0.375rem;
     }
@@ -157,7 +174,12 @@ img {
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 500; /* Medium */
 }
 

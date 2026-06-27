@@ -4,11 +4,12 @@
  */
 
 .home-featured {
-    padding: 1rem ;
+    padding: 1rem;
     text-align: center;
 }
 
-.home-featured h1, h2 {
+.home-featured h1,
+h2 {
     color: var(--color-accent);
     font-family: Kameron, serif;
     text-transform: uppercase;

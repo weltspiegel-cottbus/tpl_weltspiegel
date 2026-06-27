@@ -39,7 +39,7 @@ footer {
 }
 
 .footer-nav__list--primary .footer-nav__item:not(:last-child)::after {
-    content: '|';
+    content: "|";
     margin-inline-start: 1rem;
     color: var(--color-fg-body);
     opacity: 0.5;
@@ -84,7 +84,7 @@ footer {
 }
 
 /* Desktop layout - 640px+ */
-@media (min-width: 640px) {
+@media (width >= 640px) {
     .footer-nav {
         flex-direction: row;
         flex-wrap: wrap;

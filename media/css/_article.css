@@ -39,7 +39,7 @@
 }
 
 /* Responsive spacing */
-@media (min-width: 768px) {
+@media (width >= 768px) {
     .article {
         padding: 1rem 1rem 3rem 5rem; /* Left: 4rem for title + 1rem spacing */
     }

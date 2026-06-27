@@ -132,7 +132,7 @@
 }
 
 /* Mobile layout */
-@media (max-width: 767px) {
+@media (width <= 767px) {
     .showbox-desktop {
         display: none;
     }

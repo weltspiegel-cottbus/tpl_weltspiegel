@@ -2,12 +2,12 @@
   "name": "tpl_weltspiegel",
   "version": "2.0.0",
   "description": "Joomla-Template für den Weltspiegel Cottbus",
-  "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/weltspiegel-cottbus/tpl_weltspiegel.git"
   },
+  "type": "module",
   "scripts": {
     "build": "vite build",
     "package": "node .build/package.mjs",

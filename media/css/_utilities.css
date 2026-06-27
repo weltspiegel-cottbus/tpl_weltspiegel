@@ -5,7 +5,7 @@
 
 /* Flipped Title - Rotated 90° counterclockwise on left side */
 .u-flipped-title {
-    font-family: 'Kameron', serif;
+    font-family: Kameron, serif;
     font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 500;
     line-height: 1.2;
@@ -19,7 +19,7 @@
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
     .u-flipped-title-container {
         position: relative;
     }

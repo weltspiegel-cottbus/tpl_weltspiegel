@@ -109,9 +109,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    transition: bottom 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
-                height 0.3s ease-in-out, padding 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition:
+        bottom 0.3s ease-in-out,
+        background-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        height 0.3s ease-in-out,
+        padding 0.3s ease-in-out,
+        color 0.3s ease-in-out;
 }
 
 .cookie-consent-drawer:hover {
@@ -157,7 +161,7 @@
 }
 
 /* Desktop: horizontal layout */
-@media (min-width: 768px) {
+@media (width >= 768px) {
     .cookie-consent-banner {
         padding: 1.5rem;
     }

@@ -11,7 +11,7 @@
 
 /* Tagline - short info below title (e.g. release date) */
 .u-truncate__tagline {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.5rem;
     font-style: italic;
 }
 
@@ -22,17 +22,13 @@
 
 /* Fade-out gradient at bottom - subtle hint only */
 .u-truncate::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 3rem;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(0, 0, 0, 0.15)
-    );
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.15));
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s;

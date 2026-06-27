@@ -8,12 +8,29 @@
     margin: 1.5rem 0;
 }
 
-.gallery--cols-1 { grid-template-columns: 1fr; }
-.gallery--cols-2 { grid-template-columns: repeat(2, 1fr); }
-.gallery--cols-3 { grid-template-columns: repeat(3, 1fr); }
-.gallery--cols-4 { grid-template-columns: repeat(4, 1fr); }
-.gallery--cols-5 { grid-template-columns: repeat(5, 1fr); }
-.gallery--cols-6 { grid-template-columns: repeat(6, 1fr); }
+.gallery--cols-1 {
+    grid-template-columns: 1fr;
+}
+
+.gallery--cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery--cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery--cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery--cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.gallery--cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
 
 .gallery__item {
     display: block;
@@ -34,7 +51,7 @@
 }
 
 /* Responsive: 2 columns on small screens */
-@media (max-width: 599px) {
+@media (width <= 599px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr) !important;
     }
@@ -44,7 +61,6 @@
 .content-single__body .gallery {
     clear: both;
 }
-
 
 /* ── Lightbox ────────────────────────────────────────────── */
 

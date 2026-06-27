@@ -8,13 +8,11 @@
     left: 0;
     right: 0;
     z-index: 1000;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 0.5rem 0 1rem;
     height: var(--header-height);
-
     background-color: rgba(16, 5, 1, 0.9);
     transition: height 0.3s ease-in-out;
 }
@@ -48,11 +46,9 @@
     border: none;
     padding: 1.25rem 1rem;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 0.25rem;
     transition: background-color 0.2s;
 }
@@ -72,14 +68,16 @@
 
 .main-nav__hamburger::before,
 .main-nav__hamburger::after {
-    content: '';
+    content: "";
     display: block;
     width: 1.5rem;
     height: 0.125rem;
     background-color: var(--color-fg-body);
     position: absolute;
     left: 0;
-    transition: transform 0.3s, top 0.3s;
+    transition:
+        transform 0.3s,
+        top 0.3s;
 }
 
 .main-nav__hamburger::before {
@@ -112,14 +110,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-
     background-color: var(--color-bg-body);
-
     overflow-y: auto;
 
     /* Hidden by default */
     transform: translateX(100%);
-    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+    transition:
+        transform 0.3s ease-in-out,
+        top 0.3s ease-in-out;
 }
 
 .main-nav__menu[aria-hidden="false"] {
@@ -141,16 +139,15 @@
     display: block;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    font-family: 'Kameron', serif;
+    font-family: Kameron, serif;
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0.025em;
     border-left: 3px solid transparent;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
     text-transform: uppercase;
-}
-
-.main-nav__link {
     color: var(--color-fg-body);
 }
 
@@ -193,15 +190,14 @@
     display: block;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    font-family: 'Kameron', serif;
+    font-family: Kameron, serif;
     font-size: 1rem;
     letter-spacing: 0.025em;
     border-left: 3px solid transparent;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
     text-transform: uppercase;
-}
-
-.main-nav__sublink {
     color: var(--color-fg-body);
 }
 
@@ -221,7 +217,7 @@
 }
 
 /* Desktop Navigation - 1024px+ */
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
     /* Hide mobile toggle and menu drawer */
     .main-nav__toggle,
     .main-nav__menu {
@@ -252,7 +248,7 @@
 
     /* Bottom border animation */
     .main-nav__desktop-wrapper::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 0.5rem;
         left: 50%;
@@ -280,7 +276,7 @@
         display: inline-block;
         padding: 0.5rem;
         color: var(--color-fg-body);
-        font-family: 'Kameron', serif;
+        font-family: Kameron, serif;
         font-size: 1rem;
         font-weight: 500;
         letter-spacing: 0.025em;
@@ -329,7 +325,7 @@
         gap: 0.25rem;
         position: relative;
         height: 3rem;
-        font-family: 'Kameron', serif;
+        font-family: Kameron, serif;
         font-size: 1rem;
         font-weight: 500;
         letter-spacing: 0.025em;
@@ -338,7 +334,7 @@
 
     /* Bottom border animation for heading toggle */
     .main-nav__desktop-heading-toggle::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 0.5rem;
         left: 50%;
@@ -385,11 +381,13 @@
         list-style: none;
         margin: 0.25rem 0 0;
         padding: 0.25rem;
-
         opacity: 0;
         visibility: hidden;
         transform: translateX(-50%) translateY(-0.5rem);
-        transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+        transition:
+            opacity 0.3s,
+            transform 0.3s,
+            visibility 0.3s;
     }
 
     .main-nav__desktop-item--has-submenu:hover .main-nav__desktop-submenu,
@@ -420,7 +418,7 @@
         position: relative;
         padding: 0.5rem 1rem;
         color: var(--color-fg-body);
-        font-family: 'Kameron', serif;
+        font-family: Kameron, serif;
         font-size: 1rem;
         letter-spacing: 0.025em;
         text-decoration: none;
@@ -433,7 +431,7 @@
 
     /* Left border animation */
     .main-nav__desktop-sublink::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 50%;

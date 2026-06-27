@@ -23,11 +23,13 @@
     left: 0;
     width: 100%;
     height: 100%;
+
     /* Dark overlay - will be layered over thumbnail if present */
     background-color: rgba(0, 0, 0, 0.7);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
     /* Blend mode to darken thumbnail while keeping it visible */
     background-blend-mode: darken;
     display: none;
@@ -98,7 +100,7 @@
 }
 
 /* Responsive spacing */
-@media (min-width: 768px) {
+@media (width >= 768px) {
     .youtube-embed__placeholder-content {
         gap: 1rem;
     }

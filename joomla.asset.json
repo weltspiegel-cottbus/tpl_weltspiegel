@@ -21,10 +21,7 @@
     {
       "name": "template.weltspiegel",
       "type": "preset",
-      "dependencies": [
-        "template.weltspiegel#style",
-        "template.weltspiegel#script"
-      ]
+      "dependencies": ["template.weltspiegel#style", "template.weltspiegel#script"]
     }
   ]
 }
