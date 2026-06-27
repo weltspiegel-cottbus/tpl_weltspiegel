@@ -1,6 +1,15 @@
 # Changelog
 
 
+## v2.1.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.0.0...v2.1.0)
+
+### 🏡 Chore
+
+- **tpl:** Remove old cinetixx overrides and showbox, bump to v2.1.0 ([77984a3](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/77984a3))
+- Format and lint files. ([5f35626](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/5f35626))
+
 ## v2.0.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v1.2.0...v2.0.0)
