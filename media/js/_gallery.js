@@ -6,6 +6,7 @@
 class Gallery {
   constructor(el) {
     this.el = el;
+    el._gallery = this;
     this.dialog = document.getElementById(el.id + "-lightbox");
     if (!this.dialog) return;
 
@@ -93,3 +94,12 @@ class Gallery {
 }
 
 document.querySelectorAll(".gallery[id]").forEach((el) => new Gallery(el));
+
+document.querySelectorAll("[data-gallery]").forEach((link) => {
+  const galleryEl = document.getElementById(link.dataset.gallery);
+  if (!galleryEl || !galleryEl._gallery) return;
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    galleryEl._gallery.open(parseInt(link.dataset.index ?? "0", 10));
+  });
+});

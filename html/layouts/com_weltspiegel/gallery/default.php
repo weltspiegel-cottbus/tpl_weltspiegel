@@ -19,9 +19,10 @@
  * @var array  $options  Parsed options from the tag (cols, preview, etc.)
  */
 
-$folder  = $displayData['folder'] ?? '';
-$images  = $displayData['images'] ?? [];
-$options = $displayData['options'] ?? [];
+$folder      = $displayData['folder'] ?? '';
+$images      = $displayData['images'] ?? [];
+$options     = $displayData['options'] ?? [];
+$teaserImage = $displayData['teaserImage'] ?? null;
 
 if (empty($images)) {
     return;
@@ -31,7 +32,31 @@ $cols      = max(1, min(6, (int) ($options['cols'] ?? 3)));
 $galleryId = 'gallery-' . md5($folder);
 $total     = count($images);
 
+// Find teaser index within the images array for correct lightbox start position
+$teaserIndex = 0;
+if ($teaserImage !== null) {
+    foreach ($images as $i => $img) {
+        if ($img === $teaserImage) {
+            $teaserIndex = $i;
+            break;
+        }
+    }
+}
+
 ?>
+<?php if ($teaserImage !== null):
+    $teaserAlt = str_replace(['-', '_'], ' ', pathinfo($teaserImage, PATHINFO_FILENAME));
+?>
+<a class="gallery__teaser"
+   href="<?= htmlspecialchars($teaserImage) ?>"
+   data-gallery="<?= $galleryId ?>"
+   data-index="<?= $teaserIndex ?>">
+    <img class="gallery__teaser-image"
+         src="<?= htmlspecialchars($teaserImage) ?>"
+         alt="<?= htmlspecialchars($teaserAlt) ?>"
+         loading="lazy">
+</a>
+<?php endif; ?>
 <div class="gallery gallery--cols-<?= $cols ?>" id="<?= $galleryId ?>">
     <?php foreach ($images as $image): ?>
     <?php $alt = str_replace(['-', '_'], ' ', pathinfo($image, PATHINFO_FILENAME)); ?>
