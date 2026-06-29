@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.4.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.4.0...v2.4.1)
+
+### 🩹 Fixes
+
+- Flow root on detail__inner ([ffd4b8e](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/ffd4b8e))
+
 ## v2.4.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.3.0...v2.4.0)
