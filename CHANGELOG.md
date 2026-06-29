@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.3.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.2.3...v2.3.0)
+
+### 🚀 Enhancements
+
+- Add badges for some movie meta data. ([85633c5](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/85633c5))
+
 ## v2.2.3
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.2.2...v2.2.3)
