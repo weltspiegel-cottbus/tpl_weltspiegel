@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.2.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.2.0...v2.2.1)
+
+### 🩹 Fixes
+
+- **youtube:** Scharfes Poster, sauberer Consent-Widerruf und Permissions ([479e317](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/479e317))
+
 ## v2.2.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.1.0...v2.2.0)
