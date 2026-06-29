@@ -21,6 +21,10 @@
 
 .detail__inner {
     position: relative;
+
+    /* Contain the floated poster so the border box always wraps it, even when
+       the surrounding content is shorter than the poster. */
+    display: flow-root;
     border: 1px solid #f2940080;
     border-radius: 0.25rem;
     padding: 1rem 0.5rem;
