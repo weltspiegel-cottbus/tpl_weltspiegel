@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.2.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.2.1...v2.2.2)
+
+### 💅 Refactors
+
+- Add listener for cookie-consent dialog opener links. ([506a98e](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/506a98e))
+
 ## v2.2.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.2.0...v2.2.1)
