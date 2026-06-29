@@ -92,6 +92,11 @@ class Gallery {
     this.lightboxImg.alt = alt;
     this.counterEl.textContent = this.current + 1;
     if (this.captionEl) this.captionEl.textContent = alt;
+
+    // Re-trigger the fade/scale-in animation on each image change
+    this.lightboxImg.style.animation = "none";
+    void this.lightboxImg.offsetWidth;
+    this.lightboxImg.style.animation = "";
   }
 }
 
