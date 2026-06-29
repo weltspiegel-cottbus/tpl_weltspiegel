@@ -35,6 +35,12 @@
     transform: scale(1.05);
 }
 
+/* The teaser image is rendered large above the grid; hide its duplicate
+   thumbnail while keeping the element in the DOM for lightbox indexing. */
+.gallery__item--teaser {
+    display: none;
+}
+
 /* Responsive: 2 columns on small screens */
 @media (width <= 599px) {
     .gallery .gallery__item {

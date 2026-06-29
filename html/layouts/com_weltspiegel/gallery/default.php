@@ -64,10 +64,15 @@ if ($teaserImage !== null) {
 <?php endif; ?>
 <div class="gallery gallery--cols-<?= $cols ?>" id="<?= $galleryId ?>">
     <?php foreach ($images as $i => $image): ?>
-    <?php $alt = $useAltNames
+    <?php
+    $alt = $useAltNames
         ? str_replace('_', ' ', pathinfo($image, PATHINFO_FILENAME))
-        : ($articleTitle !== '' ? $articleTitle . ' – Bild ' . ($i + 1) : ''); ?>
-    <a class="gallery__item" href="<?= htmlspecialchars($image) ?>" data-lightbox="<?= $galleryId ?>">
+        : ($articleTitle !== '' ? $articleTitle . ' – Bild ' . ($i + 1) : '');
+    // The teaser image is shown large above; keep its grid item in the DOM (so the
+    // lightbox still indexes all images) but hide the duplicate thumbnail.
+    $isTeaser = ($teaserImage !== null && $i === $teaserIndex);
+    ?>
+    <a class="gallery__item<?= $isTeaser ? ' gallery__item--teaser' : '' ?>" href="<?= htmlspecialchars($image) ?>" data-lightbox="<?= $galleryId ?>">
         <img
             class="gallery__image"
             src="<?= htmlspecialchars($image) ?>"
