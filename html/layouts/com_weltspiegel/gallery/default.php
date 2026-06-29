@@ -19,10 +19,12 @@
  * @var array  $options  Parsed options from the tag (cols, preview, etc.)
  */
 
-$folder      = $displayData['folder'] ?? '';
-$images      = $displayData['images'] ?? [];
-$options     = $displayData['options'] ?? [];
-$teaserImage = $displayData['teaserImage'] ?? null;
+$folder       = $displayData['folder'] ?? '';
+$images       = $displayData['images'] ?? [];
+$options      = $displayData['options'] ?? [];
+$teaserImage  = $displayData['teaserImage'] ?? null;
+$articleTitle = $displayData['articleTitle'] ?? '';
+$useAltNames  = isset($options['altnames']);
 
 if (empty($images)) {
     return;
@@ -45,7 +47,9 @@ if ($teaserImage !== null) {
 
 ?>
 <?php if ($teaserImage !== null):
-    $teaserAlt = str_replace(['-', '_'], ' ', pathinfo($teaserImage, PATHINFO_FILENAME));
+    $teaserAlt = $useAltNames
+        ? str_replace(['-', '_'], ' ', pathinfo($teaserImage, PATHINFO_FILENAME))
+        : ($articleTitle !== '' ? $articleTitle . ' – Titelbild' : '');
 ?>
 <a class="gallery__teaser"
    href="<?= htmlspecialchars($teaserImage) ?>"
@@ -58,8 +62,10 @@ if ($teaserImage !== null) {
 </a>
 <?php endif; ?>
 <div class="gallery gallery--cols-<?= $cols ?>" id="<?= $galleryId ?>">
-    <?php foreach ($images as $image): ?>
-    <?php $alt = str_replace(['-', '_'], ' ', pathinfo($image, PATHINFO_FILENAME)); ?>
+    <?php foreach ($images as $i => $image): ?>
+    <?php $alt = $useAltNames
+        ? str_replace(['-', '_'], ' ', pathinfo($image, PATHINFO_FILENAME))
+        : ($articleTitle !== '' ? $articleTitle . ' – Bild ' . ($i + 1) : ''); ?>
     <a class="gallery__item" href="<?= htmlspecialchars($image) ?>" data-lightbox="<?= $galleryId ?>">
         <img
             class="gallery__image"
