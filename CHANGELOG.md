@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.4.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.3.0...v2.4.0)
+
+### 🚀 Enhancements
+
+- Animate galleries. ([a54eece](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/a54eece))
+
 ## v2.3.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.2.3...v2.3.0)
