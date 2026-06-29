@@ -94,6 +94,16 @@ class CookieConsent {
     window.addEventListener("showCookieBanner", () => {
       this.showBanner();
     });
+
+    // Allow links anywhere (e.g. in the privacy policy) to reopen the banner
+    document.addEventListener("click", (e) => {
+      const trigger = e.target.closest("[data-cookie-settings]");
+      if (!trigger) {
+        return;
+      }
+      e.preventDefault();
+      this.showBanner();
+    });
   }
 }
 
