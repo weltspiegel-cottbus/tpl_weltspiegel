@@ -1,0 +1,149 @@
+/**
+ * Listing & Listing Card Styles
+ * Shared list layout for movies, vorschauen and veranstaltungen.
+ * Optional slots (meta, details, showtimes, tagline) are only rendered when
+ * data is present; full-width slots span all columns via grid auto-placement.
+ */
+
+.listing {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 0.5rem;
+}
+
+.listing__title {
+    margin: 0;
+
+    /* font-size handled by .u-flipped-title */
+}
+
+.listing__section-title {
+    margin: 2rem 0 1rem;
+    font-family: Kameron, serif;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--color-accent);
+}
+
+.listing__description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.listing__items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.listing__empty {
+    text-align: center;
+    font-size: 1.125rem;
+    font-style: italic;
+    opacity: 0.8;
+    padding: 2rem 1rem;
+    border: 1px dashed #f2940080;
+    border-radius: 0.25rem;
+}
+
+.listing__empty p {
+    margin: 0;
+}
+
+.listing__pagination {
+    margin-block-start: 2rem;
+}
+
+/* Card — mobile first (single column grid) */
+.listing-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    border: 1px solid #f2940080;
+    border-radius: 0.25rem;
+    padding: 1rem 0.5rem;
+}
+
+.listing-card__poster-link {
+    display: block;
+}
+
+.listing-card__poster-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.listing-card__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.listing-card__title-link {
+    color: var(--color-fg-body);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.listing-card__title-link:hover {
+    color: var(--color-accent-hover);
+}
+
+.listing-card__description {
+    line-height: 1.6;
+}
+
+.listing-card__description p:first-child {
+    margin-top: 0;
+}
+
+.listing-card__description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Full-width slots below the poster|content row */
+.listing-card__meta,
+.listing-card__details,
+.listing-card__showtimes {
+    grid-column: 1 / -1;
+}
+
+.listing-card__details {
+    font-style: italic;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-block: 0.5rem;
+    padding-inline-start: 1rem;
+}
+
+/* Desktop: 768px+ */
+@media (width >= 768px) {
+    .listing {
+        padding: 1rem 1rem 3rem 5rem; /* Left: 4rem for flipped title + 1rem spacing */
+    }
+
+    .listing-card {
+        grid-template-columns: 10.75rem 1fr;
+        gap: 1rem 1.5rem;
+        padding: 1rem;
+    }
+
+    /* Cards without a poster use the full width (content would otherwise land
+       in the narrow 10.75rem poster column) */
+    .listing-card--no-poster {
+        grid-template-columns: 1fr;
+    }
+
+    .listing-card__poster-img {
+        max-width: none;
+        margin: 0;
+    }
+
+    .listing-card__details {
+        text-align: center;
+    }
+}

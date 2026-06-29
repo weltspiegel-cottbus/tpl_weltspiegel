@@ -15,9 +15,8 @@
 @import "./_youtube.css";
 @import "./_gallery.css";
 @import "./_showtimes.css";
-@import "./_movie.css";
-@import "./_movies.css";
-@import "./_content-cards.css";
+@import "./_listing.css";
+@import "./_detail.css";
 @import "./_current-events.css";
 @import "./_cookie-consent.css";
 @import "./_error.css";

@@ -31,16 +31,10 @@ function updateTruncateStates() {
  */
 const CARD_SELECTORS = [
   {
-    card: ".cinetixx-card",
-    poster: ".cinetixx-card__poster-img",
-    content: ".cinetixx-card__content",
-    description: ".cinetixx-card__description",
-  },
-  {
-    card: ".content-card",
-    poster: ".content-card__poster-img",
-    content: ".content-card__content",
-    description: ".content-card__description",
+    card: ".listing-card",
+    poster: ".listing-card__poster-img",
+    content: ".listing-card__content",
+    description: ".listing-card__description",
   },
 ];
 

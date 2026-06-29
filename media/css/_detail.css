@@ -1,0 +1,185 @@
+/**
+ * Detail View Styles
+ * Shared single-view layout for movie, vorschau and veranstaltung.
+ * Optional slots (back, fsk, poster, meta, details, tagline, showtimes,
+ * trailer, gallery) render only when data is present.
+ *
+ * Desktop: poster floats left; meta/details/tagline flow beside it; the main
+ * body and any wide blocks (showtimes, trailer, gallery) clear below.
+ */
+
+.detail {
+    padding: 1rem 0.5rem;
+}
+
+/* Article detail variants (vorschau/veranstaltung) use a wider banner than the
+   movie poster — intentionally larger image, body text wraps around it. */
+.detail--full,
+.detail--simple {
+    --detail-poster-width: 300px;
+}
+
+.detail__inner {
+    position: relative;
+    border: 1px solid #f2940080;
+    border-radius: 0.25rem;
+    padding: 1rem 0.5rem;
+}
+
+.detail__back {
+    display: inline-block;
+    margin-block-end: 1rem;
+    font-size: 0.9rem;
+}
+
+.detail__fsk-link {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: block;
+    line-height: 0;
+}
+
+.detail__fsk-img {
+    width: 4rem;
+    height: auto;
+}
+
+.detail__title {
+    margin: 0 0 1rem;
+    font-family: Kameron, serif;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--color-accent);
+}
+
+.detail__poster {
+    margin-block-end: 1rem;
+}
+
+.detail__poster-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.detail__meta {
+    margin-block-end: 1rem;
+}
+
+.detail__details {
+    font-style: italic;
+    font-size: 1rem;
+    margin-block-end: 1rem;
+    opacity: 0.9;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+}
+
+.detail__details span:not(:last-child)::after {
+    content: ",";
+}
+
+.detail__details b {
+    font-weight: normal;
+}
+
+.detail__tagline {
+    margin: 0 0 1rem;
+    font-style: italic;
+}
+
+.detail__body {
+    margin-block: 1.5rem;
+    line-height: 1.6;
+}
+
+.detail__body p:first-child {
+    margin-top: 0;
+}
+
+.detail__body p:last-child {
+    margin-bottom: 0;
+}
+
+.detail__trailer {
+    clear: both;
+    margin-block-start: 2rem;
+}
+
+.detail__gallery {
+    clear: both;
+    margin-block-start: 2rem;
+}
+
+/* Simple movie still grid — replaced by the lightbox gallery in a later step */
+.detail__gallery-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.detail__gallery-item {
+    flex: 0 0 auto;
+}
+
+.detail__gallery-img {
+    width: auto;
+    max-width: 300px;
+    max-height: 200px;
+    display: block;
+}
+
+/* Desktop: 768px+ */
+@media (width >= 768px) {
+    .detail {
+        padding: 1rem 1rem 3rem 5rem; /* Left: 4rem for flipped title + 1rem spacing */
+    }
+
+    .detail__inner {
+        padding: 1rem;
+    }
+
+    .detail__title {
+        font-size: 2rem;
+    }
+
+    .detail__poster {
+        float: left;
+        width: var(--detail-poster-width, 10.75rem);
+        margin-inline-end: 1.5rem;
+        margin-block-end: 1rem;
+    }
+
+    .detail__poster-img {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .detail__details {
+        margin-block-start: 0.5rem;
+        flex-direction: column;
+        gap: 0.125rem;
+        font-style: normal;
+    }
+
+    .detail__details span:not(:last-child)::after {
+        content: none;
+    }
+
+    .detail__details b {
+        font-weight: bold;
+    }
+
+    .detail__showtimes {
+        clear: both;
+    }
+}

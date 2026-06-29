@@ -96,8 +96,8 @@
     height: 360px;
 }
 
-/* Clear float when inside content body (freeform articles) */
-.content-single__body .youtube-embed {
+/* Clear float when inside detail body (freeform articles) */
+.detail__body .youtube-embed {
     clear: both;
     padding-top: 2rem;
 }

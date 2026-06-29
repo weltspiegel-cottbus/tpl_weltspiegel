@@ -19,10 +19,10 @@ $futureHeadingShown = false;
 
 ?>
 
-<div class="movies u-flipped-title-container">
-    <h1 class="movies__title u-flipped-title"><?= $this->escape($this->title) ?></h1>
+<div class="listing u-flipped-title-container">
+    <h1 class="listing__title u-flipped-title"><?= $this->escape($this->title) ?></h1>
 
-    <div class="movies__list">
+    <div class="listing__list">
         <?php foreach ($this->items as $movie): ?>
 
             <?php
@@ -44,7 +44,7 @@ $futureHeadingShown = false;
             if (!$futureHeadingShown && $firstShowDate !== null) {
                 $daysUntilFirstShow = $now->diff($firstShowDate)->days;
                 if ($daysUntilFirstShow >= 7) {
-                    echo '<h2 class="movies__section-title">Demnächst</h2>';
+                    echo '<h2 class="listing__section-title">Demnächst</h2>';
                     $futureHeadingShown = true;
                 }
             }
@@ -52,32 +52,32 @@ $futureHeadingShown = false;
             $detailRoute = Route::_('index.php?option=com_weltspiegel&view=movie&movie_id=' . $movie->movieId);
             ?>
 
-            <article class="movies-card">
-                <div class="movies-card__poster">
-                    <a href="<?= $detailRoute ?>" class="movies-card__poster-link">
+            <article class="listing-card">
+                <div class="listing-card__poster">
+                    <a href="<?= $detailRoute ?>" class="listing-card__poster-link">
                         <img src="<?= htmlspecialchars($movie->poster) ?>"
                              alt="Filmplakat <?= $this->escape($movie->title) ?>"
-                             class="movies-card__poster-img">
+                             class="listing-card__poster-img">
                     </a>
                 </div>
 
                 <?php
-                $titleHtml = '<h2 class="movies-card__title"><a href="' . $detailRoute . '" class="movies-card__title-link">' . $this->escape($movie->title) . '</a></h2>';
+                $titleHtml = '<h2 class="listing-card__title"><a href="' . $detailRoute . '" class="listing-card__title-link">' . $this->escape($movie->title) . '</a></h2>';
                 ?>
                 <?= LayoutHelper::render('utilities.truncate', [
                     'title'   => $titleHtml,
-                    'content' => '<div class="movies-card__description">' . $movie->text . '</div>',
+                    'content' => '<div class="listing-card__description">' . $movie->text . '</div>',
                     'link'    => $detailRoute,
-                    'class'   => 'movies-card__content',
+                    'class'   => 'listing-card__content',
                 ]) ?>
 
-                <div class="movies-card__details">
+                <div class="listing-card__details">
                     Dauer: <?= htmlspecialchars($movie->duration) ?> min,
                     FSK: <?= htmlspecialchars($movie->fsk) ?><?php if (!empty($movie->genre) && $movie->genre !== '-'): ?>,
                     Genre: <?= htmlspecialchars($movie->genre) ?><?php endif; ?>
                 </div>
 
-                <div class="movies-card__showtimes">
+                <div class="listing-card__showtimes">
                     <?= LayoutHelper::render('booking.showtimes', $movie) ?>
                 </div>
             </article>

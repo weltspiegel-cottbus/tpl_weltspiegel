@@ -63,8 +63,8 @@
     transform: scale(1.02);
 }
 
-/* Clear float when inside content body (freeform articles) */
-.content-single__body .gallery {
+/* Clear float when inside detail body (freeform articles) */
+.detail__body .gallery {
     clear: both;
 }
 
