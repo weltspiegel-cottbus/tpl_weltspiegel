@@ -1,6 +1,15 @@
 # Changelog
 
 
+## v2.2.3
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.2.2...v2.2.3)
+
+### 💅 Refactors
+
+- Align styling on generated content views. ([bcf4fab](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/bcf4fab))
+- Hide teaser image in image grid. ([45165fd](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/45165fd))
+
 ## v2.2.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.2.1...v2.2.2)
