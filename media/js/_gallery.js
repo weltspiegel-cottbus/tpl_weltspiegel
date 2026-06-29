@@ -20,6 +20,7 @@ class Gallery {
 
     this.lightboxImg = this.dialog.querySelector(".gallery-lightbox__image");
     this.counterEl = this.dialog.querySelector(".gallery-lightbox__current");
+    this.captionEl = this.dialog.querySelector(".gallery-lightbox__caption");
 
     if (this.images.length === 1) {
       this.dialog.dataset.single = "";
@@ -90,6 +91,7 @@ class Gallery {
     this.lightboxImg.src = src;
     this.lightboxImg.alt = alt;
     this.counterEl.textContent = this.current + 1;
+    if (this.captionEl) this.captionEl.textContent = alt;
   }
 }
 

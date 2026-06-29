@@ -48,7 +48,7 @@ if ($teaserImage !== null) {
 ?>
 <?php if ($teaserImage !== null):
     $teaserAlt = $useAltNames
-        ? str_replace(['-', '_'], ' ', pathinfo($teaserImage, PATHINFO_FILENAME))
+        ? str_replace('_', ' ', pathinfo($teaserImage, PATHINFO_FILENAME))
         : ($articleTitle !== '' ? $articleTitle . ' – Titelbild' : '');
 ?>
 <a class="gallery__teaser"
@@ -58,19 +58,21 @@ if ($teaserImage !== null) {
     <img class="gallery__teaser-image"
          src="<?= htmlspecialchars($teaserImage) ?>"
          alt="<?= htmlspecialchars($teaserAlt) ?>"
+         <?= $useAltNames ? 'title="' . htmlspecialchars($teaserAlt) . '"' : '' ?>
          loading="lazy">
 </a>
 <?php endif; ?>
 <div class="gallery gallery--cols-<?= $cols ?>" id="<?= $galleryId ?>">
     <?php foreach ($images as $i => $image): ?>
     <?php $alt = $useAltNames
-        ? str_replace(['-', '_'], ' ', pathinfo($image, PATHINFO_FILENAME))
+        ? str_replace('_', ' ', pathinfo($image, PATHINFO_FILENAME))
         : ($articleTitle !== '' ? $articleTitle . ' – Bild ' . ($i + 1) : ''); ?>
     <a class="gallery__item" href="<?= htmlspecialchars($image) ?>" data-lightbox="<?= $galleryId ?>">
         <img
             class="gallery__image"
             src="<?= htmlspecialchars($image) ?>"
             alt="<?= htmlspecialchars($alt) ?>"
+            <?= $useAltNames ? 'title="' . htmlspecialchars($alt) . '"' : '' ?>
             loading="lazy"
         >
     </a>
@@ -99,6 +101,8 @@ if ($teaserImage !== null) {
             <polyline points="9 18 15 12 9 6"/>
         </svg>
     </button>
+
+    <p class="gallery-lightbox__caption"></p>
 
     <p class="gallery-lightbox__counter" aria-live="polite">
         <span class="gallery-lightbox__current">1</span> / <?= $total ?>
