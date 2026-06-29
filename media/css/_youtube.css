@@ -77,7 +77,10 @@
 }
 
 .youtube-embed__iframe {
-    display: none;
+    /* Hidden via visibility (not display:none) so the element keeps its
+       layout box. YouTube measures the real size when the player initializes
+       and picks a sharp poster instead of a 0x0 low-res fallback. */
+    visibility: hidden;
 }
 
 .youtube-embed__iframe--responsive {

@@ -60,6 +60,7 @@ $thumbnailPath = YouTubeHelper::getThumbnailPath($videoId);
                 src="about:blank"
                 data-src="<?= htmlspecialchars($embedUrl) ?>"
                 frameborder="0"
+                allow="encrypted-media; picture-in-picture; fullscreen"
                 allowfullscreen
                 referrerpolicy="strict-origin-when-cross-origin">
         </iframe>

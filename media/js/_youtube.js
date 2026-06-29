@@ -35,23 +35,34 @@ class YouTubeEmbed {
     try {
       const consent = localStorage.getItem("cookie_consent");
       if (consent === "granted") {
-        // Only show iframe after it has loaded
+        // Reveal the iframe only once its content has loaded. The iframe keeps
+        // its layout box while hidden (visibility, not display), so YouTube
+        // measures the real size and serves a sharp poster.
         this.iframe.addEventListener(
           "load",
           () => {
-            this.iframe.style.display = "block";
+            this.iframe.style.visibility = "visible";
             this.placeholder.style.display = "none";
           },
           { once: true },
         );
         this.iframe.src = this.iframe.dataset.src;
       } else {
-        this.placeholder.style.display = "flex";
-        this.iframe.style.display = "none";
+        this.hideIframe();
       }
     } catch {
-      this.placeholder.style.display = "flex";
-      this.iframe.style.display = "none";
+      this.hideIframe();
+    }
+  }
+
+  hideIframe() {
+    this.placeholder.style.display = "flex";
+    this.iframe.style.visibility = "hidden";
+
+    // Tear down the YouTube document so playback and scripts stop immediately
+    // and no further cookies/requests are sent after consent is withdrawn.
+    if (this.iframe.src && this.iframe.src !== "about:blank") {
+      this.iframe.src = "about:blank";
     }
   }
 }
