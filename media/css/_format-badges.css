@@ -1,0 +1,30 @@
+/**
+ * Format Badges
+ * Shared between listing cards and detail views (rendered by booking/formats.php).
+ * Dimension flags (2D/3D) are filled; language versions are outlined.
+ */
+
+.format-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+}
+
+.format-badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.format-badge--dim {
+    background-color: var(--color-accent);
+    color: var(--color-bg-body);
+}
+
+.format-badge--lang {
+    color: var(--color-accent);
+}

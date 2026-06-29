@@ -14,22 +14,11 @@
 use Joomla\CMS\Layout\LayoutHelper;
 
 $movie = $this->item;
-
-preg_match('/(\d+)/', $movie->fsk ?? '', $fskMatch);
-$fskNum = isset($fskMatch[1]) ? (int) $fskMatch[1] : null;
 ?>
 
 <article class="detail u-flipped-title-container">
     <span class="u-flipped-title u-flipped-title--desktop-only">Programm</span>
     <div class="detail__inner">
-        <?php if ($fskNum !== null): ?>
-            <a href="/service/fsk-und-jugendschutz" class="detail__fsk-link">
-                <img src="/images/site/fsk/FSK-<?= $fskNum ?>.png"
-                     alt="FSK <?= $fskNum ?>"
-                     class="detail__fsk-img">
-            </a>
-        <?php endif; ?>
-
         <h1 class="detail__title"><?= $this->escape($this->title) ?></h1>
 
         <div class="detail__poster">
@@ -38,11 +27,23 @@ $fskNum = isset($fskMatch[1]) ? (int) $fskMatch[1] : null;
                  class="detail__poster-img">
         </div>
 
+        <div class="detail__meta">
+            <div class="format-badges">
+                <?= LayoutHelper::render('movie.fsk', ['fsk' => $movie->fsk, 'href' => '/service/fsk-und-jugendschutz']) ?>
+                <?= LayoutHelper::render('booking.formats', $movie) ?>
+            </div>
+        </div>
+
         <div class="detail__details">
             <span><b>Dauer:</b> <?= htmlspecialchars($movie->duration) ?> Min.</span>
-            <span><b>FSK:</b> <?= htmlspecialchars($movie->fsk) ?></span>
-            <?php if (!empty($movie->genre)): ?>
+            <?php if (!empty($movie->genre) && $movie->genre !== '-'): ?>
                 <span><b>Genre:</b> <?= htmlspecialchars($movie->genre) ?></span>
+            <?php endif; ?>
+            <?php if (!empty($movie->year) && !in_array($movie->year, ['0', '1900'], true)): ?>
+                <span><b>Jahr:</b> <?= htmlspecialchars($movie->year) ?></span>
+            <?php endif; ?>
+            <?php if (!empty($movie->country)): ?>
+                <span><b>Land:</b> <?= htmlspecialchars($movie->country) ?></span>
             <?php endif; ?>
         </div>
 

@@ -1,0 +1,70 @@
+/**
+ * FSK Badge
+ * Official age-rating colours. Shared between the mod_current_events poster
+ * overlay (positioned) and the inline info rows in listing/detail views.
+ *
+ * Base = overlay (absolute). Add `--inline` for the info-row variant.
+ * Colour modifiers use a double class so they keep their colour over the
+ * global `a:hover` rule when the badge is a link.
+ */
+
+.fsk-badge {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.35rem;
+    min-width: 1.75rem;
+    padding: 0.1rem 0.25rem;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    text-decoration: none;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Inline variant for the info-badge row (listing-card__meta / detail__meta) */
+.fsk-badge--inline {
+    position: static;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    pointer-events: auto;
+}
+
+a.fsk-badge--inline:hover,
+a.fsk-badge--inline:focus {
+    opacity: 0.85;
+}
+
+.fsk-badge.fsk-badge--0 {
+    background: #fff;
+    color: #000;
+}
+
+.fsk-badge.fsk-badge--6 {
+    background: #ffed00;
+    color: #000;
+}
+
+.fsk-badge.fsk-badge--12 {
+    background: #00a550;
+    color: #fff;
+}
+
+.fsk-badge.fsk-badge--16 {
+    background: #0066b3;
+    color: #fff;
+}
+
+.fsk-badge.fsk-badge--18 {
+    background: #e30613;
+    color: #fff;
+}
+
+/* "FSK folgt" — pending rating */
+.fsk-badge.fsk-badge--pending {
+    background: #9a9a9a;
+    color: #fff;
+}

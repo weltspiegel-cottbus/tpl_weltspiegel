@@ -32,19 +32,6 @@
     font-size: 0.9rem;
 }
 
-.detail__fsk-link {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    display: block;
-    line-height: 0;
-}
-
-.detail__fsk-img {
-    width: 4rem;
-    height: auto;
-}
-
 .detail__title {
     margin: 0 0 1rem;
     font-family: Kameron, serif;

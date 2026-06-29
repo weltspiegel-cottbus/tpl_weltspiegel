@@ -131,45 +131,7 @@
     overflow: hidden;
 }
 
-.fsk-badge {
-    position: absolute;
-    top: 0.35rem;
-    right: 0.35rem;
-    min-width: 1.75rem;
-    padding: 0.1rem 0.25rem;
-    border-radius: 0.2rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-align: center;
-    line-height: 1.4;
-    pointer-events: none;
-    user-select: none;
-}
-
-.fsk-badge--0 {
-    background: #fff;
-    color: #000;
-}
-
-.fsk-badge--6 {
-    background: #ffed00;
-    color: #000;
-}
-
-.fsk-badge--12 {
-    background: #00a550;
-    color: #fff;
-}
-
-.fsk-badge--16 {
-    background: #0066b3;
-    color: #fff;
-}
-
-.fsk-badge--18 {
-    background: #e30613;
-    color: #fff;
-}
+/* FSK badge styles moved to _fsk-badge.css (shared with listing/detail views) */
 
 .event-poster-card__img {
     width: 100%;

@@ -71,9 +71,15 @@ $futureHeadingShown = false;
                     'class'   => 'listing-card__content',
                 ]) ?>
 
+                <div class="listing-card__meta">
+                    <div class="format-badges">
+                        <?= LayoutHelper::render('movie.fsk', ['fsk' => $movie->fsk, 'href' => '/service/fsk-und-jugendschutz']) ?>
+                        <?= LayoutHelper::render('booking.formats', $movie) ?>
+                    </div>
+                </div>
+
                 <div class="listing-card__details">
-                    Dauer: <?= htmlspecialchars($movie->duration) ?> min,
-                    FSK: <?= htmlspecialchars($movie->fsk) ?><?php if (!empty($movie->genre) && $movie->genre !== '-'): ?>,
+                    Dauer: <?= htmlspecialchars($movie->duration) ?> min<?php if (!empty($movie->genre) && $movie->genre !== '-'): ?>,
                     Genre: <?= htmlspecialchars($movie->genre) ?><?php endif; ?>
                 </div>
 
