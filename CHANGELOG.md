@@ -1,6 +1,16 @@
 # Changelog
 
 
+## v2.2.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.1.0...v2.2.0)
+
+### 🚀 Enhancements
+
+- Render teaser images if set. ([76c85e7](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/76c85e7))
+- Render alt texts based on setting. ([46d613f](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/46d613f))
+- Display alt-text in lightbox. Add img title if useful. ([615714b](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/615714b))
+
 ## v2.1.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.0.0...v2.1.0)
