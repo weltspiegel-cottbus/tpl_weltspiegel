@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v2.6.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.5.1...v2.6.0)
+
+### 🚀 Enhancements
+
+- Adopt the new consent system. ([e5d8646](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e5d8646))
+
+### 💅 Refactors
+
+- No need for extranous 1rem here. ([d146e02](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/d146e02))
+- Remove 2D showtime info, render 3D, OmU, ... as badge. ([79eeafb](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/79eeafb))
+
 ## v2.5.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.5.0...v2.5.1)
