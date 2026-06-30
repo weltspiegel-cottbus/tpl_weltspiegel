@@ -213,7 +213,7 @@ $formatterDate->setPattern('dd.MM.');
                                     <?php if (!empty($show->hall)): ?>
                                         <span class="showbox-hall">
                                             <?= htmlspecialchars($show->hall) ?>
-                                            <span class="showbox-format"><?= htmlspecialchars($show->formatCategory) ?></span>
+                                            <?php if ($show->formatCategory !== '2D'): ?><span class="showbox-format showbox-format--<?= strtolower($show->formatCategory) ?>"><?= htmlspecialchars($show->formatCategory) ?></span><?php endif; ?>
                                         </span>
                                     <?php endif; ?>
                                 </div>
@@ -262,7 +262,7 @@ $formatterDate->setPattern('dd.MM.');
                             <?php if (!empty($show->hall)): ?>
                                 <span class="showbox-hall">
                                     <?= htmlspecialchars($show->hall) ?>
-                                    <span class="showbox-format"><?= htmlspecialchars($show->formatCategory) ?></span>
+                                    <?php if ($show->formatCategory !== '2D'): ?><span class="showbox-format showbox-format--<?= strtolower($show->formatCategory) ?>"><?= htmlspecialchars($show->formatCategory) ?></span><?php endif; ?>
                                 </span>
                             <?php endif; ?>
                         </span>

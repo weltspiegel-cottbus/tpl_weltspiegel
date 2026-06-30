@@ -27,7 +27,6 @@
 
 .showbox-nav-btn:disabled {
     opacity: 0.3;
-    cursor: not-allowed;
 }
 
 .showbox-nav-btn svg {
@@ -127,8 +126,28 @@
 }
 
 .showbox-format {
-    font-size: 0.75rem;
-    opacity: 0.8;
+    display: inline-block;
+    margin-inline-start: 0.25rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.showbox-format--3d {
+    background: var(--color-accent);
+    color: var(--color-bg-body);
+}
+
+.showbox-format--omu {
+    background: #2ec4f1;
+    color: #00131a;
+}
+
+.showbox-format--ov {
+    background: #38c172;
+    color: #042012;
 }
 
 /* Mobile layout */
