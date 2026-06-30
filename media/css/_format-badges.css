@@ -28,3 +28,12 @@
 .format-badge--lang {
     color: var(--color-accent);
 }
+
+.format-badge--duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-color: transparent;
+    background-color: var(--color-bg-body);
+    color: #fff;
+}

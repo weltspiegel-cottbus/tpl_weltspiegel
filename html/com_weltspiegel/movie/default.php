@@ -31,11 +31,11 @@ $movie = $this->item;
             <div class="format-badges">
                 <?= LayoutHelper::render('movie.fsk', ['fsk' => $movie->fsk, 'href' => '/service/fsk-und-jugendschutz']) ?>
                 <?= LayoutHelper::render('booking.formats', $movie) ?>
+                <?= LayoutHelper::render('movie.duration', $movie->duration) ?>
             </div>
         </div>
 
         <div class="detail__details">
-            <span><b>Dauer:</b> <?= htmlspecialchars($movie->duration) ?> Min.</span>
             <?php if (!empty($movie->genre) && $movie->genre !== '-'): ?>
                 <span><b>Genre:</b> <?= htmlspecialchars($movie->genre) ?></span>
             <?php endif; ?>

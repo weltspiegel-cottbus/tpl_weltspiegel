@@ -107,17 +107,8 @@
 
 /* Full-width slots below the poster|content row */
 .listing-card__meta,
-.listing-card__details,
 .listing-card__showtimes {
     grid-column: 1 / -1;
-}
-
-.listing-card__details {
-    font-style: italic;
-    font-weight: 500;
-    opacity: 0.9;
-    margin-block: 0.5rem;
-    padding-inline-start: 1rem;
 }
 
 /* Desktop: 768px+ */
@@ -141,9 +132,5 @@
     .listing-card__poster-img {
         max-width: none;
         margin: 0;
-    }
-
-    .listing-card__details {
-        text-align: center;
     }
 }

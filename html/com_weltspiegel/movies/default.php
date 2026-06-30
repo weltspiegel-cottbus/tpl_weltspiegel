@@ -75,12 +75,8 @@ $futureHeadingShown = false;
                     <div class="format-badges">
                         <?= LayoutHelper::render('movie.fsk', ['fsk' => $movie->fsk, 'href' => '/service/fsk-und-jugendschutz']) ?>
                         <?= LayoutHelper::render('booking.formats', $movie) ?>
+                        <?= LayoutHelper::render('movie.duration', $movie->duration) ?>
                     </div>
-                </div>
-
-                <div class="listing-card__details">
-                    Dauer: <?= htmlspecialchars($movie->duration) ?> min<?php if (!empty($movie->genre) && $movie->genre !== '-'): ?>,
-                    Genre: <?= htmlspecialchars($movie->genre) ?><?php endif; ?>
                 </div>
 
                 <div class="listing-card__showtimes">
