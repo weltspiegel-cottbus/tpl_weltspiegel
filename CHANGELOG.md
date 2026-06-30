@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.6.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.6.0...v2.6.1)
+
+### 💅 Refactors
+
+- Use badge for duration. Remove other details from movies page. ([2e67d58](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2e67d58))
+
 ## v2.6.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.5.1...v2.6.0)
