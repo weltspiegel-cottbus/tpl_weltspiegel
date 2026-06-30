@@ -33,7 +33,7 @@ html {
     scroll-behavior: smooth;
 
     /* Offset anchor jumps so the fixed header doesn't cover the target content */
-    scroll-padding-top: calc(var(--header-height) + 1rem);
+    scroll-padding-top: var(--header-height);
 }
 
 @view-transition {
