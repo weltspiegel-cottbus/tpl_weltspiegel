@@ -72,7 +72,7 @@ if ($teaserImage !== null) {
     // lightbox still indexes all images) but hide the duplicate thumbnail.
     $isTeaser = ($teaserImage !== null && $i === $teaserIndex);
     ?>
-    <a class="gallery__item<?= $isTeaser ? ' gallery__item--teaser' : '' ?>" href="<?= htmlspecialchars($image) ?>" data-lightbox="<?= $galleryId ?>">
+    <a class="gallery__item<?= $isTeaser ? ' gallery__item--teaser' : '' ?>" href="<?= htmlspecialchars($image) ?>">
         <img
             class="gallery__image"
             src="<?= htmlspecialchars($image) ?>"
