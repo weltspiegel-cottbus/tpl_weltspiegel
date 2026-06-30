@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.5.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.4.1...v2.5.0)
+
+### 🚀 Enhancements
+
+- Add simple image popout script. ([7cf52ad](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/7cf52ad))
+
+### 🩹 Fixes
+
+- Remove obsolete data attribute ([a7739ad](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/a7739ad))
+
 ## v2.4.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.4.0...v2.4.1)
