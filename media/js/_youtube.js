@@ -3,6 +3,10 @@
  * Handles consent-aware YouTube video embedding
  */
 
+import { isConsentGranted } from "./_cookie-consent.js";
+
+const CONSENT_CATEGORY = "youtube";
+
 class YouTubeEmbed {
   constructor(embedElement) {
     this.embed = embedElement;
@@ -18,7 +22,12 @@ class YouTubeEmbed {
 
   init() {
     this.checkConsent();
-    window.addEventListener("cookieConsentChanged", () => this.checkConsent());
+    window.addEventListener("cookieConsentChanged", (e) => {
+      // Only react to our own category (or a non-specific change)
+      if (!e.detail || e.detail.category === CONSENT_CATEGORY) {
+        this.checkConsent();
+      }
+    });
 
     // Make placeholder clickable to show cookie consent
     this.placeholder.style.cursor = "pointer";
@@ -32,25 +41,20 @@ class YouTubeEmbed {
   }
 
   checkConsent() {
-    try {
-      const consent = localStorage.getItem("cookie_consent");
-      if (consent === "granted") {
-        // Reveal the iframe only once its content has loaded. The iframe keeps
-        // its layout box while hidden (visibility, not display), so YouTube
-        // measures the real size and serves a sharp poster.
-        this.iframe.addEventListener(
-          "load",
-          () => {
-            this.iframe.style.visibility = "visible";
-            this.placeholder.style.display = "none";
-          },
-          { once: true },
-        );
-        this.iframe.src = this.iframe.dataset.src;
-      } else {
-        this.hideIframe();
-      }
-    } catch {
+    if (isConsentGranted(CONSENT_CATEGORY)) {
+      // Reveal the iframe only once its content has loaded. The iframe keeps
+      // its layout box while hidden (visibility, not display), so YouTube
+      // measures the real size and serves a sharp poster.
+      this.iframe.addEventListener(
+        "load",
+        () => {
+          this.iframe.style.visibility = "visible";
+          this.placeholder.style.display = "none";
+        },
+        { once: true },
+      );
+      this.iframe.src = this.iframe.dataset.src;
+    } else {
       this.hideIframe();
     }
   }
