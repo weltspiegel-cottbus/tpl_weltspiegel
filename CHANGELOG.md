@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.5.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.5.0...v2.5.1)
+
+### 🩹 Fixes
+
+- Add scroll-padding-top due to fixed header. ([d4e56a5](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/d4e56a5))
+
 ## v2.5.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.4.1...v2.5.0)
