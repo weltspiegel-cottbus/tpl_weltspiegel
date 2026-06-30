@@ -1,0 +1,91 @@
+/**
+ * Image Popout
+ * Modal for showing a larger version of an image. The <dialog> is injected by
+ * _image-popout.js and triggered via [data-image-popout]. Mirrors the gallery
+ * lightbox aesthetic (frosted backdrop + fade).
+ */
+
+.image-popout {
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    background: rgba(16, 5, 1, 0.72);
+    backdrop-filter: blur(12px);
+    color: var(--color-fg-body);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition:
+        opacity 0.25s ease,
+        overlay 0.25s ease allow-discrete,
+        display 0.25s ease allow-discrete;
+}
+
+.image-popout[open] {
+    display: flex;
+    opacity: 1;
+}
+
+@starting-style {
+    .image-popout[open] {
+        opacity: 0;
+    }
+}
+
+.image-popout::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.image-popout__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: 3rem;
+    box-sizing: border-box;
+    user-select: none;
+    animation: image-popout-in 0.22s ease;
+}
+
+@keyframes image-popout-in {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.image-popout__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    color: var(--color-fg-body);
+    cursor: pointer;
+    padding: 0.75rem;
+    line-height: 0;
+    transition: color 0.2s;
+}
+
+.image-popout__close:hover,
+.image-popout__close:focus-visible {
+    color: var(--color-accent);
+    outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .image-popout,
+    .image-popout__image {
+        transition: none;
+        animation: none;
+    }
+}

@@ -14,6 +14,7 @@ import "./_youtube.js";
 import "./_cookie-consent.js";
 import "./_current-events.js";
 import "./_gallery.js";
+import "./_image-popout.js";
 
 // Export for potential external use
 export default {};
