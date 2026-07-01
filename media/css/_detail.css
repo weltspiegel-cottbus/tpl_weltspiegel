@@ -31,9 +31,22 @@
 }
 
 .detail__back {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     margin-block-end: 1rem;
     font-size: 0.9rem;
+    text-decoration: none;
+    opacity: 0.85;
+    transition:
+        opacity 0.2s,
+        color 0.2s;
+}
+
+.detail__back:hover,
+.detail__back:focus-visible {
+    opacity: 1;
+    color: var(--color-accent);
 }
 
 .detail__title {

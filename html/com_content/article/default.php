@@ -11,6 +11,8 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Router\Route;
+use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 /** @var Joomla\Component\Content\Site\View\Article\HtmlView $this */
 
@@ -31,6 +33,12 @@ $images = json_decode($this->item->images, true) ?: [];
 // Component-managed article has source marker
 $isComponentManaged = $useContentSingleLayout && (!empty($attribs['source']) && $attribs['source'] === 'com_weltspiegel');
 
+// "Zurück zur Übersicht" target = the category overview (Vorschauen/Veranstaltungen).
+// Only for our detail layouts (cat 8/9), never on standard articles.
+$overviewLink = $useContentSingleLayout
+    ? Route::_(RouteHelper::getCategoryRoute($this->item->catid, $this->item->language))
+    : '';
+
 // Check for optional content elements
 $hasYouTubeTrailer = !empty($attribs['youtube_url']);
 $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_intro']);
@@ -42,6 +50,8 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
     <article class="detail detail--full u-flipped-title-container">
         <span class="u-flipped-title u-flipped-title--desktop-only"><?= $flippedTitle ?></span>
         <div class="detail__inner">
+            <?= LayoutHelper::render('utilities.back-link', ['href' => $overviewLink]) ?>
+
             <?php if ($this->params->get('show_title')): ?>
                 <h1 class="detail__title"><?= $this->escape($this->item->title) ?></h1>
             <?php endif; ?>
@@ -86,6 +96,8 @@ $hasBannerImage = !empty($images['image_fulltext']) || !empty($images['image_int
     <article class="detail detail--simple u-flipped-title-container">
         <span class="u-flipped-title u-flipped-title--desktop-only"><?= $flippedTitle ?></span>
         <div class="detail__inner">
+            <?= LayoutHelper::render('utilities.back-link', ['href' => $overviewLink]) ?>
+
             <?php if ($this->params->get('show_title')): ?>
                 <h1 class="detail__title"><?= $this->escape($this->item->title) ?></h1>
             <?php endif; ?>

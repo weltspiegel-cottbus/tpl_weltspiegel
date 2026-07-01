@@ -12,6 +12,7 @@
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Router\Route;
 
 $movie = $this->item;
 ?>
@@ -19,6 +20,8 @@ $movie = $this->item;
 <article class="detail u-flipped-title-container">
     <span class="u-flipped-title u-flipped-title--desktop-only">Programm</span>
     <div class="detail__inner">
+        <?= LayoutHelper::render('utilities.back-link', ['href' => Route::_('index.php?option=com_weltspiegel&view=movies')]) ?>
+
         <h1 class="detail__title"><?= $this->escape($this->title) ?></h1>
 
         <div class="detail__poster">
