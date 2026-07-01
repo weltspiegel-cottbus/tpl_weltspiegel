@@ -39,7 +39,11 @@
     --header-height-scrolled: 3.5rem; /* Scrolled header height */
 
     /* Content width */
-    --content-width: 48rem; /* Flow text width (optimal reading) */
+
+    /* Fixed in px (not rem): must not shrink/grow with the user's root
+       font-size preference (e.g. Firefox "Zoom Text Only"), otherwise the
+       ticket image reservation below can overlap the content area. */
+    --content-width: 768px; /* Flow text width (optimal reading) */
 
     /* Truncate height for card content (title + description) */
     --truncate-content-height: 15rem;
