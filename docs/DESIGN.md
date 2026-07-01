@@ -29,7 +29,8 @@ Badges use a mix of the accent color and the official FSK age-rating colors (see
 
 | Badge                                  | Style                                              |
 | --------------------------------------- | --------------------------------------------------- |
-| `.format-badge--dim` (2D/3D)           | Filled accent background, dark text                 |
+| `.format-badge--3d`                    | Filled accent background, dark text (matches `.showbox-dimension-label--3d`) |
+| `.format-badge--2d`                    | Dark filled background, accent text/border (matches `.showbox-dimension-label--2d`) |
 | `.format-badge--lang` (language)       | Accent outline, accent text                         |
 | `.format-badge--duration`              | Dark filled chip (`--color-bg-body`), white text/icon, no border — deliberately set apart from the other badges |
 | `.fsk-badge--0/6/12/16/18`             | Official FSK colors (white/yellow/green/blue/red)   |
@@ -96,8 +97,26 @@ The ticket image (`eintrittskarte.png`) appears at 1024px+ as a decorative eleme
 
 ### Content Width
 
-- `--content-width: 48rem` - Optimal reading width for flow text
+- `--content-width: 768px` - Optimal reading width for flow text
 - Full container calculation includes: content + padding + flipped title space
+
+**Fixed in `px`, not `rem` (deliberately):** `--content-width` and the ticket-reservation
+terms in `.page-container`'s desktop `max-width`/`padding-left` (`192px` ticket space +
+`16px` spacing, see `template.css`), plus the ticket image's own `left: 16px` offset, are
+all pinned in `px`. Everything else in the layout (article padding, flipped-title space,
+right-hand padding) intentionally still scales with the user's root font-size.
+
+Reason: a user's root font-size preference (e.g. Firefox's "Nur Text zoomen" / "Zoom Text
+Only") shrinks or grows every `rem` value simultaneously. The reading-width variable must
+not shrink below its intended size just because of that setting. More importantly, the
+ticket image itself is a *fixed-size* `192×217px` background asset — if the space reserved
+for it (`padding-left`, the `max-width` ticket terms, and the image's own `left` offset)
+were still `rem`-based, a smaller root font-size would shrink the reserved zone while the
+image stayed the same size, and the ticket would visually overlap into the content area
+(observed live at a client site with 12px root font-size instead of the usual 16px). A
+*larger* root font-size has the mirror-image failure mode: the image's `left` offset would
+grow past the (then-larger) reserved zone. Pinning both the reservation and the offset in
+`px` keeps them mathematically consistent regardless of root font-size.
 
 ## Key Design Patterns
 
