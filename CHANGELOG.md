@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.8.3
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.2...v2.8.3)
+
+### 🩹 Fixes
+
+- Reduce gap. ([2faa6b2](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/2faa6b2))
+
 ## v2.8.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.1...v2.8.2)
