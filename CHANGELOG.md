@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.8.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.0...v2.8.1)
+
+### 🩹 Fixes
+
+- Make videos responsive ([c937b10](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/c937b10))
+
 ## v2.8.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.7.0...v2.8.0)
