@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.8.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.1...v2.8.2)
+
+### 🩹 Fixes
+
+- Render showtimes in a flex column direction. Not wrapping. ([e9c895c](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e9c895c))
+
 ## v2.8.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.0...v2.8.1)
