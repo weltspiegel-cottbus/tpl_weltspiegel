@@ -22,7 +22,7 @@ $futureHeadingShown = false;
 <div class="listing u-flipped-title-container">
     <h1 class="listing__title u-flipped-title"><?= $this->escape($this->title) ?></h1>
 
-    <div class="listing__list">
+    <div class="listing__items">
         <?php foreach ($this->items as $movie): ?>
 
             <?php
