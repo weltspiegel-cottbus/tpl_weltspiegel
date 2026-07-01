@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v2.7.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.6.1...v2.7.0)
+
+### 🚀 Enhancements
+
+- Add back links on single item views. ([cf5f6b0](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/cf5f6b0))
+
+### 🩹 Fixes
+
+- Wrong items class name. Brings back vertical gap. ([1930545](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/1930545))
+- Remove initial article top margin ([a11e75b](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/a11e75b))
+
+### 📖 Documentation
+
+- Update design documentation. ([810ea1d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/810ea1d))
+
 ## v2.6.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.6.0...v2.6.1)
