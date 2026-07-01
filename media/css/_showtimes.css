@@ -251,11 +251,16 @@
         font-weight: 500;
     }
 
+    /* Column, not wrap: with flex-wrap, unequal-width items (a show with a
+       badge vs. one without) get independently right-aligned per line, which
+       can make a narrower show visually land in front of the next one even
+       though DOM order is correct. A column stack removes that ambiguity —
+       every show gets its own row in guaranteed order. */
     .showbox-mobile-times {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 0.5rem 1rem;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
     }
 
     /* flex-direction is set explicitly here (not just display/align-items):
