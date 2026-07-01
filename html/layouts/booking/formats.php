@@ -62,7 +62,7 @@ if (empty($flags) && empty($languages)) {
 
 // Bare badge spans — the caller wraps them in .format-badges (alongside the FSK badge).
 foreach ($flags as $flag) {
-    echo '<span class="format-badge format-badge--dim">' . htmlspecialchars($flag) . '</span>';
+    echo '<span class="format-badge format-badge--' . strtolower($flag) . '">' . htmlspecialchars($flag) . '</span>';
 }
 foreach ($languages as $language) {
     echo '<span class="format-badge format-badge--lang">' . htmlspecialchars($language) . '</span>';

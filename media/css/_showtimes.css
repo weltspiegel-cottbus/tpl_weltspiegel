@@ -65,7 +65,26 @@
     background-color: var(--showbox-border);
     border: 2px solid var(--showbox-border);
     border-radius: 0.25rem;
-    overflow: hidden;
+}
+
+/* No overflow: hidden on the grid itself — the dimension label needs to poke
+   out past the left edge (see .showbox-dimension-label). Instead, the four
+   true corner cells get their own matching radius so their square background
+   doesn't bleed past the grid's rounded outer border. */
+.showbox-day-header--corner-tl {
+    border-top-left-radius: 0.2rem;
+}
+
+.showbox-day-header--corner-tr {
+    border-top-right-radius: 0.2rem;
+}
+
+.showbox-day-cell--corner-bl {
+    border-bottom-left-radius: 0.2rem;
+}
+
+.showbox-day-cell--corner-br {
+    border-bottom-right-radius: 0.2rem;
 }
 
 .showbox-day-header {
@@ -81,6 +100,7 @@
 }
 
 .showbox-day-cell {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -92,7 +112,10 @@
     text-align: center;
 }
 
-.showbox-day-cell:nth-child(odd) {
+/* Column striping via an explicit class (not :nth-child) so it stays correct
+   per weekday column even when multiple dimension rows are stacked below the
+   header row (see .showbox-dimension-label). */
+.showbox-day-cell--alt {
     background-color: var(--showbox-cell-bg-alt);
 }
 
@@ -105,6 +128,7 @@
 .showbox-time-link {
     color: var(--color-accent);
     font-size: 0.9375rem;
+    font-variant-numeric: tabular-nums;
     text-decoration: none;
     transition: opacity 0.2s;
 }
@@ -116,18 +140,28 @@
 .showbox-time-text {
     color: var(--color-fg-body);
     font-size: 0.9375rem;
+    font-variant-numeric: tabular-nums;
     opacity: 0.7;
+}
+
+/* Wrapper has no opacity of its own — only .showbox-hall's text is dimmed.
+   The format badge sits beside it, not inside it, so it keeps full color
+   instead of inheriting the dimmed opacity. */
+.showbox-hall-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .showbox-hall {
     color: var(--color-fg-body);
     font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
     opacity: 0.6;
 }
 
 .showbox-format {
     display: inline-block;
-    margin-inline-start: 0.25rem;
     padding: 0.05rem 0.35rem;
     border-radius: 0.2rem;
     font-size: 0.7rem;
@@ -148,6 +182,33 @@
 .showbox-format--ov {
     background: #38c172;
     color: #042012;
+}
+
+/* Every dimension row (2D and/or 3D) carries a bookmark-style label on its
+   first cell, poking out past the grid's left edge — the grid has no
+   overflow: hidden, see the corner-radius classes above, so nothing clips it. */
+.showbox-dimension-label {
+    position: absolute;
+    z-index: 1;
+    top: -0.6rem;
+    left: -0.6rem;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 0.25rem 0 0 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.4;
+    box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.showbox-dimension-label--3d {
+    background: var(--color-accent);
+    color: var(--color-bg-body);
+}
+
+.showbox-dimension-label--2d {
+    background: var(--color-bg-body);
+    color: var(--color-accent);
 }
 
 /* Mobile layout */
@@ -197,10 +258,27 @@
         gap: 0.5rem 1rem;
     }
 
+    /* flex-direction is set explicitly here (not just display/align-items):
+       the desktop base rule sets .showbox-show to flex-direction: column,
+       and CSS only overrides the properties a later rule actually declares
+       — without this, mobile would silently inherit "column" from desktop
+       whenever a format badge is present (2 children instead of 1) and
+       stack badge/time/hall vertically instead of in one row. */
     .showbox-show {
         display: inline-flex;
         flex-direction: row;
-        align-items: baseline;
+        align-items: center;
+        gap: 0.375rem;
+    }
+
+    /* Badge, time and hall all sit in one horizontal row. The format badge
+       (if any) is a sibling here, not nested inside .showbox-hall, so it
+       renders at full opacity instead of inheriting .showbox-hall's dimmed
+       0.6 opacity. */
+    .showbox-show__details {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
         gap: 0.375rem;
     }
 

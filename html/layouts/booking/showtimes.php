@@ -4,6 +4,13 @@
  * Showtimes box layout
  * Displays all shows across all formats of a movie in a sliding 7-day viewport.
  *
+ * Desktop: one grid per week, one cell-row per dimension the movie actually has.
+ * A "3D" bookmark label always appears when the movie has 3D shows; "2D" only
+ * appears alongside it (i.e. only for movies mixing 2D and 3D) — a 2D-only
+ * movie gets a single, unlabeled row. Mobile keeps a single combined list
+ * (formatCategory: language marker, else dimension) with badge, time, hall
+ * shown horizontally in that order.
+ *
  * @package     Weltspiegel.Template
  * @copyright   Weltspiegel Cottbus
  * @license     MIT
@@ -19,26 +26,57 @@ if (empty($movie->formats) || !is_array($movie->formats)) {
     return;
 }
 
-// Flatten shows from all formats, annotating each with its display category
-$getCategory = static function ($format): string {
+// Flatten shows from all formats, annotating each with its dimension (2D/3D) and
+// an optional language marker (OmU/OV). "formatCategory" is the legacy combined
+// label (language marker takes priority, else dimension) used by the mobile list.
+$getDimension = static fn($format): string => !empty($format->is3D) ? '3D' : '2D';
+
+$getLanguageMarker = static function ($format): ?string {
     $lang = strtolower($format->language ?? '');
     if (str_contains($lang, 'omu') || str_contains($lang, 'omü')) return 'OmU';
     if (str_contains($lang, 'ov'))                                  return 'OV';
-    if ($format->is3D)                                              return '3D';
-    return '2D';
+    return null;
 };
 
 $allShows = [];
 foreach ($movie->formats as $format) {
-    $category = $getCategory($format);
+    $dimension      = $getDimension($format);
+    $languageMarker = $getLanguageMarker($format);
+
     foreach ($format->shows as $show) {
-        $annotated = clone $show;
-        $annotated->formatCategory = $category;
+        $annotated                 = clone $show;
+        $annotated->dimension      = $dimension;
+        $annotated->languageMarker = $languageMarker;
+        $annotated->formatCategory = $languageMarker ?? $dimension;
         $allShows[] = $annotated;
     }
 }
 
 usort($allShows, fn($a, $b) => strcmp($a->showStart, $b->showStart));
+
+// Desktop grid: one cell-row per dimension the movie actually has (2D and/or
+// 3D). The "3D" bookmark label always appears when the movie has 3D shows.
+// The "2D" label only appears alongside it (i.e. only when the movie mixes
+// 2D and 3D) — a movie with only 2D shows gets a plain, unlabeled row. Per-show
+// badges next to the hall only ever show the language marker (OmU/OV): the
+// row label (if any) already conveys 2D/3D.
+$movieHas2D = false;
+$movieHas3D = false;
+foreach ($movie->formats as $format) {
+    if (!empty($format->is3D)) {
+        $movieHas3D = true;
+    } else {
+        $movieHas2D = true;
+    }
+}
+
+$sections = [];
+if ($movieHas2D) {
+    $sections[] = ['key' => 'shows2D', 'label' => $movieHas3D ? '2D' : null];
+}
+if ($movieHas3D) {
+    $sections[] = ['key' => 'shows3D', 'label' => '3D'];
+}
 
 if (empty($allShows)) {
     return;
@@ -123,8 +161,10 @@ while ($dateFrom <= $lastShowDate) {
             }
 
             $viewport['days'][$date->format('Y-m-d')] = [
-                'date'  => clone $date,
-                'shows' => $dayShows,
+                'date'    => clone $date,
+                'shows'   => $dayShows,
+                'shows2D' => array_values(array_filter($dayShows, fn($s) => $s->dimension === '2D')),
+                'shows3D' => array_values(array_filter($dayShows, fn($s) => $s->dimension === '3D')),
             ];
 
             $date->modify('+1 day');
@@ -176,10 +216,15 @@ $formatterDate->setPattern('dd.MM.');
                  data-viewport="<?= $viewportIndex ?>"
                  data-label="<?= htmlspecialchars($viewport['label']) ?>">
                 <div class="showbox-grid">
-                    <!-- Header row -->
+                    <!-- Header row (rendered once, even with multiple dimension rows below).
+                         The first/last cells get an explicit corner radius (instead of relying
+                         on the grid's own overflow: hidden) so the dimension label below can
+                         poke out past the left edge without being clipped. -->
                     <?php $dayIndex = 0; ?>
-                    <?php foreach ($viewport['days'] as $dayData): ?>
-                        <div class="showbox-day-header">
+                    <?php foreach ($viewport['days'] as $dayData):
+                        $headerCornerClass = $dayIndex === 0 ? ' showbox-day-header--corner-tl' : ($dayIndex === 6 ? ' showbox-day-header--corner-tr' : '');
+                    ?>
+                        <div class="showbox-day-header<?= $headerCornerClass ?>">
                             <?php if ($dayIndex === 0 && $viewport['isFirstWeek']): ?>
                                 <span class="showbox-day-header-label">Heute</span>
                             <?php else: ?>
@@ -191,34 +236,58 @@ $formatterDate->setPattern('dd.MM.');
                         <?php $dayIndex++; ?>
                     <?php endforeach; ?>
 
-                    <!-- Showtime cells -->
-                    <?php foreach ($viewport['days'] as $dayData): ?>
-                        <div class="showbox-day-cell">
-                            <?php foreach ($dayData['shows'] as $show):
-                                $showDateTime  = new DateTime($show->showStart);
-                                $bookingStart  = new DateTime($show->bookingStart);
-                                $bookingEnd    = new DateTime($show->bookingEnd);
-                                $isBookable    = ($now >= $bookingStart && $now <= $bookingEnd);
-                            ?>
-                                <div class="showbox-show">
-                                    <?php if ($isBookable): ?>
-                                        <?= LayoutHelper::render('booking.link', [
-                                            'showId'  => $show->showId,
-                                            'label'   => $showDateTime->format('H:i'),
-                                            'options' => ['class' => 'showbox-time-link'],
-                                        ]) ?>
-                                    <?php else: ?>
-                                        <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
-                                    <?php endif; ?>
-                                    <?php if (!empty($show->hall)): ?>
-                                        <span class="showbox-hall">
-                                            <?= htmlspecialchars($show->hall) ?>
-                                            <?php if ($show->formatCategory !== '2D'): ?><span class="showbox-format showbox-format--<?= strtolower($show->formatCategory) ?>"><?= htmlspecialchars($show->formatCategory) ?></span><?php endif; ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
+                    <!-- One cell-row per dimension (2D and/or 3D — whichever the movie has).
+                         Every row always renders all 7 days — even if a given week has no
+                         shows for that dimension — so the grid height stays stable while
+                         paging through weeks (no layout shift). -->
+                    <?php $lastSectionIndex = array_key_last($sections); ?>
+                    <?php foreach ($sections as $sectionIndex => $section):
+                        $sectionKey    = $section['key'];
+                        $isLastSection = $sectionIndex === $lastSectionIndex;
+                        $dayIndex      = 0;
+                    ?>
+                        <?php foreach ($viewport['days'] as $dayData):
+                            $isAltColumn = $dayIndex % 2 === 1;
+                            $cellClasses = 'showbox-day-cell' . ($isAltColumn ? ' showbox-day-cell--alt' : '');
+                            if ($isLastSection) {
+                                $cellClasses .= $dayIndex === 0 ? ' showbox-day-cell--corner-bl' : ($dayIndex === 6 ? ' showbox-day-cell--corner-br' : '');
+                            }
+                        ?>
+                            <div class="<?= $cellClasses ?>">
+                                <?php if ($dayIndex === 0 && $section['label'] !== null): ?>
+                                    <span class="showbox-dimension-label showbox-dimension-label--<?= strtolower($section['label']) ?>"><?= $section['label'] ?></span>
+                                <?php endif; ?>
+                                <?php foreach ($dayData[$sectionKey] as $show):
+                                    $showDateTime = new DateTime($show->showStart);
+                                    $bookingStart = new DateTime($show->bookingStart);
+                                    $bookingEnd   = new DateTime($show->bookingEnd);
+                                    $isBookable   = ($now >= $bookingStart && $now <= $bookingEnd);
+
+                                    // The row label already conveys 2D/3D, so the per-show badge
+                                    // only ever needs the language marker (OmU/OV), if any.
+                                    $badgeText = $show->languageMarker;
+                                ?>
+                                    <div class="showbox-show">
+                                        <?php if ($isBookable): ?>
+                                            <?= LayoutHelper::render('booking.link', [
+                                                'showId'  => $show->showId,
+                                                'label'   => $showDateTime->format('H:i'),
+                                                'options' => ['class' => 'showbox-time-link'],
+                                            ]) ?>
+                                        <?php else: ?>
+                                            <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
+                                        <?php endif; ?>
+                                        <?php if (!empty($show->hall)): ?>
+                                            <span class="showbox-hall-row">
+                                                <span class="showbox-hall"><?= htmlspecialchars($show->hall) ?></span>
+                                                <?php if ($badgeText !== null): ?><span class="showbox-format showbox-format--<?= strtolower($badgeText) ?>"><?= htmlspecialchars($badgeText) ?></span><?php endif; ?>
+                                            </span>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <?php $dayIndex++; ?>
+                        <?php endforeach; ?>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -250,21 +319,23 @@ $formatterDate->setPattern('dd.MM.');
                         $isBookable   = ($now >= $bookingStart && $now <= $bookingEnd);
                     ?>
                         <span class="showbox-show">
-                            <?php if ($isBookable): ?>
-                                <?= LayoutHelper::render('booking.link', [
-                                    'showId'  => $show->showId,
-                                    'label'   => $showDateTime->format('H:i'),
-                                    'options' => ['class' => 'showbox-time-link'],
-                                ]) ?>
-                            <?php else: ?>
-                                <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
+                            <?php if ($show->formatCategory !== '2D'): ?>
+                                <span class="showbox-format showbox-format--<?= strtolower($show->formatCategory) ?>"><?= htmlspecialchars($show->formatCategory) ?></span>
                             <?php endif; ?>
-                            <?php if (!empty($show->hall)): ?>
-                                <span class="showbox-hall">
-                                    <?= htmlspecialchars($show->hall) ?>
-                                    <?php if ($show->formatCategory !== '2D'): ?><span class="showbox-format showbox-format--<?= strtolower($show->formatCategory) ?>"><?= htmlspecialchars($show->formatCategory) ?></span><?php endif; ?>
-                                </span>
-                            <?php endif; ?>
+                            <span class="showbox-show__details">
+                                <?php if ($isBookable): ?>
+                                    <?= LayoutHelper::render('booking.link', [
+                                        'showId'  => $show->showId,
+                                        'label'   => $showDateTime->format('H:i'),
+                                        'options' => ['class' => 'showbox-time-link'],
+                                    ]) ?>
+                                <?php else: ?>
+                                    <span class="showbox-time-text"><?= $showDateTime->format('H:i') ?></span>
+                                <?php endif; ?>
+                                <?php if (!empty($show->hall)): ?>
+                                    <span class="showbox-hall"><?= htmlspecialchars($show->hall) ?></span>
+                                <?php endif; ?>
+                            </span>
                         </span>
                     <?php endforeach; ?>
                 </div>

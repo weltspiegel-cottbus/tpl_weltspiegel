@@ -1,7 +1,9 @@
 /**
  * Format Badges
  * Shared between listing cards and detail views (rendered by booking/formats.php).
- * Dimension flags (2D/3D) are filled; language versions are outlined.
+ * Dimension flags (2D/3D) match the showtimes-box dimension labels: 3D filled
+ * (accent bg), 2D inverted (dark bg, accent text/border). Language versions
+ * are outlined (accent border, no fill).
  */
 
 .format-badges {
@@ -20,9 +22,14 @@
     white-space: nowrap;
 }
 
-.format-badge--dim {
+.format-badge--3d {
     background-color: var(--color-accent);
     color: var(--color-bg-body);
+}
+
+.format-badge--2d {
+    background-color: var(--color-bg-body);
+    color: var(--color-accent);
 }
 
 .format-badge--lang {
