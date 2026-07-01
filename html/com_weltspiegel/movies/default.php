@@ -14,7 +14,10 @@
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 
-$now = new DateTime();
+require_once __DIR__ . '/../../inc/presale-window.php';
+
+$now                = new DateTime();
+$presaleCutoffDate  = weltspiegel_presale_cutoff_date($now);
 $futureHeadingShown = false;
 
 ?>
@@ -26,7 +29,7 @@ $futureHeadingShown = false;
         <?php foreach ($this->items as $movie): ?>
 
             <?php
-            // Find earliest show across all formats for "Demnächst" detection
+            // Find earliest show across all formats for "Vorverkauf" detection
             $firstShowDate = null;
             foreach ($movie->formats as $format) {
                 foreach ($format->shows as $show) {
@@ -42,9 +45,9 @@ $futureHeadingShown = false;
             }
 
             if (!$futureHeadingShown && $firstShowDate !== null) {
-                $daysUntilFirstShow = $now->diff($firstShowDate)->days;
-                if ($daysUntilFirstShow >= 7) {
-                    echo '<h2 class="listing__section-title">Demnächst</h2>';
+                // Compare by calendar day: the cutoff is inclusive of its own day.
+                if ($firstShowDate->format('Y-m-d') > $presaleCutoffDate->format('Y-m-d')) {
+                    echo '<h2 class="listing__section-title">Vorverkauf</h2>';
                     $futureHeadingShown = true;
                 }
             }

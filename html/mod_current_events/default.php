@@ -14,6 +14,8 @@
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 
+require_once __DIR__ . '/../inc/presale-window.php';
+
 /**
  * @var Joomla\Registry\Registry $params
  * @var array $movies
@@ -83,6 +85,10 @@ $tomorrow = (new DateTime('+1 day'))->format('Y-m-d');
 $formatter = new IntlDateFormatter('de_DE', IntlDateFormatter::NONE, IntlDateFormatter::NONE);
 $formatter->setPattern('EEE, dd.MM.');
 
+// "Vorverkauf" badge: same cutoff as the movies list page (view=movies),
+// applied per card to its own earliest applicable show ($dayDate below).
+$presaleCutoffDate = weltspiegel_presale_cutoff_date(new DateTime());
+
 ?>
 <div class="mod-current-events">
     <h2>AKTUELL IM WELTSPIEGEL</h2>
@@ -120,6 +126,8 @@ $formatter->setPattern('EEE, dd.MM.');
 
                     $dayDate       = new DateTime($nextDay);
                     $formattedDate = $formatter->format($dayDate);
+                    // Compare by calendar day: the cutoff is inclusive of its own day.
+                    $isSoon        = $dayDate->format('Y-m-d') > $presaleCutoffDate->format('Y-m-d');
 
                     preg_match('/(\d+)/', $movie->fsk ?? '', $fskMatch);
                     $fskNum = isset($fskMatch[1]) ? (int) $fskMatch[1] : null;
@@ -143,6 +151,9 @@ $formatter->setPattern('EEE, dd.MM.');
                             </a>
                             <?php if ($fskNum !== null): ?>
                                 <span class="fsk-badge fsk-badge--<?= $fskNum ?>">FSK <?= $fskNum ?></span>
+                            <?php endif; ?>
+                            <?php if ($isSoon): ?>
+                                <span class="event-poster-card__soon-badge">Vorverkauf</span>
                             <?php endif; ?>
                         </div>
                         <div class="event-poster-card__shows">
