@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v2.8.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.7.0...v2.8.0)
+
+### 🚀 Enhancements
+
+- Render badge/text for presale events. ([42a0005](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/42a0005))
+
+### 🩹 Fixes
+
+- Use px values for layout width. Prevents break with font-size zooming. ([714f460](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/714f460))
+
+### 💅 Refactors
+
+- Finalize styling of show times. ([79ac5a3](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/79ac5a3))
+
+### 📖 Documentation
+
+- Update design documentation. ([8fe2140](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/8fe2140))
+
 ## v2.7.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.6.1...v2.7.0)
