@@ -92,6 +92,18 @@ main {
     h1 {
         font-family: Kameron, serif;
         color: var(--color-accent);
+        font-size: 2rem;
+    }
+
+    /* Sans-serif + body color (vs. h1's serif + accent) so in-content
+       subheadings read as a distinct, lower hierarchy level. */
+    h2 {
+        font-family:
+            system-ui,
+            -apple-system,
+            sans-serif;
+        color: var(--color-fg-body);
+        font-size: 1.75rem;
     }
 }
 
