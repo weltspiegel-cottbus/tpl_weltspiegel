@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.8.4
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.3...v2.8.4)
+
+### 💅 Refactors
+
+- Adjust font-sizes. ([cff49da](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/cff49da))
+
 ## v2.8.3
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.2...v2.8.3)
