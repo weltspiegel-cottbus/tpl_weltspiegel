@@ -7,6 +7,7 @@
 const initMobileNav = () => {
   const nav = document.querySelector(".main-nav");
   const toggle = document.querySelector(".main-nav__toggle");
+  const toggleText = toggle?.querySelector(".main-nav__toggle-text");
   const menu = document.querySelector(".main-nav__menu");
 
   if (!nav || !toggle || !menu) return;
@@ -20,8 +21,11 @@ const initMobileNav = () => {
     const newState = !isExpanded;
 
     // Update button state
+    // The accessible name comes from the visually-hidden text span (not a
+    // redundant aria-label) so there is a single source of truth to keep in
+    // sync with the open/closed state.
     toggle.setAttribute("aria-expanded", newState);
-    toggle.setAttribute("aria-label", newState ? "Menü schließen" : "Menü öffnen");
+    if (toggleText) toggleText.textContent = newState ? "Menü schließen" : "Menü öffnen";
 
     // Update menu state
     // The drawer is hidden off-screen via CSS transform (not display:none), so
@@ -42,7 +46,7 @@ const initMobileNav = () => {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && menu.getAttribute("aria-hidden") === "false") {
       toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Menü öffnen");
+      if (toggleText) toggleText.textContent = "Menü öffnen";
       menu.setAttribute("aria-hidden", "true");
       menu.inert = true;
       nav.classList.remove("main-nav--open");

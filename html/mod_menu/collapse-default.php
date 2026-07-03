@@ -34,8 +34,9 @@ foreach ($list as $item) {
     </a>
 
     <!-- Mobile hamburger toggle -->
-    <button type="button" class="main-nav__toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-menu">
+    <button type="button" class="main-nav__toggle" aria-expanded="false" aria-controls="main-menu">
         <span class="main-nav__hamburger"></span>
+        <span class="u-visually-hidden main-nav__toggle-text">Menü öffnen</span>
     </button>
 
     <!-- Mobile menu drawer -->
