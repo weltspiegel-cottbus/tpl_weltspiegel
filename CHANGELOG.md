@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.8.5
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.4...v2.8.5)
+
+### 🩹 Fixes
+
+- Several a11 WCAG 2.1 A/AA issues fixed. ([adddd1d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/adddd1d))
+
 ## v2.8.4
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.3...v2.8.4)
