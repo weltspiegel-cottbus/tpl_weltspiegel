@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.8.6
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.5...v2.8.6)
+
+### 🩹 Fixes
+
+- Add visually hidden menu text. ([66bf532](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/66bf532))
+
 ## v2.8.5
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.4...v2.8.5)
