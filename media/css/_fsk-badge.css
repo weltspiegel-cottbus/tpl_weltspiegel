@@ -50,7 +50,7 @@ a.fsk-badge--inline:focus {
 
 .fsk-badge.fsk-badge--12 {
     background: #00a550;
-    color: #fff;
+    color: #000; /* White text only reached 3.23:1 against this green — below the 4.5:1 AA minimum */
 }
 
 .fsk-badge.fsk-badge--16 {
@@ -66,5 +66,5 @@ a.fsk-badge--inline:focus {
 /* "FSK folgt" — pending rating */
 .fsk-badge.fsk-badge--pending {
     background: #9a9a9a;
-    color: #fff;
+    color: #000; /* White text only reached 2.81:1 against this grey — below the 4.5:1 AA minimum */
 }

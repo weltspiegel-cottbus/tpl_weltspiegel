@@ -39,13 +39,15 @@ $wa->usePreset('template.weltspiegel');
     <jdoc:include type="scripts" />
 </head>
 <body>
+    <a href="#main-content" class="u-skip-link">Zum Inhalt springen</a>
+
     <header>
         <jdoc:include type="modules" name="menu" style="none" />
     </header>
 
     <div class="full-height-wrapper">
         <div class="page-container">
-            <main>
+            <main id="main-content">
                 <jdoc:include type="component" />
                 <div class="main-bottom">
                     <jdoc:include type="modules" name="main-bottom" style="none" />

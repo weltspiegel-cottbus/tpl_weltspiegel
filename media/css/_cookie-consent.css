@@ -174,7 +174,12 @@
         color 0.3s ease-in-out;
 }
 
-.cookie-consent-drawer:hover {
+/* :focus-visible must reveal the drawer exactly like :hover — otherwise a
+   keyboard user's focus lands on the mostly off-screen "peek tab" state,
+   with its text still colour-matched to the background (intentionally
+   hidden until revealed) and no visible confirmation of where focus is. */
+.cookie-consent-drawer:hover,
+.cookie-consent-drawer:focus-visible {
     bottom: 0; /* Slide into view */
     height: 2.5rem;
     padding: 0.5rem 1rem;

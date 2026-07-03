@@ -3,6 +3,26 @@
  * Reusable utility patterns
  */
 
+/* Skip link — visually hidden until keyboard-focused, lets keyboard/screen
+   reader users bypass the repeated header navigation (WCAG 2.4.1). */
+.u-skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 1000;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-bg-body);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: 0 0 0.25rem;
+    text-decoration: none;
+    transition: top 0.2s ease-in-out;
+}
+
+.u-skip-link:focus {
+    top: 0;
+}
+
 /* Flipped Title - Rotated 90° counterclockwise on left side */
 .u-flipped-title {
     font-family: Kameron, serif;

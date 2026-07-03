@@ -94,7 +94,7 @@ $presaleCutoffDate = weltspiegel_presale_cutoff_date(new DateTime());
     <h2>AKTUELL IM WELTSPIEGEL</h2>
 
     <?php if (count($sections) > 1): ?>
-        <nav class="mod-current-events__nav">
+        <nav class="mod-current-events__nav" aria-label="Programmbereiche">
             <ul class="mod-current-events__nav-list">
                 <?php foreach ($sectionConfig as $key => $config): ?>
                     <?php if (isset($sections[$key])): ?>

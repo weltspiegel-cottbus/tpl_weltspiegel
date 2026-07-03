@@ -13,6 +13,7 @@ const initMobileNav = () => {
 
   // Set initial state
   menu.setAttribute("aria-hidden", "true");
+  menu.inert = true;
 
   toggle.addEventListener("click", () => {
     const isExpanded = toggle.getAttribute("aria-expanded") === "true";
@@ -23,7 +24,12 @@ const initMobileNav = () => {
     toggle.setAttribute("aria-label", newState ? "Menü schließen" : "Menü öffnen");
 
     // Update menu state
+    // The drawer is hidden off-screen via CSS transform (not display:none), so
+    // it stays in the tab order unless explicitly made inert — otherwise
+    // keyboard users can tab into links that are invisible and, per
+    // aria-hidden, hidden from screen readers too.
     menu.setAttribute("aria-hidden", !newState);
+    menu.inert = !newState;
 
     // Update nav state
     nav.classList.toggle("main-nav--open", newState);
@@ -38,6 +44,7 @@ const initMobileNav = () => {
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Menü öffnen");
       menu.setAttribute("aria-hidden", "true");
+      menu.inert = true;
       nav.classList.remove("main-nav--open");
       document.body.classList.remove("nav-open");
     }

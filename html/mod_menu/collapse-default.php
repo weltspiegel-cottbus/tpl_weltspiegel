@@ -28,7 +28,7 @@ foreach ($list as $item) {
     }
 }
 ?>
-<nav class="main-nav">
+<nav class="main-nav" aria-label="Hauptnavigation">
     <a href="<?= Uri::root() ?>" class="main-nav__logo">
         <img src="<?= Uri::root(true) ?>/media/templates/site/weltspiegel/images/logo.png" alt="Weltspiegel Cottbus">
     </a>
@@ -88,7 +88,7 @@ foreach ($list as $item) {
                     <!-- Heading with submenu: single button -->
                     <button class="main-nav__desktop-heading-toggle" aria-expanded="false" aria-label="<?= $parent['item']->title ?> Untermenü öffnen">
                         <span class="main-nav__desktop-heading-text"><?= $parent['item']->title ?></span>
-                        <svg class="main-nav__desktop-heading-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="main-nav__desktop-heading-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
@@ -105,7 +105,7 @@ foreach ($list as $item) {
 
                         <?php if ($hasSubmenu): ?>
                             <button class="main-nav__desktop-toggle" aria-expanded="false" aria-label="<?= $parent['item']->title ?> Untermenü öffnen">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
                             </button>

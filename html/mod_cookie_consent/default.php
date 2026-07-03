@@ -48,7 +48,6 @@
                             role="switch"
                             data-consent-category="<?= htmlspecialchars($cat->id) ?>"
                             data-consent-default="<?= $cat->default ? '1' : '0' ?>"
-                            aria-label="<?= htmlspecialchars($cat->label) ?>"
                         >
                     </label>
                 </li>

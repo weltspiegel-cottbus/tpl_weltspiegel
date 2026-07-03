@@ -198,13 +198,13 @@ $formatterDate->setPattern('dd.MM.');
         <?php if ($hasNavigation): ?>
             <div class="showbox-navigation">
                 <button type="button" class="showbox-nav-btn" data-action="prev" aria-label="Vorherige Woche">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
                 <span class="showbox-viewport-info"></span>
                 <button type="button" class="showbox-nav-btn" data-action="next" aria-label="Nächste Woche">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>

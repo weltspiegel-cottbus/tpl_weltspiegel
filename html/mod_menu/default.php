@@ -32,7 +32,7 @@ foreach ($list as $item) {
 
 $currentYear = date('Y');
 ?>
-<nav class="footer-nav">
+<nav class="footer-nav" aria-label="Footer-Navigation">
     <div class="footer-nav__copyright">
         &copy; <?= $currentYear ?> Weltspiegel Cottbus
     </div>
