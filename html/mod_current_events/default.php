@@ -18,58 +18,10 @@ require_once __DIR__ . '/../inc/presale-window.php';
 
 /**
  * @var Joomla\Registry\Registry $params
- * @var array $movies
+ * @var array $sections
  */
 
-if (empty($movies) || !is_array($movies)) {
-    return;
-}
-
-$now = time();
-
-$getCategory = static function ($format): string {
-    $lang = strtolower($format->language ?? '');
-    if (str_contains($lang, 'omu') || str_contains($lang, 'omü')) return 'OmU';
-    if (str_contains($lang, 'ov'))  return 'OV';
-    if ($format->is3D)              return '3D';
-    return '2D';
-};
-
-$sections = ['3D' => [], '2D' => [], 'OmU' => [], 'OV' => []];
-
-foreach ($movies as $movie) {
-    foreach ($movie->formats as $format) {
-        $category = $getCategory($format);
-
-        foreach ($format->shows as $show) {
-            $showTime = strtotime($show->showStart);
-            if ($showTime < $now) {
-                continue;
-            }
-            $day = date('Y-m-d', $showTime);
-
-            if (!isset($sections[$category][$movie->movieId])) {
-                $sections[$category][$movie->movieId] = [
-                    'movie'      => $movie,
-                    'showsByDay' => [],
-                ];
-            }
-
-            $sections[$category][$movie->movieId]['showsByDay'][$day][] = $show;
-        }
-    }
-}
-
-foreach ($sections as &$sectionMovies) {
-    foreach ($sectionMovies as &$data) {
-        ksort($data['showsByDay']);
-    }
-}
-unset($sectionMovies, $data);
-
-$sections = array_filter($sections, fn($s) => !empty($s));
-
-if (empty($sections)) {
+if (empty($sections) || !is_array($sections)) {
     return;
 }
 
