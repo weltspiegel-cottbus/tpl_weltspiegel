@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.9.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.6...v2.9.0)
+
+### 💅 Refactors
+
+- Use prebuilt sections from module dispatcher. ([380ae31](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/380ae31))
+
 ## v2.8.6
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.5...v2.8.6)
