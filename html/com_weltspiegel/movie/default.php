@@ -38,17 +38,19 @@ $movie = $this->item;
             </div>
         </div>
 
-        <div class="detail__details">
-            <?php if (!empty($movie->genre) && $movie->genre !== '-'): ?>
+        <?php
+        // Detail row deliberately limited to the genre: year and country were
+        // dropped on the client's request (2026-08-20). Both are still delivered
+        // by the model ($movie->year, $movie->country) should they ever return.
+        // The wrapper is only rendered when there actually is a genre — its
+        // margin would otherwise leave a stray gap, and Cinetixx frequently
+        // delivers "-" as the genre.
+        ?>
+        <?php if (!empty($movie->genre) && $movie->genre !== '-'): ?>
+            <div class="detail__details">
                 <span><b>Genre:</b> <?= htmlspecialchars($movie->genre) ?></span>
-            <?php endif; ?>
-            <?php if (!empty($movie->year) && !in_array($movie->year, ['0', '1900'], true)): ?>
-                <span><b>Jahr:</b> <?= htmlspecialchars($movie->year) ?></span>
-            <?php endif; ?>
-            <?php if (!empty($movie->country)): ?>
-                <span><b>Land:</b> <?= htmlspecialchars($movie->country) ?></span>
-            <?php endif; ?>
-        </div>
+            </div>
+        <?php endif; ?>
 
         <div class="detail__showtimes">
             <?= LayoutHelper::render('booking.showtimes', $movie) ?>
