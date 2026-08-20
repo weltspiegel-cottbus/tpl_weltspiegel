@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.9.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.9.0...v2.9.1)
+
+### 💅 Refactors
+
+- Jahr und Land nicht mehr darstellen. ([bc7838d](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/bc7838d))
+
 ## v2.9.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.8.6...v2.9.0)
