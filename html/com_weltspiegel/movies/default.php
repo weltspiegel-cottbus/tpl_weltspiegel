@@ -59,27 +59,24 @@ $futureHeadingShown = false;
         </p>
     <?php endif; ?>
 
-    <?php // TEMPORARY: the whole day filter is behind a preview flag (?preview=1). ?>
-    <?php if ($this->filterEnabled): ?>
-        <?= LayoutHelper::render('utilities.day-filter', [
-            'active'    => $this->activeTag,
-            'available' => $this->availableTags,
-        ]) ?>
+    <?= LayoutHelper::render('utilities.day-filter', [
+        'active'    => $this->activeTag,
+        'available' => $this->availableTags,
+    ]) ?>
 
-        <?php // A fallback that landed on an empty programme must not announce
-              // dates that are not there — the message above covers that case. ?>
-        <?php if (!empty($this->items) && $this->fallbackFrom !== null): ?>
-            <p class="day-filter-note">
-                <?php if ($this->fallbackFrom === 'heute' && $this->activeTag === 'morgen'): ?>
-                    Heute gibt es keine Vorstellung mehr — hier ist das Programm von morgen.
-                <?php else: ?>
-                    <?= $this->fallbackFrom === 'heute'
-                        ? 'Heute gibt es keine Vorstellung mehr'
-                        : 'Morgen gibt es keine Vorstellung' ?>
-                    — hier ist unser Programm der nächsten Tage.
-                <?php endif; ?>
-            </p>
-        <?php endif; ?>
+    <?php // A fallback that landed on an empty programme must not announce
+          // dates that are not there — the message above covers that case. ?>
+    <?php if (!empty($this->items) && $this->fallbackFrom !== null): ?>
+        <p class="day-filter-note">
+            <?php if ($this->fallbackFrom === 'heute' && $this->activeTag === 'morgen'): ?>
+                Heute gibt es keine Vorstellung mehr — hier ist das Programm von morgen.
+            <?php else: ?>
+                <?= $this->fallbackFrom === 'heute'
+                    ? 'Heute gibt es keine Vorstellung mehr'
+                    : 'Morgen gibt es keine Vorstellung' ?>
+                — hier ist unser Programm der nächsten Tage.
+            <?php endif; ?>
+        </p>
     <?php endif; ?>
 
     <div class="listing__items">
