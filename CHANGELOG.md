@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.12.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.11.0...v2.12.0)
+
+### 🚀 Enhancements
+
+- Style the FSK rules table and its age filter ([b711adc](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/b711adc))
+
 ## v2.11.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.10.0...v2.11.0)
