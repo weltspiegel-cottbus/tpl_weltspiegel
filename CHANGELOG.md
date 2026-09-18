@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.11.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.10.0...v2.11.0)
+
+### 🚀 Enhancements
+
+- Render the day filter unconditionally ([f897aca](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/f897aca))
+
 ## v2.10.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.9.1...v2.10.0)
