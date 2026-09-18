@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.13.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.13.0...v2.13.1)
+
+### 🩹 Fixes
+
+- Drop the dead fragment from the FSK badge link ([e579c29](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e579c29))
+
 ## v2.13.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.12.0...v2.13.0)
