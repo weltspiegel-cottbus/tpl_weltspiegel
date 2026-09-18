@@ -2,6 +2,52 @@
 
 A quick reference for design decisions, colors, breakpoints, and patterns used in the template.
 
+## Target devices (measured, not assumed)
+
+Design priority derived from the site's own visitor measurement (`com_statistics`, first
+30 days from 2026-08-20, ~23,000 page views; the figures barely moved between week one and
+month one):
+
+| Fact | Share |
+| ---- | ----- |
+| Touch as primary input | ~87% |
+| Viewport below 480px | 79% |
+| Viewport 360–413px | 68% |
+| Classic "tablet" zone 480–1023px | 4% |
+| Viewport 768px and up | 19%, of which the largest single group is ≥1600px |
+
+Two working principles follow from this:
+
+1. **Touch and small screens come first.** Every layout decision is judged at 360px and
+   400px, which together cover two thirds of all visits. Hover must never be the only path
+   to a function, and tap targets are sized for fingers, not cursors.
+2. **Desktop is not a leftover.** One visit in five is a wide screen, most of them very
+   wide — this is where the design may be generous and show off, as long as doing so never
+   costs anything on small screens (progressive enhancement, not graceful degradation).
+
+The thin tablet zone is why the single breakpoint at 768px works so well: the layout
+switches almost exactly where nobody is. See also "Key Breakpoint: 768px" below.
+
+### "Wide" does not mean "mouse"
+
+The width × input cross tabulation corrects an assumption that is easy to make: the
+desktop layout is *not* a mouse-only audience.
+
+| Viewport | Touch share |
+| -------- | ----------- |
+| 768–1023px | 87% |
+| 1024–1279px | 75% |
+| 1280–1599px | 31% |
+| 1600px and up | 1% |
+
+The 768–1279px range is roughly 80% touch — these are tablets, not small laptops. Taken
+together, **about a third of all views that receive the desktop layout come from touch
+devices**; genuine pointer use only takes over above 1280px and dominates from 1600px.
+
+Consequence: principle 1's "hover is never the only path" applies to the **desktop layout
+too**, not just below 768px. A wide-screen flourish may reveal extra detail on hover, but
+it must never be the only way to reach a function or an essential piece of information.
+
 ## Colors
 
 All colors are defined as CSS custom properties in `_variables.css`.
@@ -12,6 +58,15 @@ All colors are defined as CSS custom properties in `_variables.css`.
 | `--color-fg-body`      | `#ffffff`          | White text color                            |
 | `--color-accent`       | `#f29400`          | Orange accent (headings, links, highlights) |
 | `--color-accent-hover` | 80% accent + black | Darker orange for hover states              |
+
+**The dark palette is deliberate and fixed.** The relaunch was built to carry the previous
+site's look over to the new one without a visual break, so `prefers-color-scheme` is
+knowingly *not* honoured — the site is dark for everyone. The measurement puts the visitors'
+system preference at roughly one third dark, two thirds light, which is worth knowing but
+does not change the decision. A light variant is far down the road and may never be built;
+the trigger for revisiting it would be actual complaints from the client's visitors, not
+this number.
+
 
 ### Showbox Colors (Booking Grid)
 
