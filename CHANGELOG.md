@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.13.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.12.0...v2.13.0)
+
+### 🚀 Enhancements
+
+- Style the FSK age-rating blocks and loosen the filter label ([842ff3a](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/842ff3a))
+
 ## v2.12.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.11.0...v2.12.0)
