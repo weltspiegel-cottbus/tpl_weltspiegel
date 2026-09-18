@@ -16,6 +16,7 @@ import "./_current-events.js";
 import "./_gallery.js";
 import "./_image-popout.js";
 import "./_back-link.js";
+import "./_day-filter.js";
 
 // Export for potential external use
 export default {};

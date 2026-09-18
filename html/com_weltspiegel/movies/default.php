@@ -25,6 +25,63 @@ $futureHeadingShown = false;
 <div class="listing u-flipped-title-container">
     <h1 class="listing__title u-flipped-title"><?= $this->escape($this->title) ?></h1>
 
+    <?php // Editorial notice, maintained in the component options. Deliberately
+          // outside the preview flag: it must work in production on its own.
+          //
+          // Printed unescaped on purpose — the field is meant to carry a link to
+          // the event page, so escaping here would show the markup as text. This
+          // is safe because the value is not request input: it is a component
+          // option, settable only with core.options on com_weltspiegel, and the
+          // field is declared type="editor" filter="safehtml" in config.xml, so
+          // Joomla runs it through InputFilter's allowlist on save. Do not copy
+          // this line to a place where the value comes from anywhere else. ?>
+    <?php if ($this->notice !== ''): ?>
+        <div class="programme-notice"><?= $this->notice ?></div>
+    <?php endif; ?>
+
+    <?php // An empty programme needs an explanation regardless of the day filter,
+          // so this sits outside the preview flag. Suppressed when the editorial
+          // notice is on: that one says the same thing, only better. ?>
+    <?php if (empty($this->items) && $this->notice === ''): ?>
+        <p class="day-filter-note">
+            <?php // Someone who asked for a specific day deserves an answer to that
+                  // question, not just a general statement. No dates are promised
+                  // here — there are none. ?>
+            <?php if ($this->fallbackFrom === 'heute'): ?>
+                Heute gibt es keine Vorstellung mehr — und auch für die weiteren Tage
+                liegen uns derzeit keine Termine vor.
+            <?php elseif ($this->fallbackFrom === 'morgen'): ?>
+                Morgen gibt es keine Vorstellung — und auch für die weiteren Tage
+                liegen uns derzeit keine Termine vor.
+            <?php else: ?>
+                Für die kommenden Tage liegen uns noch keine Vorstellungen vor.
+            <?php endif; ?>
+        </p>
+    <?php endif; ?>
+
+    <?php // TEMPORARY: the whole day filter is behind a preview flag (?preview=1). ?>
+    <?php if ($this->filterEnabled): ?>
+        <?= LayoutHelper::render('utilities.day-filter', [
+            'active'    => $this->activeTag,
+            'available' => $this->availableTags,
+        ]) ?>
+
+        <?php // A fallback that landed on an empty programme must not announce
+              // dates that are not there — the message above covers that case. ?>
+        <?php if (!empty($this->items) && $this->fallbackFrom !== null): ?>
+            <p class="day-filter-note">
+                <?php if ($this->fallbackFrom === 'heute' && $this->activeTag === 'morgen'): ?>
+                    Heute gibt es keine Vorstellung mehr — hier ist das Programm von morgen.
+                <?php else: ?>
+                    <?= $this->fallbackFrom === 'heute'
+                        ? 'Heute gibt es keine Vorstellung mehr'
+                        : 'Morgen gibt es keine Vorstellung' ?>
+                    — hier ist unser Programm der nächsten Tage.
+                <?php endif; ?>
+            </p>
+        <?php endif; ?>
+    <?php endif; ?>
+
     <div class="listing__items">
         <?php foreach ($this->items as $movie): ?>
 
@@ -83,7 +140,10 @@ $futureHeadingShown = false;
                 </div>
 
                 <div class="listing-card__showtimes">
-                    <?= LayoutHelper::render('booking.showtimes', $movie) ?>
+                    <?= LayoutHelper::render('booking.showtimes', [
+                        'movie' => $movie,
+                        'day'   => $this->highlightDate,
+                    ]) ?>
                 </div>
             </article>
 

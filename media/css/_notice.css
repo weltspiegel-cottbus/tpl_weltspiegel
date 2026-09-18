@@ -1,0 +1,30 @@
+/**
+ * Programme Notice
+ * Editorial notice maintained in the component options, shown above the
+ * programme listing and on the home page module.
+ *
+ * Used when the house is let to an outside event: it has to be noticed, but must
+ * not look like an error message — during that week the cinema is busy, just not
+ * with its own programme. Shared by both places so the wording and the look
+ * cannot drift apart.
+ */
+
+.programme-notice {
+    margin-block-end: 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(242, 148, 0, 0.45);
+    border-radius: 0.25rem;
+    background: rgba(242, 148, 0, 0.1);
+}
+
+.programme-notice > :first-child {
+    margin-block-start: 0;
+}
+
+.programme-notice > :last-child {
+    margin-block-end: 0;
+}
+
+.programme-notice a {
+    color: var(--color-accent);
+}

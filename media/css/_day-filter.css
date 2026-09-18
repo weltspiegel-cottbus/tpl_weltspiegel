@@ -1,0 +1,140 @@
+/**
+ * Day Filter
+ * Chip row above the programme listing (Alle · Heute · Morgen).
+ *
+ * The visual language follows the section navigation of the home page module,
+ * but the chips are deliberately larger: they are the only interactive control
+ * on the page that looks like the format badges on the cards, and must not be
+ * mistaken for them. Roughly 87% of visits are touch, so the targets are sized
+ * for fingers rather than cursors.
+ */
+
+/* Sticky, because the programme list is long: whoever scrolls down to the tenth
+   film should be able to switch from "Heute" to "Morgen" without scrolling back
+   up. No scroll listener like the home page module uses — there is no state to
+   detect, the row simply always looks the way it has to look when it sticks.
+
+   The backdrop is translucent rather than a flat colour on purpose: what lies
+   behind is a radial gradient over a paper texture (see main / .page-container),
+   so no single opaque value can match it — an opaque bar reads as a foreign
+   band pasted onto the page. Full width of the listing column, so nothing
+   scrolls past it left and right; the chips are centred inside it instead.
+   Without backdrop-filter support the alpha alone still covers well enough. */
+.day-filter {
+    position: sticky;
+    top: var(--header-height-scrolled);
+    z-index: 100; /* Below the fixed header (1000), level with the module nav */
+
+    /* No margin of its own: .listing is a flex column with gap: 2rem, which
+       already separates the row from the cards. A margin would add to the gap,
+       not replace it. */
+
+    /* Reaches half a rem past the cards on each side. Flush with them looked
+       like a card that had lost its content; the overhang says "above", not
+       "among". On narrow screens the listing only has that half rem of side
+       padding, so the row ends up spanning its full width — which is the right
+       answer there anyway. */
+    margin-inline: -0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(236, 179, 90, 0.18);
+    border-radius: 1rem;
+    background-color: rgba(16, 5, 1, 0.82);
+    backdrop-filter: blur(10px);
+}
+
+/* Stuck against the header: rounded top corners would float in mid-air, and the
+   top border would draw a line across nothing. Set by _day-filter.js, which
+   watches the row itself — without it the row still sticks, it just keeps its
+   resting shape. */
+.day-filter--stuck {
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+    border-top-color: transparent;
+}
+
+.day-filter__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.day-filter__chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem; /* Comfortable finger target */
+    padding: 0.5rem 1.125rem;
+    border: 1px solid rgba(236, 179, 90, 0.35);
+    border-radius: 1.5rem; /* Pill shape — distinguishes it from the square badges on the cards */
+    background: rgba(236, 179, 90, 0.1);
+    color: var(--color-fg-body);
+    font-size: 1rem;
+    text-decoration: none;
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
+}
+
+.day-filter__chip:hover,
+.day-filter__chip:focus-visible {
+    background: rgba(236, 179, 90, 0.2);
+    border-color: var(--color-accent);
+    color: var(--color-fg-body);
+}
+
+/* The selected day. Marked by more than colour: the filled background and the
+   heavier weight survive both greyscale and forced-colours modes. */
+.day-filter__chip--active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg-body);
+    font-weight: 600;
+}
+
+.day-filter__chip--active:hover,
+.day-filter__chip--active:focus-visible {
+    background: var(--color-accent-hover-bg);
+    border-color: var(--color-accent-hover-bg);
+    color: var(--color-bg-body);
+}
+
+/* A day with nothing left. Rendered as a <span>, so it is neither clickable nor
+   focusable. Muted, but kept clearly legible — this is a real state, not
+   decoration, and it must not repeat the contrast problems fixed earlier. */
+.day-filter__chip--unavailable {
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.65);
+    cursor: default;
+}
+
+/* Notice shown when the requested day had nothing left and another one is
+   displayed instead — the heading alone would not explain the switch. */
+.day-filter-note {
+    margin-block-end: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-inline-start: 3px solid var(--color-accent);
+    background: rgba(236, 179, 90, 0.08);
+    font-size: 0.9375rem;
+}
+
+/* Flat viewports - a phone held sideways. There the fixed header and the row
+   together eat 150px of 390px, and what is left barely shows one card, so the
+   row gives up its place and scrolls away with the rest. 30rem catches phones
+   in landscape (390-430px tall) and leaves tablets (768px+) alone. Changing the
+   day then means scrolling back up, which is the lesser evil at that height. */
+@media (height <= 30rem) {
+    .day-filter {
+        position: static;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .day-filter__chip {
+        transition: none;
+    }
+}

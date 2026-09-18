@@ -295,3 +295,36 @@
         font-size: 1rem;
     }
 }
+
+/* === Day filter: emphasising the selected day ===
+   Only used while the programme listing is filtered. The matching column is
+   lifted out, the others stay untouched — dimming them would read as
+   "unavailable", which they are not. */
+
+.showbox-day-header--highlight {
+    background-color: var(--color-accent);
+    color: var(--color-bg-body);
+    font-weight: 700;
+}
+
+.showbox-day-cell--highlight {
+    background-color: rgba(242, 148, 0, 0.18);
+    box-shadow: inset 1px 0 0 var(--color-accent), inset -1px 0 0 var(--color-accent);
+}
+
+/* Points to the detail page, where all dates remain visible. Only rendered on
+   phones, where the list is reduced to the selected day. */
+.showbox-mobile-more {
+    display: inline-block;
+    margin-block-start: 0.75rem;
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.showbox-mobile-more:hover,
+.showbox-mobile-more:focus-visible {
+    color: var(--color-accent-hover-bg);
+}
+

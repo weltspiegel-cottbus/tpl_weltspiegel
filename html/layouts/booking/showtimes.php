@@ -19,10 +19,21 @@
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Router\Route;
 
-$movie = $displayData;
+// Two call signatures are accepted on purpose. The plain movie object is the
+// long-standing one and still used by the detail view; the array form adds the
+// day to emphasise when the listing is filtered. Keeping both means the detail
+// view did not have to change.
+if (is_array($displayData)) {
+    $movie        = $displayData['movie'] ?? null;
+    $highlightDay = $displayData['day'] ?? null;
+} else {
+    $movie        = $displayData;
+    $highlightDay = null;
+}
 
-if (empty($movie->formats) || !is_array($movie->formats)) {
+if (!$movie || empty($movie->formats) || !is_array($movie->formats)) {
     return;
 }
 
@@ -185,6 +196,38 @@ if (empty($viewports)) {
 $showtimesId  = 'showtimes-' . uniqid();
 $hasNavigation = count($viewports) > 1;
 
+// How many days carry shows at all — decides whether the mobile view needs a
+// pointer to the remaining dates.
+$daysWithShows = 0;
+
+foreach ($viewports as $viewport) {
+    foreach ($viewport['days'] as $dayData) {
+        if (!empty($dayData['shows'])) {
+            $daysWithShows++;
+        }
+    }
+}
+
+// Only emphasise a day that is actually on screen. Should the filtered day fall
+// outside the rendered range, the box quietly behaves as it always did instead
+// of showing an empty list.
+if ($highlightDay !== null) {
+    $highlightHasShows = false;
+
+    foreach ($viewports as $viewport) {
+        if (!empty($viewport['days'][$highlightDay]['shows'])) {
+            $highlightHasShows = true;
+            break;
+        }
+    }
+
+    if (!$highlightHasShows) {
+        $highlightDay = null;
+    }
+}
+
+$detailRoute = Route::_('index.php?option=com_weltspiegel&view=movie&movie_id=' . ($movie->movieId ?? ''));
+
 $formatterDay  = new IntlDateFormatter('de_DE', IntlDateFormatter::NONE, IntlDateFormatter::NONE, 'Europe/Berlin');
 $formatterDay->setPattern('EEE');
 $formatterDate = new IntlDateFormatter('de_DE', IntlDateFormatter::NONE, IntlDateFormatter::NONE, 'Europe/Berlin');
@@ -221,8 +264,11 @@ $formatterDate->setPattern('dd.MM.');
                          on the grid's own overflow: hidden) so the dimension label below can
                          poke out past the left edge without being clipped. -->
                     <?php $dayIndex = 0; ?>
-                    <?php foreach ($viewport['days'] as $dayData):
+                    <?php foreach ($viewport['days'] as $dayKey => $dayData):
                         $headerCornerClass = $dayIndex === 0 ? ' showbox-day-header--corner-tl' : ($dayIndex === 6 ? ' showbox-day-header--corner-tr' : '');
+                        // Emphasise the filtered day rather than dimming the rest:
+                        // the other dates are available, they were simply not asked for.
+                        $headerCornerClass .= $highlightDay !== null && $dayKey === $highlightDay ? ' showbox-day-header--highlight' : '';
                     ?>
                         <div class="showbox-day-header<?= $headerCornerClass ?>">
                             <?php if ($dayIndex === 0 && $viewport['isFirstWeek']): ?>
@@ -246,12 +292,13 @@ $formatterDate->setPattern('dd.MM.');
                         $isLastSection = $sectionIndex === $lastSectionIndex;
                         $dayIndex      = 0;
                     ?>
-                        <?php foreach ($viewport['days'] as $dayData):
+                        <?php foreach ($viewport['days'] as $dayKey => $dayData):
                             $isAltColumn = $dayIndex % 2 === 1;
                             $cellClasses = 'showbox-day-cell' . ($isAltColumn ? ' showbox-day-cell--alt' : '');
                             if ($isLastSection) {
                                 $cellClasses .= $dayIndex === 0 ? ' showbox-day-cell--corner-bl' : ($dayIndex === 6 ? ' showbox-day-cell--corner-br' : '');
                             }
+                            $cellClasses .= $highlightDay !== null && $dayKey === $highlightDay ? ' showbox-day-cell--highlight' : '';
                         ?>
                             <div class="<?= $cellClasses ?>">
                                 <?php if ($dayIndex === 0 && $section['label'] !== null): ?>
@@ -300,8 +347,13 @@ $formatterDate->setPattern('dd.MM.');
         <?php
         $isFirstDay = true;
         foreach ($viewports as $viewport):
-            foreach ($viewport['days'] as $dayData):
-                if (!empty($dayData['shows'])):
+            foreach ($viewport['days'] as $dayKey => $dayData):
+                // On a phone the box is reduced to the filtered day: a card with
+                // seven day rows per film makes a very long page for the question
+                // "what is on tomorrow". Nothing is lost — the link below leads to
+                // the full list. ($isFirstDay is still advanced for every day, so
+                // the "Heute" label keeps working.)
+                if (!empty($dayData['shows']) && ($highlightDay === null || $dayKey === $highlightDay)):
         ?>
             <li class="showbox-mobile-item">
                 <div class="showbox-mobile-day">
@@ -347,5 +399,12 @@ $formatterDate->setPattern('dd.MM.');
         endforeach;
         ?>
         </ul>
+
+        <?php // Nothing is hidden, only moved one tap away. ?>
+        <?php if ($highlightDay !== null && $daysWithShows > 1): ?>
+            <a class="showbox-mobile-more" href="<?= htmlspecialchars($detailRoute) ?>">
+                Weitere Termine
+            </a>
+        <?php endif; ?>
     </div>
 </div>
