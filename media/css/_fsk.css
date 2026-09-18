@@ -126,6 +126,25 @@
     opacity: 0.8;
 }
 
+/* Sticky, because the table is taller than a laptop viewport — measured at
+   916px against 768px. Without it, no scroll position can show both the column
+   headings and the lower ratings: land on the headings and FSK 16/18 are below
+   the fold, land on a row and there is no way to tell which column is which.
+   Pinning the headings removes the conflict instead of picking a side, and it
+   is what makes a jump straight to #fsk-18 land somewhere useful.
+
+   Translucent rather than a flat colour for the same reason as the day filter:
+   what scrolls underneath is a gradient over a texture that no opaque value can
+   match. The background sits on thead, not on the cells, so the border-spacing
+   gaps between them are covered too. */
+.fsk thead {
+    position: sticky;
+    top: var(--header-height-scrolled);
+    z-index: 2;
+    background-color: rgba(16, 5, 1, 0.92);
+    backdrop-filter: blur(6px);
+}
+
 .fsk thead th {
     padding: 0.75rem 0.5rem;
     background-color: var(--fsk-head-bg);

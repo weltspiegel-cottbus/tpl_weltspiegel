@@ -176,36 +176,12 @@ class FskTable {
 
     this.fsk = match[1];
     this.render();
-    this.scrollToTable();
-  }
 
-  /**
-   * Brings the table's top back into view after a jump to one of its rows.
-   * Without it the row stands highlighted while the column headings have
-   * scrolled off, so there is no way to read which column is which.
-   *
-   * Deliberately after the load event and one frame later, not during
-   * DOMContentLoaded: the browser applies the fragment position itself and
-   * re-applies it as layout settles — the pictograms further down carry no
-   * dimensions and shift the page as they arrive. Scrolling earlier means
-   * scrolling first and being overruled a moment later.
-   *
-   * behavior "auto" on purpose: the document sets scroll-behavior: smooth, and
-   * an animation started here would still be running when the browser makes its
-   * own correction.
-   */
-  scrollToTable() {
-    const go = () => {
-      window.requestAnimationFrame(() => {
-        this.table.scrollIntoView({ block: "start", behavior: "auto" });
-      });
-    };
-
-    if (document.readyState === "complete") {
-      go();
-    } else {
-      window.addEventListener("load", go, { once: true });
-    }
+    // No scrolling of our own: the browser lands on the row, and the column
+    // headings stay pinned above it (see _fsk.css). Correcting the position
+    // here used to be necessary because the headings scrolled away — and it was
+    // a race against the browser, which re-applies the fragment as layout
+    // settles.
   }
 
   setAge(value) {
