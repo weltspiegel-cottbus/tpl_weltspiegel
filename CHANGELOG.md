@@ -1,6 +1,21 @@
 # Changelog
 
 
+## v2.14.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.13.2...v2.14.0)
+
+### 🚀 Enhancements
+
+- Let the FSK table be narrowed by rating as well as by age ([107cd96](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/107cd96))
+
+### 🩹 Fixes
+
+- Scroll the FSK table back into view after the page has settled ([7d3f8d8](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/7d3f8d8))
+- Pin the FSK table headings instead of correcting the scroll position ([bf8d9d0](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/bf8d9d0))
+- Let a jumped-to FSK row clear the pinned headings ([e8ead60](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/e8ead60))
+- Steady the filter status line and demote the table caption ([04e3520](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/04e3520))
+
 ## v2.13.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.13.1...v2.13.2)
