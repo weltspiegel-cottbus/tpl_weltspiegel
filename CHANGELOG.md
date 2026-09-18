@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.10.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.9.1...v2.10.0)
+
+### 🚀 Enhancements
+
+- Present the programme day filter and the editorial notice ([4bb5116](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/4bb5116))
+
+### 📖 Documentation
+
+- Record the measured device mix and what follows from it ([f159b26](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/f159b26))
+
 ## v2.9.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.9.0...v2.9.1)
