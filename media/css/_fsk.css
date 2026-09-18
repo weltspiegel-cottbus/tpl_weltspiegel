@@ -341,10 +341,10 @@
 
 /* --- Alterseinstufungen -------------------------------------------------- */
 
-/* The signet-and-explanation blocks below the table. Each carries an id
-   (#fsk-0 … #fsk-18, #fsk-folgt) and is the jump target of the FSK badges on
-   the film pages — see html/layouts/movie/fsk.php. Anchor offset for the fixed
-   header comes from the global scroll-padding-top in template.css. */
+/* The signet-and-explanation blocks below the table. They used to carry ids
+   (#fsk-0 … #fsk-18) that the FSK badges on the film pages jumped to; since
+   2026-09-18 the rules table sits at the top of that page and the badges link
+   to it without a fragment, so the ids are gone. */
 
 .fsk-ratings {
     display: flex;

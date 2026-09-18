@@ -14,7 +14,12 @@
  *
  * Usage:
  *   LayoutHelper::render('movie.fsk', ['fsk' => $movie->fsk])                       // plain badge
- *   LayoutHelper::render('movie.fsk', ['fsk' => $movie->fsk, 'href' => '/...'])     // linked badge (+ #fsk-n)
+ *   LayoutHelper::render('movie.fsk', ['fsk' => $movie->fsk, 'href' => '/...'])     // linked badge
+ *
+ * The link points at the information page as a whole, without a fragment: its
+ * rules table sits at the very top, which is the answer a visitor clicking an
+ * age badge is after. Until 2026-09-18 the link carried #fsk-n and jumped to
+ * the explanation of that single rating further down the page.
  */
 
 \defined('_JEXEC') or die;
@@ -30,11 +35,9 @@ if ($fsk === '') {
 if (preg_match('/(\d+)/', $fsk, $m)) {
     $modifier = 'fsk-badge--' . (int) $m[1];
     $label    = 'FSK ' . (int) $m[1];
-    $hash     = '#fsk-' . (int) $m[1];
 } elseif (stripos($fsk, 'folgt') !== false) {
     $modifier = 'fsk-badge--pending';
     $label    = 'FSK ?';
-    $hash     = '#fsk-folgt';
 } else {
     // "keine Angabe" or anything unexpected → omit
     return;
@@ -43,7 +46,7 @@ if (preg_match('/(\d+)/', $fsk, $m)) {
 $classes = 'fsk-badge fsk-badge--inline ' . $modifier;
 
 if ($href !== null) {
-    echo '<a class="' . $classes . '" href="' . htmlspecialchars($href . $hash) . '">' . $label . '</a>';
+    echo '<a class="' . $classes . '" href="' . htmlspecialchars($href) . '">' . $label . '</a>';
 } else {
     echo '<span class="' . $classes . '">' . $label . '</span>';
 }
