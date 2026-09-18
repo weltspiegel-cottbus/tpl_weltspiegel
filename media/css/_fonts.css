@@ -1,5 +1,17 @@
 /**
  * Fonts
+ *
+ * The urls are absolute, not relative to this file, and that is deliberate:
+ * Vite's library mode inlines every asset it can resolve as a base64 data: URI,
+ * regardless of build.assetsInlineLimit — neither the number nor the function
+ * form has any effect there (checked against Vite 8.0.16 on 2026-09-18). An
+ * absolute url is not resolved against the file system, so it survives the
+ * build untouched and the font is fetched as its own file, which is also how it
+ * ships in the package.
+ *
+ * The trade-off: this hard-codes the template's location under the site root.
+ * It breaks if Joomla ever moves into a subdirectory. See
+ * docs/decisions/0002-template-assets-im-css.md
  */
 
 /* kameron-regular - latin */
@@ -8,7 +20,7 @@
     font-family: Kameron;
     font-style: normal;
     font-weight: 400;
-    src: url("../fonts/kameron-v18-latin-regular.woff2") format("woff2");
+    src: url("/media/templates/site/weltspiegel/fonts/kameron-v18-latin-regular.woff2") format("woff2");
 }
 
 /* kameron-700 - latin */
@@ -17,5 +29,5 @@
     font-family: Kameron;
     font-style: normal;
     font-weight: 700;
-    src: url("../fonts/kameron-v18-latin-700.woff2") format("woff2");
+    src: url("/media/templates/site/weltspiegel/fonts/kameron-v18-latin-700.woff2") format("woff2");
 }
