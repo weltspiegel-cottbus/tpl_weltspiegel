@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.13.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.13.1...v2.13.2)
+
+### 🔥 Performance
+
+- Stop shipping fonts and images inside the stylesheet ([dbfe0a5](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/dbfe0a5))
+
 ## v2.13.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.13.0...v2.13.1)
