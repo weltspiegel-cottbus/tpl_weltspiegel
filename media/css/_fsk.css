@@ -88,6 +88,28 @@
     opacity: 0.8;
 }
 
+/* Reset link inside the status line. Words rather than an ✕: nothing about a
+   pressed button announces that pressing it again undoes it, so the way out is
+   spelled out — and only while there is something to undo. */
+.fsk-filter__reset {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-accent);
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.fsk-filter__reset:hover {
+    color: var(--color-accent-hover-bg);
+}
+
+.fsk-filter__reset:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
 /* --- Tabelle ------------------------------------------------------------- */
 
 .fsk {
@@ -141,6 +163,53 @@
     width: 4.5rem;
     height: auto;
     margin-inline: auto;
+}
+
+/* Clickable table headings. Sparse on purpose: a dimmed column already says
+   "there would be an answer here", so a pointer and a slight lift on hover is
+   all the invitation needed. Column headings are disabled below the breakpoint
+   (see _fsk-filter.js); the row signets stay active at every width, because
+   there a pick reduces the cards to one. */
+.fsk__head-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.fsk__head-button:disabled {
+    cursor: default;
+}
+
+.fsk__head-button:not(:disabled):hover {
+    color: var(--color-accent);
+}
+
+.fsk__head-button:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* The signet fills its header cell; the button must not shrink it. */
+.fsk__head-button--rating {
+    display: block;
+    width: 100%;
+}
+
+.fsk__head-button--rating:not(:disabled):hover img {
+    transform: scale(1.04);
+}
+
+.fsk__head-button--rating img {
+    transition: transform 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fsk__head-button--rating img {
+        transition: none;
+    }
 }
 
 /* --- Zellen -------------------------------------------------------------- */
@@ -341,10 +410,9 @@
 
 /* --- Alterseinstufungen -------------------------------------------------- */
 
-/* The signet-and-explanation blocks below the table. They used to carry ids
-   (#fsk-0 … #fsk-18) that the FSK badges on the film pages jumped to; since
-   2026-09-18 the rules table sits at the top of that page and the badges link
-   to it without a fragment, so the ids are gone. */
+/* The signet-and-explanation blocks below the table. They carry no ids: the
+   #fsk-n fragments the FSK badges link to now address the table rows at the top
+   of the page, not these blocks. */
 
 .fsk-ratings {
     display: flex;
