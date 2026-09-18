@@ -231,6 +231,22 @@
     }
 }
 
+/* Landing offset for a jump to #fsk-12 and the like. The document's global
+   scroll-padding-top (5.5rem) only accounts for the site header; it knows
+   nothing of the headings pinned on top of it, so without this the row comes
+   to rest behind them.
+
+       3.5rem  sticky offset of the headings (--header-height-scrolled)
+     + 4.5rem  their height, stable across desktop widths because
+               table-layout: fixed keeps them to one line
+     + 0.75rem breathing room
+     − 5.5rem  what scroll-padding-top already provides
+     = 3.25rem
+*/
+.fsk tbody tr {
+    scroll-margin-top: 3.25rem;
+}
+
 /* --- Zellen -------------------------------------------------------------- */
 
 .fsk__cell {
