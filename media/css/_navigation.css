@@ -373,7 +373,15 @@
         position: absolute;
         top: 100%;
         left: 50%;
+        /*
+         * An absolutely positioned box is sized against its containing block -
+         * here the narrow menu item itself - so longer entries wrapped.
+         * max-content measures the longest entry instead; the cap sends
+         * outsized titles back into wrapping so the panel stays on screen.
+         */
+        width: max-content;
         min-width: 12rem;
+        max-width: 20rem;
         background-color: var(--color-bg-body);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 0.25rem;
