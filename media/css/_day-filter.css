@@ -1,6 +1,6 @@
 /**
  * Day Filter
- * Chip row above the programme listing (Alle · Heute · Morgen).
+ * Chip row above the programme listing (Alle Tage · Heute · Morgen).
  *
  * The visual language follows the section navigation of the home page module,
  * but the chips are deliberately larger: they are the only interactive control
@@ -110,6 +110,22 @@
     background: transparent;
     color: rgba(255, 255, 255, 0.65);
     cursor: default;
+}
+
+/* The line under the row: what is on screen and how much lies beyond it. It
+   belongs to the row, not to the cards, so it closes up to the row's gap of
+   2rem (.listing is a flex column; margins do not collapse there) by pulling
+   half of it back. */
+.day-filter-status {
+    margin-block: -1rem 0;
+    text-align: center;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.day-filter-status__all {
+    color: var(--color-accent);
+    white-space: nowrap;
 }
 
 /* Notice shown when the requested day had nothing left and another one is

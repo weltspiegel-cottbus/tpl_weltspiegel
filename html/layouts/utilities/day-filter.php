@@ -2,7 +2,7 @@
 
 /**
  * Day Filter Layout
- * The chip row above the programme listing: Alle · Heute · Morgen.
+ * The chip row above the programme listing: Alle Tage · Heute · Morgen.
  *
  * Chips are plain links, so the state lives in the URL and can be shared,
  * bookmarked and used without JavaScript. A day with nothing left is rendered
@@ -10,7 +10,7 @@
  * link into an empty page is a dead end. As a non-interactive element it also
  * drops out of the tab order.
  *
- * "Alle" is deliberately a value, not an action ("Zurücksetzen"): it is one of
+ * "Alle Tage" is deliberately a value, not an action ("Zurücksetzen"): it is one of
  * three states of the same axis and belongs in the row as an equal. A reset
  * would be a different kind of control and would have to sit apart.
  *
@@ -35,7 +35,7 @@ $available = $displayData['available'] ?? [];
 $base = 'index.php?option=com_weltspiegel&view=movies';
 
 $chips = [
-    ['tag' => null,     'label' => 'Alle',   'empty' => ''],
+    ['tag' => null,     'label' => 'Alle Tage', 'empty' => ''],
     ['tag' => 'heute',  'label' => 'Heute',  'empty' => 'Heute gibt es keine Vorstellung mehr'],
     ['tag' => 'morgen', 'label' => 'Morgen', 'empty' => 'Morgen ist noch keine Vorstellung geplant'],
 ];
@@ -46,7 +46,7 @@ $chips = [
             <?php
             $tag       = $chip['tag'];
             $isActive  = $active === $tag;
-            // "Alle" is always available — it is the unfiltered state.
+            // "Alle Tage" is always available — it is the unfiltered state.
             $isOffered = $tag === null || !empty($available[$tag]);
             $classes   = 'day-filter__chip'
                 . ($isActive ? ' day-filter__chip--active' : '')

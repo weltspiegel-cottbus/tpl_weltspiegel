@@ -64,6 +64,15 @@ $futureHeadingShown = false;
         'available' => $this->availableTags,
     ]) ?>
 
+    <?php // Says in words what the chips only imply. Fed by the component; an
+          // older version without these properties simply leaves the line out. ?>
+    <?= LayoutHelper::render('utilities.day-filter-status', [
+        'active' => $this->activeTag,
+        'day'    => $this->highlightDate,
+        'shown'  => \count($this->items),
+        'end'    => $this->programmeEnd ?? null,
+    ]) ?>
+
     <?php // A fallback that landed on an empty programme must not announce
           // dates that are not there — the message above covers that case. ?>
     <?php if (!empty($this->items) && $this->fallbackFrom !== null): ?>
