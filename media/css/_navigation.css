@@ -371,7 +371,15 @@
     /* Dropdown menu */
     .main-nav__desktop-submenu {
         position: absolute;
-        top: 100%;
+        /*
+         * Hangs from the bottom edge of the bar, not from its menu item: the
+         * items are centred in the bar, so their bottom lies (bar - 3rem) / 2
+         * above it - 20px unscrolled, 4px scrolled. Square at the top where it
+         * joins the bar, rounded only where it ends; a rounded top would show a
+         * wedge of the bar between panel and edge and make the bottom corners
+         * look flatter than the top ones.
+         */
+        top: calc(100% + (var(--header-height) - 3rem) / 2);
         left: 50%;
         /*
          * An absolutely positioned box is sized against its containing block -
@@ -384,10 +392,11 @@
         max-width: 20rem;
         background-color: var(--color-bg-body);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.25rem;
+        border-top: 0;
+        border-radius: 0 0 0.25rem 0.25rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         list-style: none;
-        margin: 0.25rem 0 0;
+        margin: 0;
         padding: 0.25rem;
         opacity: 0;
         visibility: hidden;
@@ -396,6 +405,10 @@
             opacity 0.3s,
             transform 0.3s,
             visibility 0.3s;
+    }
+
+    .main-nav--scrolled .main-nav__desktop-submenu {
+        top: calc(100% + (var(--header-height-scrolled) - 3rem) / 2);
     }
 
     .main-nav__desktop-item--has-submenu:hover .main-nav__desktop-submenu,
