@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.15.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.14.1...v2.15.0)
+
+### 🚀 Enhancements
+
+- Say in words what the programme page shows ([6264b18](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/6264b18))
+
+### 🩹 Fixes
+
+- Stop the error page from showing the exception's message ([62f88b2](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/62f88b2))
+
 ## v2.14.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.14.0...v2.14.1)
