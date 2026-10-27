@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.15.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.15.0...v2.15.1)
+
+### 🩹 Fixes
+
+- Hang the desktop dropdown square from the bar ([4443635](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/4443635))
+
+### 🏡 Chore
+
+- Prepare version 2.15.1 ([0f07a16](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/0f07a16))
+
 ## v2.15.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.14.1...v2.15.0)
