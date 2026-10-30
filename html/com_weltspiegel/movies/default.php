@@ -13,6 +13,7 @@
 
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\Uri\Uri;
 
 require_once __DIR__ . '/../../inc/presale-window.php';
 
@@ -35,14 +36,29 @@ $futureHeadingShown = false;
           // field is declared type="editor" filter="safehtml" in config.xml, so
           // Joomla runs it through InputFilter's allowlist on save. Do not copy
           // this line to a place where the value comes from anywhere else. ?>
+    <?php $noticeOnly = $this->hideProgramme ?? false; ?>
     <?php if ($this->notice !== ''): ?>
-        <div class="programme-notice"><?= $this->notice ?></div>
+        <div class="programme-notice<?= $noticeOnly ? ' programme-notice--only' : '' ?>"><?= $this->notice ?></div>
+    <?php endif; ?>
+
+    <?php // With the programme hidden the notice is the whole page. A dead end is
+          // the worst a visitor can meet there, so the pages that still have
+          // something to say are offered below it. Paths as in error.php. ?>
+    <?php if ($noticeOnly && $this->notice !== ''): ?>
+        <nav class="programme-notice-links" aria-label="Weitere Seiten">
+            <p>Das gibt es in der Zwischenzeit:</p>
+            <ul class="programme-notice-links__list">
+                <li><a href="<?= Uri::root() ?>programm/vorschau">Vorschau</a></li>
+                <li><a href="<?= Uri::root() ?>veranstaltungen">Veranstaltungen</a></li>
+                <li><a href="<?= Uri::root() ?>service/kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
     <?php endif; ?>
 
     <?php // The house is closed but the service still lists shows: only the notice
           // is shown, with neither the day filter nor any film. The component
           // switches this on, and only while the notice itself is on. ?>
-    <?php if (!($this->hideProgramme ?? false)): ?>
+    <?php if (!$noticeOnly): ?>
 
     <?php // An empty programme needs an explanation regardless of the day filter,
           // so this sits outside the preview flag. Suppressed when the editorial
