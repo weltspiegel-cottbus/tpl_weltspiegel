@@ -39,6 +39,11 @@ $futureHeadingShown = false;
         <div class="programme-notice"><?= $this->notice ?></div>
     <?php endif; ?>
 
+    <?php // The house is closed but the service still lists shows: only the notice
+          // is shown, with neither the day filter nor any film. The component
+          // switches this on, and only while the notice itself is on. ?>
+    <?php if (!($this->hideProgramme ?? false)): ?>
+
     <?php // An empty programme needs an explanation regardless of the day filter,
           // so this sits outside the preview flag. Suppressed when the editorial
           // notice is on: that one says the same thing, only better. ?>
@@ -155,4 +160,6 @@ $futureHeadingShown = false;
 
         <?php endforeach; ?>
     </div>
+
+    <?php endif; ?>
 </div>
