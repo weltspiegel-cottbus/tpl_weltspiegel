@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.16.0
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.15.1...v2.16.0)
+
+### 🚀 Enhancements
+
+- Show only the notice when the component hides the programme ([9ce6c47](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/9ce6c47))
+
 ## v2.15.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.15.0...v2.15.1)
