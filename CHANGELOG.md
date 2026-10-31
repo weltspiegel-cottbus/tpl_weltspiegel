@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.16.1
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.16.0...v2.16.1)
+
+### 🩹 Fixes
+
+- Make the closed-programme page read like a page ([6d701e3](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/6d701e3))
+
 ## v2.16.0
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.15.1...v2.16.0)
