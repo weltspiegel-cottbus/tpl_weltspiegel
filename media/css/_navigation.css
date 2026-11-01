@@ -372,14 +372,19 @@
     .main-nav__desktop-submenu {
         position: absolute;
         /*
-         * Hangs from the bottom edge of the bar, not from its menu item: the
-         * items are centred in the bar, so their bottom lies (bar - 3rem) / 2
-         * above it - 20px unscrolled, 4px scrolled. Square at the top where it
-         * joins the bar, rounded only where it ends; a rounded top would show a
-         * wedge of the bar between panel and edge and make the bottom corners
-         * look flatter than the top ones.
+         * Directly under its menu item, touching it: no gap and no margin. The
+         * panel must stay reachable from the trigger by hover, and it does so
+         * only if no pixel lies between the two - a gap, even of a few pixels,
+         * closes the menu on the way down. Square at the top, rounded only where
+         * it ends: a rounded top shows a wedge of the bar behind it and makes
+         * the bottom corners look flatter.
+         *
+         * Do not hang it from the bar's bottom edge instead: the items are
+         * centred in the bar, so that edge lies 20px below the item unscrolled
+         * (4px scrolled), and the panel then has to be bridged back to its
+         * trigger. Tried in 2.15.1; it cost more than it looked.
          */
-        top: calc(100% + (var(--header-height) - 3rem) / 2);
+        top: 100%;
         left: 50%;
         /*
          * An absolutely positioned box is sized against its containing block -
@@ -405,10 +410,6 @@
             opacity 0.3s,
             transform 0.3s,
             visibility 0.3s;
-    }
-
-    .main-nav--scrolled .main-nav__desktop-submenu {
-        top: calc(100% + (var(--header-height-scrolled) - 3rem) / 2);
     }
 
     .main-nav__desktop-item--has-submenu:hover .main-nav__desktop-submenu,
