@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.16.2
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.16.1...v2.16.2)
+
+### 🩹 Fixes
+
+- Let the dropdown touch its trigger again ([98b93e6](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/98b93e6))
+
 ## v2.16.1
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.16.0...v2.16.1)
