@@ -412,7 +412,11 @@
             visibility 0.3s;
     }
 
-    .main-nav__desktop-item--has-submenu:hover .main-nav__desktop-submenu,
+    /* The script opens and closes the panels (see _navigation.js) and marks the
+       nav with --js when it has. Plain :hover remains only as the fallback for
+       when it has not: with both, a click that closed a panel under the pointer
+       could not stick, because :hover would hold it open. */
+    .main-nav:not(.main-nav--js) .main-nav__desktop-item--has-submenu:hover .main-nav__desktop-submenu,
     .main-nav__desktop-item--has-submenu.is-open .main-nav__desktop-submenu {
         opacity: 1;
         visibility: visible;
@@ -427,7 +431,7 @@
     }
 
     .main-nav__desktop-item:last-child.is-open .main-nav__desktop-submenu,
-    .main-nav__desktop-item:last-child:hover .main-nav__desktop-submenu {
+    .main-nav:not(.main-nav--js) .main-nav__desktop-item:last-child:hover .main-nav__desktop-submenu {
         transform: translateX(0) translateY(0);
     }
 

@@ -67,59 +67,83 @@ const initMobileNav = () => {
 };
 
 // Desktop navigation dropdowns
+//
+// One state, `is-open`, for every way of opening a panel. With a mouse the panel
+// opens when the pointer enters its item and closes shortly after it leaves; a
+// click on the toggle flips it like for touch and keyboard. Because the script
+// - not CSS :hover - owns the state, a click that closes a panel under the
+// pointer stays closed until the pointer has left and come back, and the
+// chevron (which follows aria-expanded) always shows the truth.
 const initDesktopNav = () => {
-  // Handle both types of toggle buttons: .main-nav__desktop-toggle and .main-nav__desktop-heading-toggle
-  const toggleButtons = document.querySelectorAll(
-    ".main-nav__desktop-toggle, .main-nav__desktop-heading-toggle",
-  );
+  const nav = document.querySelector(".main-nav");
+  const items = document.querySelectorAll(".main-nav__desktop-item--has-submenu");
 
-  toggleButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
+  if (!nav || items.length === 0) return;
+
+  // The CSS falls back to :hover only while this class is missing.
+  nav.classList.add("main-nav--js");
+
+  // Grace period before a panel closes after the pointer left: lets the pointer
+  // cross from one item to the next without the first one flickering.
+  const CLOSE_DELAY = 150;
+
+  const toggleOf = (item) =>
+    item.querySelector(".main-nav__desktop-toggle, .main-nav__desktop-heading-toggle");
+
+  const setOpen = (item, open) => {
+    item.classList.toggle("is-open", open);
+    toggleOf(item)?.setAttribute("aria-expanded", String(open));
+  };
+
+  const closeAll = (except = null) => {
+    items.forEach((item) => {
+      if (item !== except) setOpen(item, false);
+    });
+  };
+
+  const closeTimers = new WeakMap();
+  const cancelClose = (item) => clearTimeout(closeTimers.get(item));
+
+  items.forEach((item) => {
+    const toggle = toggleOf(item);
+
+    toggle?.addEventListener("click", (e) => {
       e.stopPropagation();
-      const item = button.closest(".main-nav__desktop-item");
-      const isOpen = item.classList.contains("is-open");
+      cancelClose(item);
 
-      // Close all other dropdowns
-      document.querySelectorAll(".main-nav__desktop-item.is-open").forEach((openItem) => {
-        if (openItem !== item) {
-          openItem.classList.remove("is-open");
-          const toggle = openItem.querySelector(
-            ".main-nav__desktop-toggle, .main-nav__desktop-heading-toggle",
-          );
-          if (toggle) toggle.setAttribute("aria-expanded", "false");
-        }
-      });
+      const open = !item.classList.contains("is-open");
+      closeAll(item);
+      setOpen(item, open);
+    });
 
-      // Toggle current dropdown
-      item.classList.toggle("is-open");
-      button.setAttribute("aria-expanded", !isOpen);
+    // Hover is a mouse thing. Touch and pen also fire pointer events, and a tap
+    // must not be taken for a pointer that arrived and never left.
+    item.addEventListener("pointerenter", (e) => {
+      if (e.pointerType !== "mouse") return;
+
+      cancelClose(item);
+      closeAll(item);
+      setOpen(item, true);
+    });
+
+    item.addEventListener("pointerleave", (e) => {
+      if (e.pointerType !== "mouse") return;
+
+      closeTimers.set(
+        item,
+        setTimeout(() => setOpen(item, false), CLOSE_DELAY),
+      );
     });
   });
 
   // Close dropdowns when clicking outside
   document.addEventListener("click", (e) => {
-    if (!e.target.closest(".main-nav__desktop-item")) {
-      document.querySelectorAll(".main-nav__desktop-item.is-open").forEach((item) => {
-        item.classList.remove("is-open");
-        const toggle = item.querySelector(
-          ".main-nav__desktop-toggle, .main-nav__desktop-heading-toggle",
-        );
-        if (toggle) toggle.setAttribute("aria-expanded", "false");
-      });
-    }
+    if (!e.target.closest(".main-nav__desktop-item")) closeAll();
   });
 
   // Close dropdowns on Escape key
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      document.querySelectorAll(".main-nav__desktop-item.is-open").forEach((item) => {
-        item.classList.remove("is-open");
-        const toggle = item.querySelector(
-          ".main-nav__desktop-toggle, .main-nav__desktop-heading-toggle",
-        );
-        if (toggle) toggle.setAttribute("aria-expanded", "false");
-      });
-    }
+    if (e.key === "Escape") closeAll();
   });
 };
 
