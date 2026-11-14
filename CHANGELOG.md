@@ -1,6 +1,14 @@
 # Changelog
 
 
+## v2.16.3
+
+[compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.16.2...v2.16.3)
+
+### 🩹 Fixes
+
+- Let a click close a dropdown that the mouse opened ([6217cbf](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/commit/6217cbf))
+
 ## v2.16.2
 
 [compare changes](https://github.com/weltspiegel-cottbus/tpl_weltspiegel/compare/v2.16.1...v2.16.2)
